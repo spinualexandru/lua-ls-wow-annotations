@@ -1,0 +1,134 @@
+---@meta _
+-- Source: Blizzard_APIDocumentationGenerated + runtime widget hierarchy (PingPinFrameAPIDocumentation.lua)
+-- This file is generated. Do not edit it by hand.
+
+---@class PingPinFrame: Frame
+local PingPinFrame = {}
+
+---@alias PingPinFrameScriptType
+---| "OnAttributeChanged"
+---| "OnChar"
+---| "OnDisable"
+---| "OnDragStart"
+---| "OnDragStop"
+---| "OnEnable"
+---| "OnEnter"
+---| "OnEvent"
+---| "OnGamePadButtonDown"
+---| "OnGamePadButtonUp"
+---| "OnGamePadStick"
+---| "OnHide"
+---| "OnHyperlinkClick"
+---| "OnHyperlinkEnter"
+---| "OnHyperlinkLeave"
+---| "OnKeyDown"
+---| "OnKeyUp"
+---| "OnLeave"
+---| "OnLoad"
+---| "OnMouseDown"
+---| "OnMouseUp"
+---| "OnMouseWheel"
+---| "OnReceiveDrag"
+---| "OnShow"
+---| "OnSizeChanged"
+---| "OnUpdate"
+
+---Sets the handler for a widget script, replacing any existing one. Pass `nil` to clear it.
+---@overload fun(self: PingPinFrame, scriptType: "OnAttributeChanged", handler: (fun(self: PingPinFrame, name: string, value: any))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnChar", handler: (fun(self: PingPinFrame, text: string))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnDisable", handler: (fun(self: PingPinFrame))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnDragStart", handler: (fun(self: PingPinFrame, button: MouseButton))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnDragStop", handler: (fun(self: PingPinFrame))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnEnable", handler: (fun(self: PingPinFrame))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnEnter", handler: (fun(self: PingPinFrame, motion: boolean))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnEvent", handler: (fun(self: PingPinFrame, event: FrameEvent, ...: any))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnGamePadButtonDown", handler: (fun(self: PingPinFrame, button: string))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnGamePadButtonUp", handler: (fun(self: PingPinFrame, button: string))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnGamePadStick", handler: (fun(self: PingPinFrame, stick: string, x: number, y: number, len: number))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnHide", handler: (fun(self: PingPinFrame))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnHyperlinkClick", handler: (fun(self: PingPinFrame, link: string, text: string, button: MouseButton, region: Region, left: number, bottom: number, width: number, height: number))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnHyperlinkEnter", handler: (fun(self: PingPinFrame, link: string, text: string, region: Region, left: number, bottom: number, width: number, height: number))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnHyperlinkLeave", handler: (fun(self: PingPinFrame))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnKeyDown", handler: (fun(self: PingPinFrame, key: string))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnKeyUp", handler: (fun(self: PingPinFrame, key: string))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnLeave", handler: (fun(self: PingPinFrame, motion: boolean))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnLoad", handler: (fun(self: PingPinFrame))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnMouseDown", handler: (fun(self: PingPinFrame, button: MouseButton))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnMouseUp", handler: (fun(self: PingPinFrame, button: MouseButton, upInside: boolean))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnMouseWheel", handler: (fun(self: PingPinFrame, delta: number))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnReceiveDrag", handler: (fun(self: PingPinFrame))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnShow", handler: (fun(self: PingPinFrame))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnSizeChanged", handler: (fun(self: PingPinFrame, width: number, height: number))?)
+---@overload fun(self: PingPinFrame, scriptType: "OnUpdate", handler: (fun(self: PingPinFrame, elapsed: number))?)
+---@param scriptType PingPinFrameScriptType
+---@param handler function?
+function PingPinFrame:SetScript(scriptType, handler) end
+
+---Adds a handler that runs after the existing handler for a widget script.
+---@overload fun(self: PingPinFrame, scriptType: "OnAttributeChanged", handler: fun(self: PingPinFrame, name: string, value: any), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnChar", handler: fun(self: PingPinFrame, text: string), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnDisable", handler: fun(self: PingPinFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnDragStart", handler: fun(self: PingPinFrame, button: MouseButton), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnDragStop", handler: fun(self: PingPinFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnEnable", handler: fun(self: PingPinFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnEnter", handler: fun(self: PingPinFrame, motion: boolean), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnEvent", handler: fun(self: PingPinFrame, event: FrameEvent, ...: any), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnGamePadButtonDown", handler: fun(self: PingPinFrame, button: string), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnGamePadButtonUp", handler: fun(self: PingPinFrame, button: string), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnGamePadStick", handler: fun(self: PingPinFrame, stick: string, x: number, y: number, len: number), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnHide", handler: fun(self: PingPinFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnHyperlinkClick", handler: fun(self: PingPinFrame, link: string, text: string, button: MouseButton, region: Region, left: number, bottom: number, width: number, height: number), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnHyperlinkEnter", handler: fun(self: PingPinFrame, link: string, text: string, region: Region, left: number, bottom: number, width: number, height: number), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnHyperlinkLeave", handler: fun(self: PingPinFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnKeyDown", handler: fun(self: PingPinFrame, key: string), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnKeyUp", handler: fun(self: PingPinFrame, key: string), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnLeave", handler: fun(self: PingPinFrame, motion: boolean), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnLoad", handler: fun(self: PingPinFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnMouseDown", handler: fun(self: PingPinFrame, button: MouseButton), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnMouseUp", handler: fun(self: PingPinFrame, button: MouseButton, upInside: boolean), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnMouseWheel", handler: fun(self: PingPinFrame, delta: number), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnReceiveDrag", handler: fun(self: PingPinFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnShow", handler: fun(self: PingPinFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnSizeChanged", handler: fun(self: PingPinFrame, width: number, height: number), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: PingPinFrame, scriptType: "OnUpdate", handler: fun(self: PingPinFrame, elapsed: number), bindingType?: Enum.ScriptBindingType)
+---@param scriptType PingPinFrameScriptType
+---@param handler function
+---@param bindingType? Enum.ScriptBindingType
+function PingPinFrame:HookScript(scriptType, handler, bindingType) end
+
+---Returns the handler for a widget script.
+---@overload fun(self: PingPinFrame, scriptType: "OnAttributeChanged", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, name: string, value: any))?
+---@overload fun(self: PingPinFrame, scriptType: "OnChar", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, text: string))?
+---@overload fun(self: PingPinFrame, scriptType: "OnDisable", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame))?
+---@overload fun(self: PingPinFrame, scriptType: "OnDragStart", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, button: MouseButton))?
+---@overload fun(self: PingPinFrame, scriptType: "OnDragStop", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame))?
+---@overload fun(self: PingPinFrame, scriptType: "OnEnable", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame))?
+---@overload fun(self: PingPinFrame, scriptType: "OnEnter", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, motion: boolean))?
+---@overload fun(self: PingPinFrame, scriptType: "OnEvent", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, event: FrameEvent, ...: any))?
+---@overload fun(self: PingPinFrame, scriptType: "OnGamePadButtonDown", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, button: string))?
+---@overload fun(self: PingPinFrame, scriptType: "OnGamePadButtonUp", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, button: string))?
+---@overload fun(self: PingPinFrame, scriptType: "OnGamePadStick", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, stick: string, x: number, y: number, len: number))?
+---@overload fun(self: PingPinFrame, scriptType: "OnHide", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame))?
+---@overload fun(self: PingPinFrame, scriptType: "OnHyperlinkClick", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, link: string, text: string, button: MouseButton, region: Region, left: number, bottom: number, width: number, height: number))?
+---@overload fun(self: PingPinFrame, scriptType: "OnHyperlinkEnter", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, link: string, text: string, region: Region, left: number, bottom: number, width: number, height: number))?
+---@overload fun(self: PingPinFrame, scriptType: "OnHyperlinkLeave", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame))?
+---@overload fun(self: PingPinFrame, scriptType: "OnKeyDown", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, key: string))?
+---@overload fun(self: PingPinFrame, scriptType: "OnKeyUp", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, key: string))?
+---@overload fun(self: PingPinFrame, scriptType: "OnLeave", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, motion: boolean))?
+---@overload fun(self: PingPinFrame, scriptType: "OnLoad", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame))?
+---@overload fun(self: PingPinFrame, scriptType: "OnMouseDown", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, button: MouseButton))?
+---@overload fun(self: PingPinFrame, scriptType: "OnMouseUp", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, button: MouseButton, upInside: boolean))?
+---@overload fun(self: PingPinFrame, scriptType: "OnMouseWheel", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, delta: number))?
+---@overload fun(self: PingPinFrame, scriptType: "OnReceiveDrag", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame))?
+---@overload fun(self: PingPinFrame, scriptType: "OnShow", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame))?
+---@overload fun(self: PingPinFrame, scriptType: "OnSizeChanged", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, width: number, height: number))?
+---@overload fun(self: PingPinFrame, scriptType: "OnUpdate", bindingType?: Enum.ScriptBindingType): (fun(self: PingPinFrame, elapsed: number))?
+---@param scriptType PingPinFrameScriptType
+---@param bindingType? Enum.ScriptBindingType
+---@return function? handler
+function PingPinFrame:GetScript(scriptType, bindingType) end
+
+---Returns true if the widget supports the given script type.
+---@param scriptType string
+---@return boolean hasScript
+function PingPinFrame:HasScript(scriptType) end

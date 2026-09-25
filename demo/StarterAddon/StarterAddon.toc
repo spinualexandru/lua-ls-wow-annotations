@@ -1,0 +1,12 @@
+## Interface: 120100
+## Title: Starter Addon
+## Notes: A starter template showing the WoW API typings in action.
+## Author: Your Name
+## Version: 1.0.0
+## SavedVariables: StarterAddonDB
+## IconTexture: Interface\Icons\INV_Misc_Gear_01
+
+Core.lua
+Settings.lua
+TargetHealth.lua
+Tooltip.lua

@@ -1,0 +1,23 @@
+---@meta _
+-- Source: Blizzard_APIDocumentationGenerated/AppearanceSourceDocumentation.lua
+-- This file is generated. Do not edit it by hand.
+
+---@class AppearanceSourceInfo
+---@field visualID number
+---@field sourceID number
+---@field isCollected boolean
+---@field itemID number
+---@field itemModID number
+---@field invType luaIndex Default: `0`.
+---@field categoryID Enum.TransmogCollectionType Default: `"None"`.
+---@field playerCanCollect boolean
+---@field isValidSourceForPlayer boolean
+---@field canDisplayOnPlayer boolean
+---@field inventorySlot? number
+---@field sourceType? luaIndex
+---@field name? string
+---@field quality? number
+---@field useError? string
+---@field useErrorType? Enum.TransmogUseErrorType
+---@field meetsTransmogPlayerCondition? boolean
+---@field isHideVisual? boolean

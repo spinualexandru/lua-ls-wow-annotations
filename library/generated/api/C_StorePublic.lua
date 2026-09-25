@@ -1,0 +1,19 @@
+---@meta _
+-- Source: Blizzard_APIDocumentationGenerated/StorePublicUIDocumentation.lua
+-- This file is generated. Do not edit it by hand.
+
+C_StorePublic = {}
+
+---[Documentation](https://warcraft.wiki.gg/wiki/API:C_StorePublic.DoesGroupHavePurchaseableProducts)
+---@param groupID number
+---@return boolean hasPurchaseableProducts
+function C_StorePublic.DoesGroupHavePurchaseableProducts(groupID) end
+
+---[Documentation](https://warcraft.wiki.gg/wiki/API:C_StorePublic.EventStoreUISetShown)
+---@param newShown boolean
+---@param contextKey? string
+function C_StorePublic.EventStoreUISetShown(newShown, contextKey) end
+
+---[Documentation](https://warcraft.wiki.gg/wiki/API:C_StorePublic.IsEnabled)
+---@return boolean enabled
+function C_StorePublic.IsEnabled() end

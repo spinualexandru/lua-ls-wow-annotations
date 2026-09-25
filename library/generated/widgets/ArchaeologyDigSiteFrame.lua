@@ -1,0 +1,134 @@
+---@meta _
+-- Source: Blizzard_APIDocumentationGenerated + runtime widget hierarchy (FrameAPIArchaeologyDigsiteDocumentation.lua)
+-- This file is generated. Do not edit it by hand.
+
+---@class ArchaeologyDigSiteFrame: Blob
+local ArchaeologyDigSiteFrame = {}
+
+---@alias ArchaeologyDigSiteFrameScriptType
+---| "OnAttributeChanged"
+---| "OnChar"
+---| "OnDisable"
+---| "OnDragStart"
+---| "OnDragStop"
+---| "OnEnable"
+---| "OnEnter"
+---| "OnEvent"
+---| "OnGamePadButtonDown"
+---| "OnGamePadButtonUp"
+---| "OnGamePadStick"
+---| "OnHide"
+---| "OnHyperlinkClick"
+---| "OnHyperlinkEnter"
+---| "OnHyperlinkLeave"
+---| "OnKeyDown"
+---| "OnKeyUp"
+---| "OnLeave"
+---| "OnLoad"
+---| "OnMouseDown"
+---| "OnMouseUp"
+---| "OnMouseWheel"
+---| "OnReceiveDrag"
+---| "OnShow"
+---| "OnSizeChanged"
+---| "OnUpdate"
+
+---Sets the handler for a widget script, replacing any existing one. Pass `nil` to clear it.
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnAttributeChanged", handler: (fun(self: ArchaeologyDigSiteFrame, name: string, value: any))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnChar", handler: (fun(self: ArchaeologyDigSiteFrame, text: string))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnDisable", handler: (fun(self: ArchaeologyDigSiteFrame))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnDragStart", handler: (fun(self: ArchaeologyDigSiteFrame, button: MouseButton))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnDragStop", handler: (fun(self: ArchaeologyDigSiteFrame))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnEnable", handler: (fun(self: ArchaeologyDigSiteFrame))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnEnter", handler: (fun(self: ArchaeologyDigSiteFrame, motion: boolean))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnEvent", handler: (fun(self: ArchaeologyDigSiteFrame, event: FrameEvent, ...: any))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnGamePadButtonDown", handler: (fun(self: ArchaeologyDigSiteFrame, button: string))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnGamePadButtonUp", handler: (fun(self: ArchaeologyDigSiteFrame, button: string))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnGamePadStick", handler: (fun(self: ArchaeologyDigSiteFrame, stick: string, x: number, y: number, len: number))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnHide", handler: (fun(self: ArchaeologyDigSiteFrame))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnHyperlinkClick", handler: (fun(self: ArchaeologyDigSiteFrame, link: string, text: string, button: MouseButton, region: Region, left: number, bottom: number, width: number, height: number))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnHyperlinkEnter", handler: (fun(self: ArchaeologyDigSiteFrame, link: string, text: string, region: Region, left: number, bottom: number, width: number, height: number))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnHyperlinkLeave", handler: (fun(self: ArchaeologyDigSiteFrame))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnKeyDown", handler: (fun(self: ArchaeologyDigSiteFrame, key: string))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnKeyUp", handler: (fun(self: ArchaeologyDigSiteFrame, key: string))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnLeave", handler: (fun(self: ArchaeologyDigSiteFrame, motion: boolean))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnLoad", handler: (fun(self: ArchaeologyDigSiteFrame))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnMouseDown", handler: (fun(self: ArchaeologyDigSiteFrame, button: MouseButton))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnMouseUp", handler: (fun(self: ArchaeologyDigSiteFrame, button: MouseButton, upInside: boolean))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnMouseWheel", handler: (fun(self: ArchaeologyDigSiteFrame, delta: number))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnReceiveDrag", handler: (fun(self: ArchaeologyDigSiteFrame))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnShow", handler: (fun(self: ArchaeologyDigSiteFrame))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnSizeChanged", handler: (fun(self: ArchaeologyDigSiteFrame, width: number, height: number))?)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnUpdate", handler: (fun(self: ArchaeologyDigSiteFrame, elapsed: number))?)
+---@param scriptType ArchaeologyDigSiteFrameScriptType
+---@param handler function?
+function ArchaeologyDigSiteFrame:SetScript(scriptType, handler) end
+
+---Adds a handler that runs after the existing handler for a widget script.
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnAttributeChanged", handler: fun(self: ArchaeologyDigSiteFrame, name: string, value: any), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnChar", handler: fun(self: ArchaeologyDigSiteFrame, text: string), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnDisable", handler: fun(self: ArchaeologyDigSiteFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnDragStart", handler: fun(self: ArchaeologyDigSiteFrame, button: MouseButton), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnDragStop", handler: fun(self: ArchaeologyDigSiteFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnEnable", handler: fun(self: ArchaeologyDigSiteFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnEnter", handler: fun(self: ArchaeologyDigSiteFrame, motion: boolean), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnEvent", handler: fun(self: ArchaeologyDigSiteFrame, event: FrameEvent, ...: any), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnGamePadButtonDown", handler: fun(self: ArchaeologyDigSiteFrame, button: string), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnGamePadButtonUp", handler: fun(self: ArchaeologyDigSiteFrame, button: string), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnGamePadStick", handler: fun(self: ArchaeologyDigSiteFrame, stick: string, x: number, y: number, len: number), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnHide", handler: fun(self: ArchaeologyDigSiteFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnHyperlinkClick", handler: fun(self: ArchaeologyDigSiteFrame, link: string, text: string, button: MouseButton, region: Region, left: number, bottom: number, width: number, height: number), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnHyperlinkEnter", handler: fun(self: ArchaeologyDigSiteFrame, link: string, text: string, region: Region, left: number, bottom: number, width: number, height: number), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnHyperlinkLeave", handler: fun(self: ArchaeologyDigSiteFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnKeyDown", handler: fun(self: ArchaeologyDigSiteFrame, key: string), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnKeyUp", handler: fun(self: ArchaeologyDigSiteFrame, key: string), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnLeave", handler: fun(self: ArchaeologyDigSiteFrame, motion: boolean), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnLoad", handler: fun(self: ArchaeologyDigSiteFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnMouseDown", handler: fun(self: ArchaeologyDigSiteFrame, button: MouseButton), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnMouseUp", handler: fun(self: ArchaeologyDigSiteFrame, button: MouseButton, upInside: boolean), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnMouseWheel", handler: fun(self: ArchaeologyDigSiteFrame, delta: number), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnReceiveDrag", handler: fun(self: ArchaeologyDigSiteFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnShow", handler: fun(self: ArchaeologyDigSiteFrame), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnSizeChanged", handler: fun(self: ArchaeologyDigSiteFrame, width: number, height: number), bindingType?: Enum.ScriptBindingType)
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnUpdate", handler: fun(self: ArchaeologyDigSiteFrame, elapsed: number), bindingType?: Enum.ScriptBindingType)
+---@param scriptType ArchaeologyDigSiteFrameScriptType
+---@param handler function
+---@param bindingType? Enum.ScriptBindingType
+function ArchaeologyDigSiteFrame:HookScript(scriptType, handler, bindingType) end
+
+---Returns the handler for a widget script.
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnAttributeChanged", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, name: string, value: any))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnChar", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, text: string))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnDisable", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnDragStart", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, button: MouseButton))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnDragStop", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnEnable", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnEnter", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, motion: boolean))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnEvent", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, event: FrameEvent, ...: any))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnGamePadButtonDown", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, button: string))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnGamePadButtonUp", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, button: string))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnGamePadStick", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, stick: string, x: number, y: number, len: number))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnHide", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnHyperlinkClick", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, link: string, text: string, button: MouseButton, region: Region, left: number, bottom: number, width: number, height: number))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnHyperlinkEnter", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, link: string, text: string, region: Region, left: number, bottom: number, width: number, height: number))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnHyperlinkLeave", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnKeyDown", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, key: string))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnKeyUp", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, key: string))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnLeave", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, motion: boolean))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnLoad", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnMouseDown", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, button: MouseButton))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnMouseUp", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, button: MouseButton, upInside: boolean))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnMouseWheel", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, delta: number))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnReceiveDrag", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnShow", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnSizeChanged", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, width: number, height: number))?
+---@overload fun(self: ArchaeologyDigSiteFrame, scriptType: "OnUpdate", bindingType?: Enum.ScriptBindingType): (fun(self: ArchaeologyDigSiteFrame, elapsed: number))?
+---@param scriptType ArchaeologyDigSiteFrameScriptType
+---@param bindingType? Enum.ScriptBindingType
+---@return function? handler
+function ArchaeologyDigSiteFrame:GetScript(scriptType, bindingType) end
+
+---Returns true if the widget supports the given script type.
+---@param scriptType string
+---@return boolean hasScript
+function ArchaeologyDigSiteFrame:HasScript(scriptType) end

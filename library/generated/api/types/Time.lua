@@ -1,0 +1,11 @@
+---@meta _
+-- Source: Blizzard_APIDocumentationGenerated/TimeDocumentation.lua
+-- This file is generated. Do not edit it by hand.
+
+---@class CalendarTime
+---@field monthDay luaIndex
+---@field month luaIndex
+---@field weekday luaIndex
+---@field year number
+---@field hour number
+---@field minute number

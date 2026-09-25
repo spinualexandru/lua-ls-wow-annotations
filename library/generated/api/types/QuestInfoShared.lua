@@ -1,0 +1,18 @@
+---@meta _
+-- Source: Blizzard_APIDocumentationGenerated/QuestInfoSharedDocumentation.lua
+-- This file is generated. Do not edit it by hand.
+
+---@class QuestPOIMapInfo
+---@field childDepth? number
+---@field questTagType? Enum.QuestTagType
+---@field questID number
+---@field numObjectives number
+---@field mapID number
+---@field x number
+---@field y number
+---@field isQuestStart boolean
+---@field isDaily boolean
+---@field isCombatAllyQuest boolean
+---@field isMeta boolean
+---@field inProgress boolean
+---@field isMapIndicatorQuest boolean

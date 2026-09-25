@@ -1,0 +1,28 @@
+---@meta _
+-- Source: Blizzard_APIDocumentationGenerated/QuestRewardsDocumentation.lua
+-- This file is generated. Do not edit it by hand.
+
+---@class QuestRewardCurrencyInfo
+---@field texture fileID
+---@field name string
+---@field currencyID number
+---@field quality number
+---@field baseRewardAmount number
+---@field bonusRewardAmount number
+---@field totalRewardAmount number
+---@field questRewardContextFlags? Enum.QuestRewardContextFlags
+
+---@class QuestRewardReputationInfo
+---@field factionID number
+---@field rewardAmount number
+
+---@class QuestRewardSpellInfo
+---@field texture fileID
+---@field name string
+---@field garrFollowerID? number
+---@field isTradeskill boolean
+---@field isSpellLearned boolean
+---@field hideSpellLearnText boolean
+---@field isBoostSpell boolean
+---@field genericUnlock boolean
+---@field type Enum.QuestCompleteSpellType

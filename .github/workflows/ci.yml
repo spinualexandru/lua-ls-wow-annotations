@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  generator:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.12", "3.14"]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10
+        with:
+          python-version: ${{ matrix.python }}
+      - run: uv sync --locked
+      - name: Lint
+        run: |
+          uv run ruff check
+          uv run ruff format --check
+      - run: uv run wow-typings fetch
+      - run: uv run wow-typings setup-luals
+      - name: Regenerate (fails on any warning)
+        run: uv run wow-typings build --strict
+      - name: Committed output matches the generator
+        run: git diff --exit-code -- library/generated COVERAGE.md
+      - name: Unit and integration tests (includes the lua-language-server checks)
+        run: uv run pytest

@@ -1,0 +1,27 @@
+---@meta _
+-- Source: Blizzard_APIDocumentationGenerated/HousingDecorSharedDocumentation.lua
+-- This file is generated. Do not edit it by hand.
+
+---@class HousingDecorDyeSlot
+---@field ID number
+---@field dyeColorCategoryID number What category of dye colors this slot is for; This currently has no functional useage as slots accept colors of any category, but may be used for things like labeling in the future
+---@field orderIndex number Display sort order
+---@field channel number The specific shader channel that this slot affects when a dye color is applied
+---@field dyeColorID? number What dye color (if any) is currently applied to this slot
+---@field dyeColorName? string The name of the dye color (if any) that is currently applied to this slot
+
+---Info for an instance of Housing Decor that has been/is being placed within a House or its exterior Plot
+---@class HousingDecorInstanceInfo
+---@field decorGUID WOWGUID
+---@field decorID number
+---@field name string
+---@field isLocked boolean True if this decor is already being edited by someone else
+---@field canBeCustomized boolean True if this decor can be customized, namely by applying Dyes
+---@field canBeRemoved boolean False if this decor must remain placed in the house and cannot be placed back into house chest storage
+---@field isAllowedOutdoors boolean
+---@field isAllowedIndoors boolean
+---@field isRefundable boolean
+---@field canAttachPet boolean
+---@field dyeSlots HousingDecorDyeSlot[] Empty for decor that can't be dyed (see canBeCustomized)
+---@field dataTagsByID any Simple localized 'tag' strings that are primarily used for things like categorization and filtering
+---@field size Enum.HousingCatalogEntrySize

@@ -1,0 +1,47 @@
+[project]
+name = "wow-addon-typings"
+version = "0.1.0"
+description = "Generator for LuaLS annotations of the World of Warcraft Retail addon API"
+readme = "README.md"
+requires-python = ">=3.12"
+# The generator only uses the standard library.
+dependencies = []
+
+[project.scripts]
+wow-typings = "generator.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.8",
+]
+
+[build-system]
+requires = ["uv_build>=0.12,<0.13"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "generator"
+module-root = ""
+
+[tool.pytest.ini_options]
+testpaths = ["tests/python"]
+addopts = ["-ra"]
+markers = [
+    "sources: needs the upstream sources in .cache/ (run `wow-typings fetch`)",
+    "slow: runs a full generation",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+extend-exclude = [".cache", "library", "demo", "tests/addons"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+ignore = [
+    "E501",    # long lines are fine in generated-text templates
+    "SIM108",  # ternaries are not always clearer
+    "RUF005",  # `a + [b]` is as clear as `[*a, b]`
+    "RUF001", "RUF002", "RUF003",  # typographic characters in docs are intentional
+]

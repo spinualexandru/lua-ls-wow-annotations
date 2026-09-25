@@ -1,0 +1,11 @@
+---@meta _
+-- Source: Blizzard_APIDocumentationGenerated/SharedScriptObjectModelLightDocumentation.lua
+-- This file is generated. Do not edit it by hand.
+
+---@class ModelLight
+---@field omnidirectional? boolean Default: `false`.
+---@field point Vector3DMixin If this light is omnidirectional then point refers to a position, otherwise it refers to a direction
+---@field ambientIntensity? number Default: `0`.
+---@field ambientColor? ColorMixin
+---@field diffuseIntensity? number Default: `0`.
+---@field diffuseColor? ColorMixin

@@ -1,0 +1,66 @@
+---@meta _
+-- Structures that Blizzard's API documentation references but never defines.
+-- Hand-written.
+
+---Aura information returned by `C_UnitAuras` and passed in `UNIT_AURA` updates.
+---In restricted contexts, most fields may be secret values.
+---
+---[Documentation](https://warcraft.wiki.gg/wiki/Struct_AuraData)
+---@class AuraData
+---@field applications integer Number of stacks.
+---@field auraInstanceID integer Identifies this aura on this unit until it is removed.
+---@field canApplyAura boolean Whether the player can apply this aura.
+---@field charges integer
+---@field dispelName? string Dispel type, e.g. `"Magic"`, `"Curse"`.
+---@field duration number Total duration in seconds; 0 for auras without a duration.
+---@field expirationTime number `GetTime()` value at which the aura expires; 0 for auras without a duration.
+---@field icon fileID
+---@field isBossAura boolean
+---@field isFromPlayerOrPlayerPet boolean
+---@field isHarmful boolean
+---@field isHelpful boolean
+---@field isNameplateOnly boolean
+---@field isRaid boolean
+---@field isStealable boolean
+---@field maxCharges integer
+---@field name string
+---@field nameplateShowAll boolean
+---@field nameplateShowPersonal boolean
+---@field points number[] Spell-specific variable values (e.g. absorb amounts).
+---@field sourceUnit? UnitToken
+---@field spellId integer
+---@field timeMod number
+
+---Data describing a tooltip, returned by `C_TooltipInfo` functions.
+---
+---[Documentation](https://warcraft.wiki.gg/wiki/Struct_TooltipData)
+---@class TooltipData
+---@field type? Enum.TooltipDataType
+---@field id? integer
+---@field dataInstanceID? integer
+---@field guid? WOWGUID
+---@field hyperlink? string
+---@field lines TooltipDataLine[]
+
+---One line of a tooltip.
+---@class TooltipDataLine
+---@field type Enum.TooltipDataLineType
+---@field leftText string
+---@field leftColor ColorMixin
+---@field rightText? string
+---@field rightColor? ColorMixin
+---@field wrapText? boolean
+---@field price? integer
+
+---Edge insets of a rectangle.
+---@class uiRect
+---@field left number
+---@field right number
+---@field top number
+---@field bottom number
+
+---A position on a UI map, see `UiMapPoint.CreateFromCoordinates`.
+---@class UiMapPoint
+---@field uiMapID integer
+---@field position Vector2DMixin
+---@field z? number

@@ -1,0 +1,44 @@
+{
+  "build": "12.1.0.69933",
+  "sources": {
+    "wow-ui-source": {
+      "url": "https://github.com/Gethe/wow-ui-source.git",
+      "branch": "live",
+      "commit": "09b9db7948abc9b9648dedaab51eb0cf3ee67b31",
+      "description": "Blizzard's interface code (FrameXML + Blizzard_APIDocumentationGenerated), mirrored from the game client."
+    },
+    "BlizzardInterfaceResources": {
+      "url": "https://github.com/Ketho/BlizzardInterfaceResources.git",
+      "branch": "live",
+      "commit": "36dd01db2d8fa5086dffda5cbfb3d55f4a70e526",
+      "description": "Runtime dumps from the game client: global API list, widget hierarchy, full Enum table, events, CVars, GlobalStrings."
+    }
+  },
+  "tools": {
+    "lua-language-server": {
+      "version": "3.19.1",
+      "assets": {
+        "darwin-arm64": {
+          "url": "https://github.com/LuaLS/lua-language-server/releases/download/3.19.1/lua-language-server-3.19.1-darwin-arm64.tar.gz",
+          "sha256": "0bc077f4447f076b4c92c14e9fd303f5b569eda2ec74b4dca2b55f75fae2e90c"
+        },
+        "darwin-x64": {
+          "url": "https://github.com/LuaLS/lua-language-server/releases/download/3.19.1/lua-language-server-3.19.1-darwin-x64.tar.gz",
+          "sha256": "eb373c159cbe556711d7cd316315de2dce969bfd54b31edb7eb9cab2937f2cca"
+        },
+        "linux-arm64": {
+          "url": "https://github.com/LuaLS/lua-language-server/releases/download/3.19.1/lua-language-server-3.19.1-linux-arm64.tar.gz",
+          "sha256": "abd2572e8fc929dc838a81ffb8473c5bce0bf39bfe8edb4b120b3b623176ce83"
+        },
+        "linux-x64": {
+          "url": "https://github.com/LuaLS/lua-language-server/releases/download/3.19.1/lua-language-server-3.19.1-linux-x64.tar.gz",
+          "sha256": "e9235d2d72ef55bc41cf8c99cda2ed64777682024b4bb81f5dea425060c5cbb8"
+        },
+        "win32-x64": {
+          "url": "https://github.com/LuaLS/lua-language-server/releases/download/3.19.1/lua-language-server-3.19.1-win32-x64.zip",
+          "sha256": "fdb9a59108cf62517813c97fa5549b0e16d1ef0688306bac728b08434db7e4cd"
+        }
+      }
+    }
+  }
+}

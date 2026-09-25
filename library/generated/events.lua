@@ -1,0 +1,1790 @@
+---@meta _
+-- Source: Blizzard_APIDocumentationGenerated + runtime event list
+-- This file is generated. Do not edit it by hand.
+
+---The name of an event that frames can register for with `Frame:RegisterEvent`.
+---
+---Each entry lists the event payload (the arguments after `event` in `OnEvent`).
+---@alias FrameEvent
+---| "ACCOUNT_CHARACTER_CURRENCY_DATA_RECEIVED" # no payload
+---| "ACCOUNT_CVARS_LOADED" # no payload
+---| "ACCOUNT_MONEY" # no payload
+---| "ACCOUNT_STORE_CURRENCY_AVAILABLE_UPDATED" # `currencyID: number`
+---| "ACCOUNT_STORE_FRONT_UPDATED" # `storeFrontID: number`
+---| "ACCOUNT_STORE_ITEM_INFO_UPDATED" # `itemID: number`
+---| "ACCOUNT_STORE_TRANSACTION_ERROR" # `result: Enum.AccountStoreTransactionResult`
+---| "ACHIEVEMENT_EARNED" # `achievementID: number, alreadyEarned?: boolean`
+---| "ACHIEVEMENT_PLAYER_NAME" # `achievementID: number`
+---| "ACHIEVEMENT_SEARCH_UPDATED" # no payload
+---| "ACTIONBAR_HIDEGRID" # no payload
+---| "ACTIONBAR_PAGE_CHANGED" # no payload
+---| "ACTIONBAR_SHOWGRID" # no payload
+---| "ACTIONBAR_SHOW_BOTTOMLEFT" # no payload
+---| "ACTIONBAR_SLOT_CHANGED" # `slot: number`
+---| "ACTIONBAR_UPDATE_COOLDOWN" # no payload — Flags: `UniqueEvent`
+---| "ACTIONBAR_UPDATE_STATE" # no payload — Flags: `UniqueEvent`
+---| "ACTIONBAR_UPDATE_USABLE" # no payload — Flags: `UniqueEvent`
+---| "ACTION_RANGE_CHECK_UPDATE" # `slot: luaIndex, isInRange: boolean, checksRange: boolean` — Used in conjunction with EnableActionRangeCheck to inform the UI when an action goes in or out of range with its current target.
+---| "ACTION_USABLE_CHANGED" # `changes: ActionUsableState[]`
+---| "ACTION_WILL_BIND_ITEM" # no payload
+---| "ACTIVATE_GLYPH" # `spellID: number`
+---| "ACTIVE_COMBAT_CONFIG_CHANGED" # `configID: number`
+---| "ACTIVE_DELVE_DATA_UPDATE" # no payload — Signaled when SpellScript calls change the data for players/parties owning a delve or when the delve is shut down.
+---| "ACTIVE_GAME_MODE_UPDATED" # `gameMode: Enum.GameMode`
+---| "ACTIVE_PLAYER_SPECIALIZATION_CHANGED" # no payload
+---| "ACTIVE_TALENT_GROUP_CHANGED" # `curr: number, prev: number`
+---| "ADAPTER_LIST_CHANGED" # no payload
+---| "ADDONS_UNLOADING" # `closingClient: boolean`
+---| "ADDON_ACTION_BLOCKED" # `isTainted: string, function_: string`
+---| "ADDON_ACTION_FORBIDDEN" # `isTainted: string, function_: string`
+---| "ADDON_LOADED" # `addOnName: string, containsBindings: boolean`
+---| "ADDON_RESTRICTION_STATE_CHANGED" # `type: Enum.AddOnRestrictionType, state: Enum.AddOnRestrictionState` — Fired when the state of an addon restriction type is changing. This event is sequenced such that it will always be fired before a restriction becomes active, or after it is deactivated.
+---| "ADD_NEIGHBORHOOD_CHARTER_SIGNATURE" # `signature: string`
+---| "ADVENTURE_MAP_CLOSE" # no payload
+---| "ADVENTURE_MAP_OPEN" # `followerTypeID: number`
+---| "ADVENTURE_MAP_QUEST_UPDATE" # `questID: number`
+---| "ADVENTURE_MAP_UPDATE_INSETS" # no payload — Flags: `UniqueEvent`
+---| "ADVENTURE_MAP_UPDATE_POIS" # no payload — Flags: `UniqueEvent`
+---| "AJ_DUNGEON_ACTION" # `lfgDungeonID: number`
+---| "AJ_OPEN" # no payload
+---| "AJ_OPEN_COLLECTIONS_ACTION" # no payload
+---| "AJ_PVE_LFG_ACTION" # no payload
+---| "AJ_PVP_ACTION" # `battleMasterListID: number`
+---| "AJ_PVP_LFG_ACTION" # no payload
+---| "AJ_PVP_RBG_ACTION" # no payload
+---| "AJ_PVP_SKIRMISH_ACTION" # no payload
+---| "AJ_PVP_SPECIAL_BG_ACTION" # no payload
+---| "AJ_PVP_TRAINING_GROUNDS_ACTION" # no payload
+---| "AJ_QUEST_LOG_OPEN" # `questID: number, uiMapID: number`
+---| "AJ_RAID_ACTION" # `lfgDungeonID: number`
+---| "AJ_REFRESH_DISPLAY" # `newAdventureNotice: boolean`
+---| "AJ_REWARD_DATA_RECEIVED" # no payload — Flags: `UniqueEvent`
+---| "ALERT_REGIONAL_CHAT_DISABLED" # no payload
+---| "ALLIED_RACE_CLOSE" # no payload
+---| "ALLIED_RACE_OPEN" # `raceID: number`
+---| "ALTERNATIVE_DEFAULT_LANGUAGE_CHANGED" # no payload
+---| "ANIMA_DIVERSION_CLOSE" # no payload
+---| "ANIMA_DIVERSION_OPEN" # `info: AnimaDiversionFrameInfo`
+---| "ANIMA_DIVERSION_TALENT_UPDATED" # no payload
+---| "ARCHAEOLOGY_CLOSED" # no payload
+---| "ARCHAEOLOGY_FIND_COMPLETE" # `numFindsCompleted: number, totalFinds: number, researchBranchID: number`
+---| "ARCHAEOLOGY_SURVEY_CAST" # `numFindsCompleted: number, totalFinds: number, researchBranchID: number, successfulFind: number`
+---| "ARCHAEOLOGY_TOGGLE" # no payload
+---| "AREA_POIS_UPDATED" # no payload — Flags: `UniqueEvent`
+---| "AREA_SPIRIT_HEALER_IN_RANGE" # no payload
+---| "AREA_SPIRIT_HEALER_OUT_OF_RANGE" # no payload
+---| "ARENA_COOLDOWNS_UPDATE" # no payload
+---| "ARENA_CROWD_CONTROL_SPELL_UPDATE" # `unitTarget: UnitTokenVariant, spellID: number` — Secret values — payload values are secret if the subject unit is not the active player, unless they are an active spectator or commentator of a PvP match (`SecretWhenLossOfControlInfoRestricted`).
+---| "ARENA_OPPONENT_UPDATE" # `unitToken: string, updateReason: string`
+---| "ARENA_PREP_OPPONENT_SPECIALIZATIONS" # no payload
+---| "ARENA_SEASON_WORLD_STATE" # no payload
+---| "ARTIFACT_CLOSE" # no payload
+---| "ARTIFACT_DIGSITE_COMPLETE" # `researchBranchID: number`
+---| "ARTIFACT_ENDGAME_REFUND" # `numRefundedPowers: number, refundedTier: number, bagOrSlotIndex: luaIndex, slotIndex?: luaIndex`
+---| "ARTIFACT_RELIC_FORGE_CLOSE" # no payload
+---| "ARTIFACT_RELIC_FORGE_PREVIEW_RELIC_CHANGED" # no payload
+---| "ARTIFACT_RELIC_FORGE_UPDATE" # no payload
+---| "ARTIFACT_RELIC_INFO_RECEIVED" # no payload
+---| "ARTIFACT_RESPEC_PROMPT" # no payload
+---| "ARTIFACT_TIER_CHANGED" # `newTier: luaIndex, bagOrSlotIndex: luaIndex, slotIndex?: luaIndex`
+---| "ARTIFACT_UPDATE" # `newItem: boolean`
+---| "ARTIFACT_XP_UPDATE" # no payload
+---| "ASSISTED_COMBAT_ACTION_SPELL_CAST" # no payload
+---| "AUCTION_CANCELED" # `auctionID: number`
+---| "AUCTION_HOUSE_AUCTIONS_EXPIRED" # `auctionID: number`
+---| "AUCTION_HOUSE_AUCTION_CREATED" # `auctionID: number` — This signal is not used in the base UI but is included for AddOn ease-of-use.
+---| "AUCTION_HOUSE_BROWSE_FAILURE" # no payload
+---| "AUCTION_HOUSE_BROWSE_RESULTS_ADDED" # `addedBrowseResults: BrowseResultInfo[]`
+---| "AUCTION_HOUSE_BROWSE_RESULTS_UPDATED" # no payload
+---| "AUCTION_HOUSE_CLOSED" # no payload
+---| "AUCTION_HOUSE_DISABLED" # no payload
+---| "AUCTION_HOUSE_FAVORITES_UPDATED" # no payload
+---| "AUCTION_HOUSE_ITEM_DELIVERY_DELAY_UPDATE" # `purchasedItemDeliveryDelay: number, cancelledItemDeliveryDelay: number`
+---| "AUCTION_HOUSE_NEW_BID_RECEIVED" # `auctionID: number`
+---| "AUCTION_HOUSE_NEW_RESULTS_RECEIVED" # `itemKey?: ItemKey` — This signal is not used in the base UI but is included for AddOn ease-of-use. Payload is nil for browse queries.
+---| "AUCTION_HOUSE_POST_ERROR" # no payload
+---| "AUCTION_HOUSE_POST_WARNING" # no payload
+---| "AUCTION_HOUSE_PURCHASE_COMPLETED" # `auctionID: number`
+---| "AUCTION_HOUSE_SCRIPT_DEPRECATED" # no payload
+---| "AUCTION_HOUSE_SHOW" # no payload
+---| "AUCTION_HOUSE_SHOW_COMMODITY_WON_NOTIFICATION" # `commodityName: string, commodityQuantity: number`
+---| "AUCTION_HOUSE_SHOW_ERROR" # `error: Enum.AuctionHouseError`
+---| "AUCTION_HOUSE_SHOW_FORMATTED_NOTIFICATION" # `notification: Enum.AuctionHouseNotification, text: string, auctionID?: number`
+---| "AUCTION_HOUSE_SHOW_NOTIFICATION" # `notification: Enum.AuctionHouseNotification`
+---| "AUCTION_HOUSE_THROTTLED_MESSAGE_DROPPED" # no payload
+---| "AUCTION_HOUSE_THROTTLED_MESSAGE_QUEUED" # no payload
+---| "AUCTION_HOUSE_THROTTLED_MESSAGE_RESPONSE_RECEIVED" # no payload
+---| "AUCTION_HOUSE_THROTTLED_MESSAGE_SENT" # no payload
+---| "AUCTION_HOUSE_THROTTLED_SYSTEM_READY" # no payload
+---| "AUCTION_MULTISELL_FAILURE" # no payload
+---| "AUCTION_MULTISELL_START" # `numRepetitions: number`
+---| "AUCTION_MULTISELL_UPDATE" # `createdCount: number, totalToCreate: number`
+---| "AURA_DATA_PROVIDER_SWITCH" # `useRealDataProvider: boolean`
+---| "AUTOFOLLOW_BEGIN" # `name: string`
+---| "AUTOFOLLOW_END" # no payload
+---| "AVAILABLE_GAME_MODES_UPDATED" # no payload
+---| "AVATAR_LIST_UPDATED" # `clubType: Enum.ClubType`
+---| "AVOIDANCE_UPDATE" # no payload
+---| "AZERITE_EMPOWERED_ITEM_EQUIPPED_STATUS_CHANGED" # `isHeartEquipped: boolean`
+---| "AZERITE_EMPOWERED_ITEM_LOOTED" # `itemLink: string`
+---| "AZERITE_EMPOWERED_ITEM_SELECTION_UPDATED" # `azeriteEmpoweredItemLocation: ItemLocationMixin`
+---| "AZERITE_ESSENCE_ACTIVATED" # `slot: Enum.AzeriteEssenceSlot, essenceID: number`
+---| "AZERITE_ESSENCE_ACTIVATION_FAILED" # `slot: Enum.AzeriteEssenceSlot, essenceID: number`
+---| "AZERITE_ESSENCE_CHANGED" # `essenceID: number, newRank: number`
+---| "AZERITE_ESSENCE_FORGE_CLOSE" # no payload
+---| "AZERITE_ESSENCE_FORGE_OPEN" # no payload
+---| "AZERITE_ESSENCE_MILESTONE_UNLOCKED" # `milestoneID: number`
+---| "AZERITE_ESSENCE_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "AZERITE_ITEM_ENABLED_STATE_CHANGED" # `enabled: boolean`
+---| "AZERITE_ITEM_EXPERIENCE_CHANGED" # `azeriteItemLocation: ItemLocationMixin, oldExperienceAmount: number, newExperienceAmount: number`
+---| "AZERITE_ITEM_POWER_LEVEL_CHANGED" # `azeriteItemLocation: ItemLocationMixin, oldPowerLevel: number, newPowerLevel: number, unlockedEmpoweredItemsInfo: UnlockedAzeriteEmpoweredItems[], azeriteItemID: number`
+---| "BAG_CLOSED" # `bagID: Enum.BagIndex`
+---| "BAG_CONTAINER_UPDATE" # no payload
+---| "BAG_NEW_ITEMS_UPDATED" # no payload
+---| "BAG_OPEN" # `bagID: number`
+---| "BAG_OVERFLOW_WITH_FULL_INVENTORY" # no payload
+---| "BAG_SLOT_FLAGS_UPDATED" # `slot: number`
+---| "BAG_UPDATE" # `bagID: Enum.BagIndex`
+---| "BAG_UPDATE_COOLDOWN" # no payload — Flags: `UniqueEvent`
+---| "BAG_UPDATE_DELAYED" # no payload — Flags: `UniqueEvent`
+---| "BANKFRAME_CLOSED" # no payload
+---| "BANKFRAME_OPENED" # no payload
+---| "BANK_BAG_SLOT_FLAGS_UPDATED" # `slot: number`
+---| "BANK_TABS_CHANGED" # `bankType: Enum.BankType`
+---| "BANK_TAB_SETTINGS_UPDATED" # `bankType: Enum.BankType`
+---| "BARBER_SHOP_APPEARANCE_APPLIED" # no payload — Flags: `UniqueEvent`
+---| "BARBER_SHOP_CAMERA_VALUES_UPDATED" # no payload
+---| "BARBER_SHOP_CLOSE" # no payload
+---| "BARBER_SHOP_COST_UPDATE" # no payload
+---| "BARBER_SHOP_FORCE_CUSTOMIZATIONS_UPDATE" # no payload
+---| "BARBER_SHOP_OPEN" # no payload
+---| "BARBER_SHOP_RESULT" # `success: boolean`
+---| "BATTLEFIELDS_CLOSED" # no payload
+---| "BATTLEFIELDS_SHOW" # `isArena?: boolean, battleMasterListID?: number`
+---| "BATTLEFIELD_AUTO_QUEUE" # no payload
+---| "BATTLEFIELD_AUTO_QUEUE_EJECT" # no payload
+---| "BATTLEFIELD_QUEUE_TIMEOUT" # no payload
+---| "BATTLEGROUND_OBJECTIVES_UPDATE" # no payload
+---| "BATTLEGROUND_POINTS_UPDATE" # no payload
+---| "BATTLEPET_FORCE_NAME_DECLENSION" # `name: string, battlePetGUID: WOWGUID`
+---| "BATTLE_NET_FRIEND_TAG_ENABLED_STATUS_UPDATED" # no payload
+---| "BATTLE_NET_TITLE_FRIEND_CUSTOM_NAME_ENABLED_STATUS_UPDATED" # no payload
+---| "BATTLE_PET_CURSOR_CLEAR" # no payload
+---| "BEHAVIORAL_NOTIFICATION" # `notificationType: string, dbId: NotificationDbId`
+---| "BIDS_UPDATED" # no payload
+---| "BID_ADDED" # `bidID: number`
+---| "BINDINGS_LOADED" # no payload
+---| "BIND_ENCHANT" # no payload
+---| "BLACK_MARKET_BID_RESULT" # `marketID: number, resultCode: number`
+---| "BLACK_MARKET_CLOSE" # no payload
+---| "BLACK_MARKET_ITEM_UPDATE" # no payload
+---| "BLACK_MARKET_OPEN" # no payload
+---| "BLACK_MARKET_OUTBID" # `marketID: number, itemID: number`
+---| "BLACK_MARKET_UNAVAILABLE" # no payload
+---| "BLACK_MARKET_WON" # `marketID: number, itemID: number`
+---| "BNET_REQUEST_INVITE_CONFIRMATION" # `gameAccountID: number, questSessionActive: boolean, tank: boolean, healer: boolean, dps: boolean`
+---| "BN_BLOCK_FAILED_TOO_MANY" # `blockType: string`
+---| "BN_BLOCK_LIST_UPDATED" # no payload
+---| "BN_CHAT_MSG_ADDON" # `prefix: string, text: string, channel: string, senderID: number`
+---| "BN_CHAT_WHISPER_UNDELIVERABLE" # `senderID: number`
+---| "BN_CONNECTED" # `suppressNotification: boolean`
+---| "BN_CUSTOM_MESSAGE_CHANGED" # `id?: number`
+---| "BN_CUSTOM_MESSAGE_LOADED" # no payload
+---| "BN_DISCONNECTED" # `result: boolean, suppressNotification: boolean`
+---| "BN_FRIEND_ACCOUNT_OFFLINE" # `friendId: number, isCompanionApp: boolean`
+---| "BN_FRIEND_ACCOUNT_ONLINE" # `friendId: number, isCompanionApp: boolean`
+---| "BN_FRIEND_INFO_CHANGED" # `friendIndex?: luaIndex`
+---| "BN_FRIEND_INVITE_ADDED" # `accountID: number`
+---| "BN_FRIEND_INVITE_LIST_INITIALIZED" # `listSize: number`
+---| "BN_FRIEND_INVITE_REMOVED" # no payload
+---| "BN_FRIEND_LIST_SIZE_CHANGED" # `accountID?: number`
+---| "BN_INFO_CHANGED" # no payload
+---| "BN_REQUEST_FOF_SUCCEEDED" # no payload
+---| "BONUS_ROLL_ACTIVATE" # no payload
+---| "BONUS_ROLL_DEACTIVATE" # no payload
+---| "BONUS_ROLL_FAILED" # no payload
+---| "BONUS_ROLL_RESULT" # `typeIdentifier: string, itemLink: string, quantity: number, specID: number, sex: number, personalLootToast: boolean, currencyID?: number, isSecondaryResult: boolean, corrupted: boolean`
+---| "BONUS_ROLL_STARTED" # no payload
+---| "BOSS_KILL" # `encounterID: number, encounterName: string`
+---| "BULK_PURCHASE_RESULT_RECEIVED" # `result: Enum.BulkPurchaseResult, productResults: BulkPurchaseIndividualProductResult[], bestTopUpProductID?: number, totalCost?: number`
+---| "BULK_REFUND_RESULT_RECEIVED" # `result: Enum.BulkRefundResult`
+---| "B_NET_NEIGHBORHOOD_LIST_UPDATED" # `result: Enum.HousingResult, neighborhoodInfos?: NeighborhoodInfo[]`
+---| "CALENDAR_ACTION_PENDING" # `pending: boolean`
+---| "CALENDAR_CLOSE_EVENT" # no payload
+---| "CALENDAR_EVENT_ALARM" # `title: string, hour: number, minute: number`
+---| "CALENDAR_NEW_EVENT" # `isCopy: boolean`
+---| "CALENDAR_OPEN_EVENT" # `calendarType: string`
+---| "CALENDAR_UPDATE_ERROR" # `errorReason: string`
+---| "CALENDAR_UPDATE_ERROR_WITH_COUNT" # `errorReason: string, count: number`
+---| "CALENDAR_UPDATE_ERROR_WITH_PLAYER_NAME" # `errorReason: string, playerName: string`
+---| "CALENDAR_UPDATE_EVENT" # no payload
+---| "CALENDAR_UPDATE_EVENT_LIST" # no payload — Flags: `UniqueEvent`
+---| "CALENDAR_UPDATE_GUILD_EVENTS" # no payload
+---| "CALENDAR_UPDATE_INVITE_LIST" # `hasCompleteList?: boolean`
+---| "CALENDAR_UPDATE_PENDING_INVITES" # no payload
+---| "CANCEL_ALL_LOOT_ROLLS" # no payload
+---| "CANCEL_GLYPH_CAST" # no payload
+---| "CANCEL_LOOT_ROLL" # `rollID: number`
+---| "CANCEL_NEIGHBORHOOD_INVITE_RESPONSE" # `result: Enum.NeighborhoodInviteResult, playerName?: string`
+---| "CANCEL_PLAYER_COUNTDOWN" # `initiatedBy: WOWGUID, informChat: boolean, initiatedByName?: string` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CANCEL_SUMMON" # no payload
+---| "CAN_LOCAL_WHISPER_TARGET_RESPONSE" # `whisperTarget: WOWGUID, status: Enum.ChatWhisperTargetStatus` — Flags: `UniqueEvent`
+---| "CAN_PLAYER_SPEAK_LANGUAGE_CHANGED" # `languageId: number, canSpeakLanguage: boolean` — Flags: `UniqueEvent`
+---| "CAPTUREFRAMES_FAILED" # no payload
+---| "CAPTUREFRAMES_SUCCEEDED" # no payload
+---| "CATALOG_SHOP_ADD_PENDING_PRODUCT" # `productID: number`
+---| "CATALOG_SHOP_DATA_REFRESH" # `shoppingSessionUUIDStr?: string`
+---| "CATALOG_SHOP_DISABLED" # no payload
+---| "CATALOG_SHOP_FETCH_FAILURE" # `shoppingSessionUUIDStr?: string`
+---| "CATALOG_SHOP_FETCH_SUCCESS" # `shoppingSessionUUIDStr?: string`
+---| "CATALOG_SHOP_OPEN_SIMPLE_CHECKOUT" # `checkoutID: number`
+---| "CATALOG_SHOP_PURCHASE_SUCCESS" # `productID: number`
+---| "CATALOG_SHOP_REBUILD_SCROLL_BOX" # no payload
+---| "CATALOG_SHOP_REFUNDABLE_DECORS_UPDATED" # no payload
+---| "CATALOG_SHOP_REMOVE_PENDING_PRODUCT" # `productID: number`
+---| "CATALOG_SHOP_RESULT_ERROR" # no payload
+---| "CATALOG_SHOP_SPECIFIC_PRODUCT_REFRESH" # `productID: number`
+---| "CATALOG_SHOP_VIRTUAL_CURRENCY_BALANCE_UPDATE" # `currencyCode: string, balance: string`
+---| "CATALOG_SHOP_VIRTUAL_CURRENCY_BALANCE_UPDATE_FAILURE" # `currencyCode: string`
+---| "CAUTIONARY_CHANNEL_MESSAGE" # `confirmNumber: number`
+---| "CAUTIONARY_CHAT_MESSAGE" # `chatLineID: number, confirmNumber: number`
+---| "CEMETERY_PREFERENCE_UPDATED" # no payload
+---| "CHALLENGE_MODE_COMPLETED" # no payload
+---| "CHALLENGE_MODE_COMPLETED_REWARDS" # `mapID: number, medal: number, timeMS: number, money: number, rewards: ChallengeModeReward[]`
+---| "CHALLENGE_MODE_DEATH_COUNT_UPDATED" # no payload
+---| "CHALLENGE_MODE_KEYSTONE_RECEPTABLE_OPEN" # no payload
+---| "CHALLENGE_MODE_KEYSTONE_SLOTTED" # `keystoneID: number`
+---| "CHALLENGE_MODE_LEADERBOARD_RESULT" # `mapID: number, challengeModeID: number, page: number, results: MythicPlusLeaderboardResult[]`
+---| "CHALLENGE_MODE_LEADERS_UPDATE" # no payload
+---| "CHALLENGE_MODE_LEAVER_TIMER_ENDED" # no payload
+---| "CHALLENGE_MODE_LEAVER_TIMER_STARTED" # no payload
+---| "CHALLENGE_MODE_MAPS_UPDATE" # no payload
+---| "CHALLENGE_MODE_MEMBER_INFO_UPDATED" # no payload
+---| "CHALLENGE_MODE_NEW_RECORD" # `mapID: number, timeMS: number, medal: number`
+---| "CHALLENGE_MODE_RESET" # `mapID: number`
+---| "CHALLENGE_MODE_START" # `mapID: number`
+---| "CHANNEL_COUNT_UPDATE" # `displayIndex: number, count: number`
+---| "CHANNEL_FLAGS_UPDATED" # `displayIndex: number`
+---| "CHANNEL_INVITE_REQUEST" # `channelID: string, name: string`
+---| "CHANNEL_LEFT" # `chatChannelID: number, name: string`
+---| "CHANNEL_PASSWORD_REQUEST" # `channelID: string`
+---| "CHANNEL_ROSTER_UPDATE" # `displayIndex: number, count: number`
+---| "CHANNEL_UI_UPDATE" # no payload
+---| "CHARACTER_ITEM_FIXUP_NOTIFICATION" # `fixupVersion: number`
+---| "CHARACTER_POINTS_CHANGED" # `change: number`
+---| "CHARACTER_UPGRADE_SPELL_TIER_SET" # `tierIndex: number`
+---| "CHAT_COMBAT_MSG_ARENA_POINTS_GAIN" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_DISABLED_CHANGED" # `disabled: boolean`
+---| "CHAT_DISABLED_CHANGE_FAILED" # `disabled: boolean`
+---| "CHAT_LOGGING_CHANGED" # `whichLog: number, isEnabled: boolean`
+---| "CHAT_MSG_ACHIEVEMENT" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_ADDON" # `prefix: string, text: string, channel: string, sender: string, target: string, zoneChannelID: number, localID: number, name: string, instanceID: number`
+---| "CHAT_MSG_ADDON_LOGGED" # `prefix: string, text: string, channel: string, sender: string, target: string, zoneChannelID: number, localID: number, name: string, instanceID: number`
+---| "CHAT_MSG_AFK" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_BG_SYSTEM_ALLIANCE" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_BG_SYSTEM_HORDE" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_BG_SYSTEM_NEUTRAL" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_BN" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_BN_INLINE_TOAST_ALERT" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_BN_INLINE_TOAST_BROADCAST" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_BN_INLINE_TOAST_BROADCAST_INFORM" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_BN_INLINE_TOAST_CONVERSATION" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_BN_WHISPER" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_BN_WHISPER_INFORM" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_BN_WHISPER_PLAYER_OFFLINE" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_CHANNEL" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_CHANNEL_JOIN" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_CHANNEL_LEAVE" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_CHANNEL_LEAVE_PREVENTED" # `channelName: string`
+---| "CHAT_MSG_CHANNEL_LIST" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_CHANNEL_NOTICE" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_CHANNEL_NOTICE_USER" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_COMBAT_FACTION_CHANGE" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_COMBAT_HONOR_GAIN" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_COMBAT_MISC_INFO" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_COMBAT_XP_GAIN" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_COMMUNITIES_CHANNEL" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_CURRENCY" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_DND" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_EMOTE" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_FILTERED" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_GUILD" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_GUILD_ACHIEVEMENT" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_GUILD_DISCORD" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_GUILD_ITEM_LOOTED" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_IGNORED" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_INSTANCE_CHAT" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_INSTANCE_CHAT_LEADER" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_LOOT" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_MONEY" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_MONSTER_EMOTE" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_MONSTER_PARTY" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_MONSTER_SAY" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_MONSTER_WHISPER" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_MONSTER_YELL" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_OFFICER" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_OPENING" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_PARTY" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_PARTY_LEADER" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_PET_BATTLE_COMBAT_LOG" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_PET_BATTLE_INFO" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_PET_INFO" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_PING" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_RAID" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_RAID_BOSS_EMOTE" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_RAID_BOSS_WHISPER" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_RAID_LEADER" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_RAID_WARNING" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_RESTRICTED" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo`
+---| "CHAT_MSG_SAY" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_SKILL" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_SYSTEM" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_TARGETICONS" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_TEXT_EMOTE" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_TRADESKILLS" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_VOICE_TEXT" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_WHISPER" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_WHISPER_INFORM" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_MSG_YELL" # `text: string, playerName: string, languageName: string, channelName: string, playerName2: string, specialFlags: string, zoneChannelID: number, channelIndex: number, channelBaseName: string, languageID: number, lineID: number, guid: WOWGUID, bnSenderID: number, isMobile: boolean, isSubtitle: boolean, hideSenderInLetterbox: boolean, suppressRaidIcons: boolean, discordInfo: DiscordChatInfo` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "CHAT_REGIONAL_SEND_FAILED" # no payload
+---| "CHAT_REGIONAL_STATUS_CHANGED" # `isServiceAvailable: boolean`
+---| "CHAT_SERVER_DISCONNECTED" # `isInitialMessage?: boolean`
+---| "CHAT_SERVER_RECONNECTED" # no payload
+---| "CHEST_REWARDS_UPDATED_FROM_SERVER" # no payload
+---| "CINEMATIC_START" # `canBeCancelled: boolean, forcedAspectRatio: Enum.CameraModeAspectRatio`
+---| "CINEMATIC_STOP" # no payload
+---| "CLASS_TALENTS_SWITCH_TO_LOADOUT_BY_INDEX" # `loadoutIndex: number` — Flags: `CallbackEvent`
+---| "CLASS_TALENTS_SWITCH_TO_LOADOUT_BY_NAME" # `loadoutName: string` — Flags: `CallbackEvent`
+---| "CLASS_TALENTS_SWITCH_TO_SPECIALIZATION_BY_INDEX" # `specIndex: number` — Flags: `CallbackEvent`
+---| "CLASS_TALENTS_SWITCH_TO_SPECIALIZATION_BY_NAME" # `specName: string` — Flags: `CallbackEvent`
+---| "CLASS_TRIAL_TIMER_START" # no payload
+---| "CLASS_TRIAL_UPGRADE_COMPLETE" # no payload
+---| "CLEAR_BOSS_EMOTES" # no payload
+---| "CLICKBINDINGS_SET_HIGHLIGHTS_SHOWN" # `showHighlights: boolean`
+---| "CLIENT_SCENE_CLOSED" # no payload
+---| "CLIENT_SCENE_OPENED" # `sceneType: Enum.ClientSceneType`
+---| "CLOSE_CHARTER_CONFIRMATION_UI" # no payload
+---| "CLOSE_CREATE_CHARTER_NEIGHBORHOOD_UI" # no payload
+---| "CLOSE_CREATE_GUILD_NEIGHBORHOOD_UI" # no payload
+---| "CLOSE_INBOX_ITEM" # `mailIndex: luaIndex`
+---| "CLOSE_PLOT_CORNERSTONE" # no payload
+---| "CLOSE_TABARD_FRAME" # no payload
+---| "CLUB_ADDED" # `clubId: ClubId`
+---| "CLUB_ERROR" # `action: Enum.ClubActionType, error: Enum.ClubErrorType, clubType: Enum.ClubType`
+---| "CLUB_FINDER_APPLICANT_INVITE_RECIEVED" # `clubFinderGUIDs: WOWGUID[]`
+---| "CLUB_FINDER_APPLICATIONS_UPDATED" # `type: Enum.ClubFinderRequestType, clubFinderGUIDs: WOWGUID[]`
+---| "CLUB_FINDER_CAN_WHISPER_APPLICANT" # `applicant: WOWGUID`
+---| "CLUB_FINDER_CLUB_LIST_RETURNED" # `type: Enum.ClubFinderRequestType` — Signals when we recieve club data that can be used
+---| "CLUB_FINDER_CLUB_REPORTED" # `type: Enum.ClubFinderRequestType, clubFinderGUID: WOWGUID` — Sends an update to the UI about a reported guild or community.
+---| "CLUB_FINDER_COMMUNITY_OFFLINE_JOIN" # `clubId: ClubId` — Signals to the UI that you (the player) have joined a community offline.
+---| "CLUB_FINDER_ENABLED_OR_DISABLED" # no payload — Sends an update to the UI that the club finder feature has been enabled or disabled.
+---| "CLUB_FINDER_GUILD_REALM_NAME_UPDATED" # `clubFinderGUID: WOWGUID, realmName: string` — Sends an update to the UI if the realm name of a guild was found asynchronously.
+---| "CLUB_FINDER_LINKED_CLUB_RETURNED" # `clubInfo: RecruitingClubInfo` — When a player clicks a club link, this returns that information back about the club they clicked on
+---| "CLUB_FINDER_MEMBERSHIP_LIST_CHANGED" # no payload
+---| "CLUB_FINDER_PLAYER_PENDING_LIST_RECIEVED" # `type: Enum.ClubFinderRequestType`
+---| "CLUB_FINDER_POST_UPDATED" # `clubFinderGUIDs: WOWGUID[]`
+---| "CLUB_FINDER_RECRUITMENT_POST_RETURNED" # `type: Enum.ClubFinderRequestType` — Signals when our recruitment post we just requested is returned back to us
+---| "CLUB_FINDER_RECRUITS_UPDATED" # `type: Enum.ClubFinderRequestType` — Signals when we recieve the recruits list
+---| "CLUB_FINDER_RECRUIT_LIST_CHANGED" # no payload
+---| "CLUB_INVITATIONS_RECEIVED_FOR_CLUB" # `clubId: ClubId`
+---| "CLUB_INVITATION_ADDED_FOR_SELF" # `invitation: ClubSelfInvitationInfo`
+---| "CLUB_INVITATION_REMOVED_FOR_SELF" # `invitationId: ClubInvitationId`
+---| "CLUB_MEMBERS_UPDATED" # `clubId: ClubId` — Flags: `UniqueEvent`
+---| "CLUB_MEMBER_ADDED" # `clubId: ClubId, memberId: ClubMemberOpaqueId`
+---| "CLUB_MEMBER_PRESENCE_UPDATED" # `clubId: ClubId, memberId: ClubMemberOpaqueId, presence: Enum.ClubMemberPresence`
+---| "CLUB_MEMBER_REMOVED" # `clubId: ClubId, memberId: ClubMemberOpaqueId`
+---| "CLUB_MEMBER_ROLE_UPDATED" # `clubId: ClubId, memberId: ClubMemberOpaqueId, roleId: number`
+---| "CLUB_MEMBER_UPDATED" # `clubId: ClubId, memberId: ClubMemberOpaqueId`
+---| "CLUB_MESSAGE_ADDED" # `clubId: ClubId, streamId: ClubStreamId, messageId: ClubMessageIdentifier`
+---| "CLUB_MESSAGE_HISTORY_RECEIVED" # `clubId: ClubId, streamId: ClubStreamId, downloadedRange: ClubMessageRange, contiguousRange: ClubMessageRange`
+---| "CLUB_MESSAGE_UPDATED" # `clubId: ClubId, streamId: ClubStreamId, messageId: ClubMessageIdentifier`
+---| "CLUB_REMOVED" # `clubId: ClubId`
+---| "CLUB_REMOVED_MESSAGE" # `clubName: string, clubRemovedReason: Enum.ClubRemovedReason`
+---| "CLUB_SELF_MEMBER_ROLE_UPDATED" # `clubId: ClubId, roleId: number`
+---| "CLUB_STREAMS_LOADED" # `clubId: ClubId`
+---| "CLUB_STREAM_ADDED" # `clubId: ClubId, streamId: ClubStreamId` — Flags: `UniqueEvent`
+---| "CLUB_STREAM_REMOVED" # `clubId: ClubId, streamId: ClubStreamId` — Flags: `UniqueEvent`
+---| "CLUB_STREAM_SUBSCRIBED" # `clubId: ClubId, streamId: ClubStreamId`
+---| "CLUB_STREAM_UNSUBSCRIBED" # `clubId: ClubId, streamId: ClubStreamId`
+---| "CLUB_STREAM_UPDATED" # `clubId: ClubId, streamId: ClubStreamId` — Flags: `UniqueEvent`
+---| "CLUB_TICKETS_RECEIVED" # `clubId: ClubId`
+---| "CLUB_TICKET_CREATED" # `clubId: ClubId, ticketInfo: ClubTicketInfo`
+---| "CLUB_TICKET_RECEIVED" # `ticket: string`
+---| "CLUB_UPDATED" # `clubId: ClubId`
+---| "COLOR_OVERRIDES_RESET" # no payload
+---| "COLOR_OVERRIDE_UPDATED" # `overrideType: Enum.ColorOverride`
+---| "COMBAT_LOG_APPLY_FILTER_SETTINGS" # `filterSettings: any` — Restricted — delivery to addons is subject to restrictions. Flags: `CallbackEvent`
+---| "COMBAT_LOG_ENTRIES_CLEARED" # no payload
+---| "COMBAT_LOG_EVENT" # no payload — Restricted — delivery to addons is subject to restrictions. Flags: `CallbackEvent`
+---| "COMBAT_LOG_EVENT_INTERNAL_UNFILTERED" # no payload — Flags: `CallbackEvent`
+---| "COMBAT_LOG_EVENT_UNFILTERED" # no payload — Restricted — delivery to addons is subject to restrictions. Flags: `CallbackEvent`
+---| "COMBAT_LOG_MESSAGE" # `message: string, colorR: number, colorG: number, colorB: number, order: Enum.CombatLogMessageOrder`
+---| "COMBAT_LOG_MESSAGE_LIMIT_CHANGED" # `messageLimit: number`
+---| "COMBAT_LOG_REFILTER_ENTRIES" # no payload — Restricted — delivery to addons is subject to restrictions. Flags: `CallbackEvent`
+---| "COMBAT_RATING_UPDATE" # no payload
+---| "COMBAT_TEXT_UPDATE" # `combatTextType: string`
+---| "COMBO_TARGET_CHANGED" # no payload
+---| "COMMENTATOR_COMBAT_EVENT" # no payload
+---| "COMMENTATOR_ENTER_WORLD" # no payload
+---| "COMMENTATOR_HISTORY_FLUSHED" # no payload
+---| "COMMENTATOR_IMMEDIATE_FOV_UPDATE" # `fov: number`
+---| "COMMENTATOR_MAP_UPDATE" # no payload
+---| "COMMENTATOR_PLAYER_NAME_OVERRIDE_UPDATE" # `nameToOverride: string, overrideName?: string`
+---| "COMMENTATOR_PLAYER_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "COMMENTATOR_RESET_SETTINGS" # no payload
+---| "COMMENTATOR_TEAMS_SWAPPED" # `swapped: boolean`
+---| "COMMENTATOR_TEAM_NAME_UPDATE" # `teamName: string`
+---| "COMMODITY_PRICE_UNAVAILABLE" # no payload
+---| "COMMODITY_PRICE_UPDATED" # `updatedUnitPrice: number, updatedTotalPrice: number`
+---| "COMMODITY_PURCHASED" # `itemID: number, quantity: number`
+---| "COMMODITY_PURCHASE_FAILED" # no payload
+---| "COMMODITY_PURCHASE_SUCCEEDED" # no payload
+---| "COMMODITY_SEARCH_RESULTS_ADDED" # `itemID: number`
+---| "COMMODITY_SEARCH_RESULTS_RECEIVED" # no payload — Flags: `UniqueEvent`
+---| "COMMODITY_SEARCH_RESULTS_UPDATED" # `itemID: number` — Flags: `UniqueEvent`
+---| "COMPACT_UNIT_FRAME_PROFILES_LOADED" # no payload
+---| "COMPANION_LEARNED" # no payload
+---| "COMPANION_UNLEARNED" # no payload
+---| "COMPANION_UPDATE" # `companionType?: string`
+---| "CONFIG_COMMIT_FAILED" # `configID: number`
+---| "CONFIRM_BATTLE_NET_FRIEND_INVITE_SHOW" # `name: string, friendLevel: Enum.BattleNetFriendLevel`
+---| "CONFIRM_BEFORE_USE" # no payload
+---| "CONFIRM_BINDER" # `areaName: string`
+---| "CONFIRM_DISENCHANT_ROLL" # `rollID: number, rollType: number`
+---| "CONFIRM_LOOT_ROLL" # `rollID: number, rollType: number, confirmReason: string`
+---| "CONFIRM_PET_UNLEARN" # `cost: number`
+---| "CONFIRM_SUMMON" # `summonReason: number, skippingStartExperience: boolean`
+---| "CONFIRM_TALENT_WIPE" # `cost: number, respecType: number`
+---| "CONFIRM_XP_LOSS" # no payload
+---| "CONSOLE_CLEAR" # no payload — Flags: `UniqueEvent`
+---| "CONSOLE_COLORS_CHANGED" # no payload — Flags: `UniqueEvent`
+---| "CONSOLE_FONT_SIZE_CHANGED" # no payload — Flags: `UniqueEvent`
+---| "CONSOLE_LOG" # `message: string`
+---| "CONSOLE_MESSAGE" # `message: string, colorType: number`
+---| "CONTENT_TRACKING_IS_ENABLED_UPDATE" # `isEnabled: boolean`
+---| "CONTENT_TRACKING_LIST_UPDATE" # no payload
+---| "CONTENT_TRACKING_UPDATE" # `type: Enum.ContentTrackingType, id: number, isTracked: boolean`
+---| "CONTRIBUTION_CHANGED" # `state: Enum.ContributionState, result: Enum.ContributionResult, name: string, contributionID: number`
+---| "CONTRIBUTION_COLLECTOR_PENDING" # `contributionID: number, isPending: boolean, result: number`
+---| "CONTRIBUTION_COLLECTOR_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "CONTRIBUTION_COLLECTOR_UPDATE_SINGLE" # `contributionID: number`
+---| "CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM" # no payload
+---| "CONVERT_TO_RAID_CONFIRMATION" # no payload
+---| "COOLDOWN_VIEWER_DATA_LOADED" # no payload
+---| "COOLDOWN_VIEWER_SPELL_OVERRIDE_UPDATED" # `baseSpellID: number, overrideSpellID?: number`
+---| "COOLDOWN_VIEWER_TABLE_HOTFIXED" # no payload
+---| "CORPSE_IN_INSTANCE" # no payload
+---| "CORPSE_IN_RANGE" # no payload
+---| "CORPSE_OUT_OF_RANGE" # no payload
+---| "COVENANT_CALLINGS_UPDATED" # `callings: BountyInfo[]`
+---| "COVENANT_CHOSEN" # `covenantID: number`
+---| "COVENANT_PREVIEW_CLOSE" # no payload
+---| "COVENANT_PREVIEW_OPEN" # `previewInfo: CovenantPreviewInfo`
+---| "COVENANT_RENOWN_CATCH_UP_STATE_UPDATE" # no payload
+---| "COVENANT_SANCTUM_RENOWN_LEVEL_CHANGED" # `newRenownLevel: number, oldRenownLevel: number`
+---| "CRAFTINGORDERS_CAN_REQUEST" # no payload
+---| "CRAFTINGORDERS_CLAIMED_ORDER_ADDED" # no payload
+---| "CRAFTINGORDERS_CLAIMED_ORDER_REMOVED" # no payload
+---| "CRAFTINGORDERS_CLAIMED_ORDER_UPDATED" # `orderID: number`
+---| "CRAFTINGORDERS_CLAIM_ORDER_RESPONSE" # `result: Enum.CraftingOrderResult, orderID: number`
+---| "CRAFTINGORDERS_CRAFT_ORDER_RESPONSE" # `result: Enum.CraftingOrderResult, orderID: number`
+---| "CRAFTINGORDERS_CUSTOMER_FAVORITES_CHANGED" # no payload
+---| "CRAFTINGORDERS_CUSTOMER_OPTIONS_PARSED" # no payload
+---| "CRAFTINGORDERS_DISPLAY_CRAFTER_FULFILLED_MSG" # `orderTypeString: string, itemNameString: string, playerNameString: string, tipAmount: WOWMONEY, quantityCrafted: number`
+---| "CRAFTINGORDERS_FULFILL_ORDER_RESPONSE" # `result: Enum.CraftingOrderResult, orderID: number`
+---| "CRAFTINGORDERS_HIDE_CRAFTER" # no payload
+---| "CRAFTINGORDERS_HIDE_CUSTOMER" # no payload
+---| "CRAFTINGORDERS_ORDER_CANCEL_RESPONSE" # `result: Enum.CraftingOrderResult`
+---| "CRAFTINGORDERS_ORDER_PLACEMENT_RESPONSE" # `result: Enum.CraftingOrderResult`
+---| "CRAFTINGORDERS_REJECT_ORDER_RESPONSE" # `result: Enum.CraftingOrderResult, orderID: number`
+---| "CRAFTINGORDERS_RELEASE_ORDER_RESPONSE" # `result: Enum.CraftingOrderResult, orderID: number`
+---| "CRAFTINGORDERS_SHOW_CRAFTER" # no payload
+---| "CRAFTINGORDERS_SHOW_CUSTOMER" # no payload
+---| "CRAFTINGORDERS_UNEXPECTED_ERROR" # no payload
+---| "CRAFTINGORDERS_UPDATE_CUSTOMER_NAME" # `customerName: string, orderID: number`
+---| "CRAFTINGORDERS_UPDATE_ORDER_COUNT" # `orderType: Enum.CraftingOrderType, numOrders: number`
+---| "CRAFTINGORDERS_UPDATE_PERSONAL_ORDER_COUNTS" # no payload
+---| "CRAFTINGORDERS_UPDATE_REWARDS" # `npcOrderRewards: CraftingOrderRewardInfo[], orderID: number`
+---| "CRAFTING_DETAILS_UPDATE" # no payload
+---| "CRAFTING_HOUSE_DISABLED" # no payload
+---| "CREATE_NEIGHBORHOOD_RESULT" # `result: Enum.HousingResult, neighborhoodName?: string`
+---| "CRITERIA_COMPLETE" # `criteriaID: number`
+---| "CRITERIA_EARNED" # `achievementID: number, description: string, achievementAlreadyEarnedOnAccount: boolean`
+---| "CRITERIA_UPDATE" # no payload
+---| "CURRENCY_DISPLAY_UPDATE" # `currencyType?: number, quantity?: number, quantityChange?: number, quantityGainSource?: number, destroyReason?: number`
+---| "CURRENCY_TRANSFER_FAILED" # `failureReason: Enum.AccountCurrencyTransferResult`
+---| "CURRENCY_TRANSFER_INITIATED" # no payload
+---| "CURRENCY_TRANSFER_LOG_UPDATE" # no payload
+---| "CURRENCY_TRANSFER_SUCCESS" # no payload
+---| "CURRENT_HOUSE_INFO_RECIEVED" # `houseInfo: HouseInfo`
+---| "CURRENT_HOUSE_INFO_UPDATED" # `houseInfo: HouseInfo`
+---| "CURRENT_SPELL_CAST_CHANGED" # `cancelledCast: boolean`
+---| "CURSOR_CHANGED" # `isDefault: boolean, newCursorType: Enum.UICursorType, oldCursorType: Enum.UICursorType, oldCursorVirtualID: number`
+---| "CVAR_UPDATE" # `eventName: string, value: string`
+---| "DAILY_RESET_INSTANCE_WELCOME" # `mapname: string, timeLeft: number`
+---| "DAMAGE_METER_COMBAT_SESSION_UPDATED" # `type: Enum.DamageMeterType, sessionID: number` — Flags: `UniqueEvent`
+---| "DAMAGE_METER_CURRENT_SESSION_UPDATED" # no payload — Flags: `UniqueEvent`
+---| "DAMAGE_METER_RESET" # no payload — Flags: `UniqueEvent`
+---| "DECLINE_NEIGHBORHOOD_INVITATION_RESPONSE" # `success: boolean`
+---| "DELETE_ITEM_CONFIRM" # `itemName: string, qualityID: number, bonding: number, questWarn: number`
+---| "DELVES_ACCOUNT_DATA_ELEMENT_CHANGED" # no payload — Signaled when player account data element(s) have changed. This drives curio ranks, and the UI should update when this is sent.
+---| "DELVE_ASSIST_ACTION" # `data: DelveAssistActionData` — Signaled when an assist action occurs in a delve.
+---| "DISABLE_DECLINE_GUILD_INVITE" # no payload
+---| "DISABLE_LOW_LEVEL_RAID" # no payload
+---| "DISABLE_TAXI_BENCHMARK" # no payload
+---| "DISABLE_XP_GAIN" # no payload
+---| "DISCORD_GUILD_ACHIEVEMENT" # `achievementID: number`
+---| "DISCORD_GUILD_LOBBY_UPDATE" # no payload
+---| "DISCORD_GUILD_SETTINGS_UPDATE" # no payload
+---| "DISCORD_LINK_UPDATE" # no payload
+---| "DISCORD_SERVER_LIST_UPDATE" # no payload
+---| "DISCORD_STATUS_UPDATE" # no payload
+---| "DISPLAY_EVENT_TOASTS" # no payload
+---| "DISPLAY_EVENT_TOAST_LINK" # `link: string`
+---| "DISPLAY_SIZE_CHANGED" # no payload
+---| "DUEL_FINISHED" # no payload
+---| "DUEL_INBOUNDS" # no payload
+---| "DUEL_OUTOFBOUNDS" # no payload
+---| "DUEL_REQUESTED" # `playerName: string`
+---| "DUEL_TO_THE_DEATH_REQUESTED" # `playerName: string`
+---| "DYE_COLOR_CATEGORY_UPDATED" # `dyeColorCategoryID: number`
+---| "DYE_COLOR_UPDATED" # `dyeColorID: number`
+---| "DYNAMIC_GOSSIP_POI_UPDATED" # no payload — Flags: `UniqueEvent`
+---| "ECLIPSE_DIRECTION_CHANGE" # `direction: string`
+---| "EDIT_MODE_LAYOUTS_UPDATED" # `layoutInfo: EditModeLayouts, reconcileLayouts: boolean`
+---| "EJ_DIFFICULTY_UPDATE" # `difficultyID: number`
+---| "EJ_LOOT_DATA_RECIEVED" # `itemID?: number` — Flags: `UniqueEvent`
+---| "ENABLE_DECLINE_GUILD_INVITE" # no payload
+---| "ENABLE_LOW_LEVEL_RAID" # no payload
+---| "ENABLE_TAXI_BENCHMARK" # no payload
+---| "ENABLE_XP_GAIN" # no payload
+---| "ENCHANT_SPELL_COMPLETED" # `successful: boolean, enchantedItem?: ItemLocationMixin`
+---| "ENCHANT_SPELL_SELECTED" # no payload
+---| "ENCOUNTER_END" # `encounterID: number, encounterName: string, difficultyID: number, groupSize: number, success: number, encounterUnitStatus: EncounterUnitStatus[]`
+---| "ENCOUNTER_LOOT_RECEIVED" # `encounterID: number, itemID: number, itemLink: string, quantity: number, itemName: string, fileName: string`
+---| "ENCOUNTER_START" # `encounterID: number, encounterName: string, difficultyID: number, groupSize: number`
+---| "ENCOUNTER_STATE_CHANGED" # `isInProgress: boolean` — Signaled when the in-progress state of an encounter changes. — Flags: `CallbackEvent`
+---| "ENCOUNTER_TIMELINE_EVENT_ADDED" # `eventInfo: EncounterTimelineEventInfo` — Fired when an event has been added to the timeline. — Secret values — payload values are secret in some contexts (`SecretWhenEncounterEvent`).
+---| "ENCOUNTER_TIMELINE_EVENT_BLOCK_STATE_CHANGED" # `eventID: EncounterTimelineEventID` — Fired when an event has transitioned into or out of a 'blocked' status. — Flags: `UniqueEvent`
+---| "ENCOUNTER_TIMELINE_EVENT_COLOR_CHANGED" # `eventID: EncounterTimelineEventID` — Fired when an event has met a condition that should trigger a color change. — Flags: `UniqueEvent`
+---| "ENCOUNTER_TIMELINE_EVENT_HIGHLIGHT" # `eventID: EncounterTimelineEventID` — Fired when an event has met a condition that should trigger its highlight glow animation. — Flags: `UniqueEvent`
+---| "ENCOUNTER_TIMELINE_EVENT_REMOVED" # `eventID: EncounterTimelineEventID` — Fired when an event has been removed from the timeline. This is guaranteed to fire after an event has transitioned to a 'final' state such as Canceled or Finished, and will be delayed at least one game tick to allow for API queries to still access event data in OnUpdate scripts. This is fired post-removal of the event, and so queries using the supplied event ID will return nil. — Flags: `UniqueEvent`
+---| "ENCOUNTER_TIMELINE_EVENT_STATE_CHANGED" # `eventID: EncounterTimelineEventID` — Fired when an event has changed state. — Flags: `UniqueEvent`
+---| "ENCOUNTER_TIMELINE_EVENT_TRACK_CHANGED" # `eventID: EncounterTimelineEventID` — Fired when an event has changed track, or has been re-ordered within its existing track. — Flags: `UniqueEvent`
+---| "ENCOUNTER_TIMELINE_LAYOUT_UPDATED" # no payload — Fired when the layout of tracks on the timeline has been updated. This can include changes to the minimum or maximum durations of tracks.
+---| "ENCOUNTER_TIMELINE_STATE_UPDATED" # no payload — Signaled when conditions controlling the visibility of the encounter timeline are updated. — Flags: `UniqueEvent`
+---| "ENCOUNTER_TIMELINE_VIEW_ACTIVATED" # `viewType: Enum.EncounterTimelineViewType` — Fired when a new timeline view is being activated. This is fired after a full layout and timeline data update, allowing the UI to immediately query the API and get usable results.
+---| "ENCOUNTER_TIMELINE_VIEW_DEACTIVATED" # `viewType: Enum.EncounterTimelineViewType` — Fired when the current timeline view is being deactivated. The UI should clear all stored timeline event data and release all frames back to pools during this event.
+---| "ENCOUNTER_WARNING" # `encounterWarningInfo: EncounterWarningInfo`
+---| "END_BOUND_TRADEABLE" # `reason: string`
+---| "ENTERED_DIFFERENT_INSTANCE_FROM_PARTY" # no payload
+---| "ENTITLEMENT_DELIVERED" # `entitlementType: Enum.WoWEntitlementType, textureID: number, name: string, payloadID?: number, showFancyToast: boolean`
+---| "EQUIPMENT_SETS_CHANGED" # no payload
+---| "EQUIPMENT_SWAP_FINISHED" # `result: boolean, setID?: number`
+---| "EQUIPMENT_SWAP_PENDING" # no payload
+---| "EQUIP_BIND_CONFIRM" # `slot: number, itemLocation: ItemLocationMixin`
+---| "EQUIP_BIND_REFUNDABLE_CONFIRM" # `slot: number, itemLocation: ItemLocationMixin`
+---| "EQUIP_BIND_TRADEABLE_CONFIRM" # `slot: number, itemLocation: ItemLocationMixin`
+---| "EVENT_REALM_QUEUES_UPDATED" # `eventRealmQueues: Enum.EventRealmQueues`
+---| "EVENT_SCHEDULER_UPDATE" # no payload
+---| "EXPAND_BAG_BAR_CHANGED" # `expandBagBar: boolean`
+---| "EXTERNAL_EVENT_LAUNCH_URL_FAILED" # no payload
+---| "EXTRA_BROWSE_INFO_RECEIVED" # `itemID: number`
+---| "FACTION_STANDING_CHANGED" # `factionID: number, updatedStanding: number`
+---| "FIRST_FRAME_RENDERED" # no payload — Flags: `UniqueEvent`
+---| "FOG_OF_WAR_UPDATED" # no payload — Flags: `UniqueEvent`
+---| "FORBIDDEN_NAME_PLATE_CREATED" # `namePlateFrame: NamePlateFrame`
+---| "FORBIDDEN_NAME_PLATE_UNIT_ADDED" # `unitToken: UnitToken`
+---| "FORBIDDEN_NAME_PLATE_UNIT_REMOVED" # `unitToken: UnitToken`
+---| "FORCE_REFRESH_HOUSE_FINDER" # no payload
+---| "FRAME_MANAGER_UPDATE_ALL" # no payload
+---| "FRAME_MANAGER_UPDATE_FRAME" # `type: Enum.UIFrameType, show: boolean`
+---| "FRIENDLIST_UPDATE" # no payload
+---| "FULLSCREEN_BROWSER_SPINNER_HIDE" # no payload
+---| "FULLSCREEN_BROWSER_SPINNER_SHOW" # no payload
+---| "GAME_MODE_DISPLAY_INFO_UPDATED" # no payload
+---| "GAME_MODE_DISPLAY_MODE_TOGGLE_DISABLED" # `gameModeRecordID: number, disabled: boolean`
+---| "GAME_PAD_ACTIVE_CHANGED" # `isActive: boolean`
+---| "GAME_PAD_CONFIGS_CHANGED" # no payload
+---| "GAME_PAD_CONNECTED" # no payload
+---| "GAME_PAD_DISCONNECTED" # no payload
+---| "GAME_PAD_POWER_CHANGED" # `powerLevel: Enum.GamePadPowerLevel`
+---| "GARRISON_ARCHITECT_CLOSED" # no payload
+---| "GARRISON_ARCHITECT_OPENED" # `followerTypeID: number`
+---| "GARRISON_BUILDING_ACTIVATABLE" # `buildingName: string, garrisonType: number`
+---| "GARRISON_BUILDING_ACTIVATED" # `garrisonPlotInstanceID: number, garrisonBuildingID: number`
+---| "GARRISON_BUILDING_ERROR" # no payload
+---| "GARRISON_BUILDING_LIST_UPDATE" # `categoryID: number`
+---| "GARRISON_BUILDING_PLACED" # `garrisonPlotInstanceID: number, newPlacement: boolean`
+---| "GARRISON_BUILDING_REMOVED" # `garrPlotInstanceID: number, garrBuildingID: number`
+---| "GARRISON_BUILDING_UPDATE" # `garrisonBuildingID: number, garrPlotInstanceID?: number`
+---| "GARRISON_FOLLOWER_ADDED" # `followerDbID: GarrisonFollower, followerName: string, followerClassName: string, followerLevel: number, followerQuality: number, isUpgraded: boolean, textureKit: textureKit, followerTypeID: number`
+---| "GARRISON_FOLLOWER_CATEGORIES_UPDATED" # no payload
+---| "GARRISON_FOLLOWER_DURABILITY_CHANGED" # `garrFollowerTypeID: number, followerDbID: GarrisonFollower, followerDurability: number`
+---| "GARRISON_FOLLOWER_HEALED" # `followerID: GarrisonFollower`
+---| "GARRISON_FOLLOWER_LIST_UPDATE" # `followerTypeID: number`
+---| "GARRISON_FOLLOWER_REMOVED" # `followerTypeID: number`
+---| "GARRISON_FOLLOWER_UPGRADED" # `followerDbID: GarrisonFollower`
+---| "GARRISON_FOLLOWER_XP_CHANGED" # `garrFollowerTypeID: number, followerDbID: GarrisonFollower, xpChange: number, oldFollowerXp: number, oldFollowerLevel: number, oldFollowerQuality: number`
+---| "GARRISON_HIDE_LANDING_PAGE" # no payload
+---| "GARRISON_INVASION_AVAILABLE" # no payload
+---| "GARRISON_INVASION_UNAVAILABLE" # no payload
+---| "GARRISON_LANDINGPAGE_SHIPMENTS" # no payload — Flags: `UniqueEvent`
+---| "GARRISON_MISSION_AREA_BONUS_ADDED" # `garrisonMissonBonusAbilityID: number`
+---| "GARRISON_MISSION_BONUS_ROLL_COMPLETE" # `missionID: number, success: boolean`
+---| "GARRISON_MISSION_BONUS_ROLL_LOOT" # `itemID: number, quantity: number`
+---| "GARRISON_MISSION_COMPLETE_RESPONSE" # `missionID: number, canComplete: boolean, success: boolean, bonusRollSuccess: boolean, followerDeaths: GarrisonFollowerDeathInfo[], autoCombatResult?: AutoCombatResult`
+---| "GARRISON_MISSION_FINISHED" # `followerTypeID: number, missionID: number`
+---| "GARRISON_MISSION_LIST_UPDATE" # `garrFollowerTypeID: number`
+---| "GARRISON_MISSION_NPC_CLOSED" # no payload
+---| "GARRISON_MISSION_NPC_OPENED" # `followerTypeID: number`
+---| "GARRISON_MISSION_REWARD_INFO" # `missionID: number, followerDbID: GarrisonFollower`
+---| "GARRISON_MISSION_STARTED" # `garrFollowerTypeID: number, missionID: number`
+---| "GARRISON_MONUMENT_CLOSE_UI" # no payload
+---| "GARRISON_MONUMENT_LIST_LOADED" # `success: boolean`
+---| "GARRISON_MONUMENT_REPLACED" # `success: boolean`
+---| "GARRISON_MONUMENT_SELECTED_TROPHY_ID_LOADED" # `success: boolean`
+---| "GARRISON_MONUMENT_SHOW_UI" # no payload
+---| "GARRISON_RANDOM_MISSION_ADDED" # `followerTypeID: number, missionID: number`
+---| "GARRISON_RECALL_PORTAL_LAST_USED_TIME" # `success: boolean, recallPortalLastUsedTime: number`
+---| "GARRISON_RECALL_PORTAL_USED" # `success: boolean`
+---| "GARRISON_RECRUITMENT_FOLLOWERS_GENERATED" # no payload
+---| "GARRISON_RECRUITMENT_NPC_CLOSED" # no payload
+---| "GARRISON_RECRUITMENT_NPC_OPENED" # `followerTypeID: number`
+---| "GARRISON_RECRUITMENT_READY" # no payload
+---| "GARRISON_RECRUIT_FOLLOWER_RESULT" # no payload
+---| "GARRISON_SHIPMENT_RECEIVED" # no payload — Flags: `UniqueEvent`
+---| "GARRISON_SHIPYARD_NPC_CLOSED" # no payload
+---| "GARRISON_SHIPYARD_NPC_OPENED" # `followerTypeID: number`
+---| "GARRISON_SHOW_LANDING_PAGE" # no payload
+---| "GARRISON_SPEC_GROUPS_CLEARED" # `garrTypeID: number`
+---| "GARRISON_SPEC_GROUP_UPDATED" # `garrTypeID: number, specID: number`
+---| "GARRISON_TALENT_COMPLETE" # `garrTypeID: number, doAlert: boolean`
+---| "GARRISON_TALENT_EVENT_UPDATE" # `eventType: number, eventID: number`
+---| "GARRISON_TALENT_NPC_CLOSED" # no payload
+---| "GARRISON_TALENT_NPC_OPENED" # `garrisonTypeID: number, garrisonTalentTreeID: number`
+---| "GARRISON_TALENT_RESEARCH_STARTED" # `garrTypeID: number, garrisonTalentTreeID: number, garrTalentID: number`
+---| "GARRISON_TALENT_UNLOCKS_RESULT" # no payload
+---| "GARRISON_TALENT_UPDATE" # `garrTypeID: number`
+---| "GARRISON_TRADESKILL_NPC_CLOSED" # no payload
+---| "GARRISON_UPDATE" # no payload
+---| "GARRISON_UPGRADEABLE_RESULT" # `garrisonUpgradeable: boolean`
+---| "GARRISON_USE_PARTY_GARRISON_CHANGED" # no payload
+---| "GDF_SIM_COMPLETE" # no payload
+---| "GENERIC_ERROR" # `errorMessage: string`
+---| "GENERIC_WIDGET_DISPLAY_SHOW" # `info: GenericWidgetDisplayFrameInfo`
+---| "GET_ITEM_INFO_RECEIVED" # `itemID: number, success: boolean`
+---| "GLOBAL_MOUSE_DOWN" # `button: string`
+---| "GLOBAL_MOUSE_UP" # `button: string`
+---| "GLUE_SCREENSHOT_FAILED" # no payload
+---| "GLUE_SCREENSHOT_STARTED" # no payload
+---| "GLUE_SCREENSHOT_SUCCEEDED" # no payload
+---| "GM_PLAYER_INFO" # `name: string, info: string`
+---| "GOSSIP_CLOSED" # `interactionIsContinuing: boolean`
+---| "GOSSIP_CONFIRM" # `gossipID: number, text: string, cost: WOWMONEY`
+---| "GOSSIP_CONFIRM_CANCEL" # no payload
+---| "GOSSIP_ENTER_CODE" # `gossipID: number`
+---| "GOSSIP_OPTIONS_REFRESHED" # no payload
+---| "GOSSIP_SHOW" # `uiTextureKit?: textureKit`
+---| "GROUP_BUFF_VISUAL_ALERTS_CHANGED" # `visualAlerts: GroupBuffVisualAlertInfo[]`
+---| "GROUP_FORMED" # `category: number, partyGUID: WOWGUID`
+---| "GROUP_INVITE_CONFIRMATION" # no payload
+---| "GROUP_JOINED" # `category: number, partyGUID: WOWGUID`
+---| "GROUP_LEFT" # `category: number, partyGUID: WOWGUID`
+---| "GROUP_ROSTER_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "GUILDBANKBAGSLOTS_CHANGED" # no payload
+---| "GUILDBANKFRAME_CLOSED" # no payload
+---| "GUILDBANKFRAME_OPENED" # no payload
+---| "GUILDBANKLOG_UPDATE" # no payload
+---| "GUILDBANK_ITEM_LOCK_CHANGED" # no payload
+---| "GUILDBANK_TEXT_CHANGED" # `guildBankTab: luaIndex`
+---| "GUILDBANK_UPDATE_MONEY" # no payload
+---| "GUILDBANK_UPDATE_TABS" # no payload
+---| "GUILDBANK_UPDATE_TEXT" # `guildBankTab: number`
+---| "GUILDBANK_UPDATE_WITHDRAWMONEY" # no payload
+---| "GUILDTABARD_UPDATE" # no payload
+---| "GUILD_CHALLENGE_COMPLETED" # `challengeType: number, currentCount: number, maxCount: number, goldAwarded: number`
+---| "GUILD_CHALLENGE_UPDATED" # no payload
+---| "GUILD_EVENT_LOG_UPDATE" # no payload
+---| "GUILD_INVITE_CANCEL" # no payload
+---| "GUILD_INVITE_REQUEST" # `inviter: string, guildName: string, guildAchievementPoints: number, oldGuildName: string, isNewGuild?: boolean, tabardInfo?: GuildTabardInfo`
+---| "GUILD_MOTD" # `motdText: string` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "GUILD_NEWS_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "GUILD_PARTY_STATE_UPDATED" # `inGuildParty: boolean`
+---| "GUILD_RANKS_UPDATE" # no payload
+---| "GUILD_RANKS_UPDATE_ACTIVE_PLAYER" # no payload
+---| "GUILD_RECIPE_KNOWN_BY_MEMBERS" # no payload
+---| "GUILD_REGISTRAR_CLOSED" # no payload
+---| "GUILD_REGISTRAR_SHOW" # no payload
+---| "GUILD_RENAME_NAME_CHECK" # `desiredName: string, status: Enum.GuildErrorType, nameErrorToken?: string`
+---| "GUILD_RENAME_REFUND_RESULT" # `guildName: string, status: Enum.GuildErrorType`
+---| "GUILD_RENAME_REQUIRED" # `flagSet: boolean`
+---| "GUILD_RENAME_STATUS_UPDATE" # `status: GuildRenameStatus`
+---| "GUILD_REWARDS_LIST" # no payload
+---| "GUILD_REWARDS_LIST_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "GUILD_ROSTER_UPDATE" # `canRequestRosterUpdate: boolean`
+---| "GUILD_TRADESKILL_UPDATE" # no payload
+---| "GX_RESTARTED" # no payload
+---| "HANDLE_UI_ACTION" # `actionType: Enum.UIActionType` — Flags: `UniqueEvent`
+---| "HARDCORE_DEATHS" # `memberName: string`
+---| "HEARTHSTONE_BOUND" # no payload
+---| "HEIRLOOMS_UPDATED" # `itemID?: number, updateReason?: string, hideUntilLearned?: boolean` — Flags: `UniqueEvent`
+---| "HEIRLOOM_UPGRADE_TARGETING_CHANGED" # `pendingHeirloomUpgradeSpellcast: boolean`
+---| "HIDDEN_GROUP_BUFFS_CHANGED" # `spellIDs: number[]`
+---| "HIDE_HYPERLINK_TOOLTIP" # no payload
+---| "HIDE_SUBTITLE" # no payload
+---| "HONOR_LEVEL_UPDATE" # `isHigherLevel: boolean`
+---| "HONOR_XP_UPDATE" # `unitTarget: UnitTokenVariant`
+---| "HOUSE_DECOR_ADDED_TO_CHEST" # `decorGUID: WOWGUID, decorID: number`
+---| "HOUSE_EDITOR_AVAILABILITY_CHANGED" # no payload
+---| "HOUSE_EDITOR_MODE_CHANGED" # `currentEditMode: Enum.HouseEditorMode`
+---| "HOUSE_EDITOR_MODE_CHANGE_FAILURE" # `result: Enum.HousingResult`
+---| "HOUSE_EXTERIOR_DECOR_HIDDEN_CHANGED" # `isDecorHidden: boolean`
+---| "HOUSE_EXTERIOR_POSITION_FAILURE" # `housingResult: Enum.HousingResult`
+---| "HOUSE_EXTERIOR_POSITION_SUCCESS" # no payload
+---| "HOUSE_EXTERIOR_TYPE_UNLOCKED" # `fixtureID: number` — Flags: `UniqueEvent`
+---| "HOUSE_FINDER_NEIGHBORHOOD_DATA_RECIEVED" # `neighborhoodPlots: NeighborhoodPlotMapInfo[]`
+---| "HOUSE_INFO_UPDATED" # no payload
+---| "HOUSE_LEVEL_CHANGED" # `newHouseLevelInfo?: HouseLevelInfo`
+---| "HOUSE_LEVEL_FAVOR_UPDATED" # `houseLevelFavor: HouseLevelFavor`
+---| "HOUSE_PLOT_ENTERED" # no payload
+---| "HOUSE_PLOT_EXITED" # no payload
+---| "HOUSE_RESERVATION_RESPONSE_RECIEVED" # `result: Enum.HousingResult`
+---| "HOUSE_RESET_COMPLETED" # no payload
+---| "HOUSE_RESET_FAILED" # `result: Enum.HousingResult`
+---| "HOUSING_BASIC_MODE_HOVERED_TARGET_CHANGED" # `hasHoveredTarget: boolean, targetType: Enum.HousingBasicModeTargetType`
+---| "HOUSING_BASIC_MODE_PLACEMENT_FLAGS_UPDATED" # `targetType: Enum.HousingBasicModeTargetType, activeFlags: Enum.HousingDecorPlacementRestriction`
+---| "HOUSING_BASIC_MODE_SELECTED_TARGET_CHANGED" # `hasSelectedTarget: boolean, targetType: Enum.HousingBasicModeTargetType, isPreview: boolean`
+---| "HOUSING_BLUEPRINTS_AVAILABILITY_CHANGED" # no payload
+---| "HOUSING_BLUEPRINT_COLLECTION_FAILURE" # `result: Enum.HousingResult`
+---| "HOUSING_BLUEPRINT_COLLECTION_RECEIVED" # `collection: HousingBlueprintCollection`
+---| "HOUSING_BLUEPRINT_CONTENTS_FAILURE" # `blueprintShareCode: string, result: Enum.HousingResult`
+---| "HOUSING_BLUEPRINT_CONTENTS_RECEIVED" # `contentInfo: HousingBlueprintContentInfo`
+---| "HOUSING_BLUEPRINT_DELETE_FAILURE" # `blueprintID: number, result: Enum.HousingResult`
+---| "HOUSING_BLUEPRINT_DELETE_SUCCESS" # `blueprintID: number`
+---| "HOUSING_BLUEPRINT_EXPORT_FAILURE" # `result: Enum.HousingResult`
+---| "HOUSING_BLUEPRINT_EXPORT_SUCCESS" # `blueprintShareCode: string`
+---| "HOUSING_BLUEPRINT_IMPORT_FAILURE" # `result: Enum.HousingResult`
+---| "HOUSING_BLUEPRINT_IMPORT_STARTED" # no payload
+---| "HOUSING_BLUEPRINT_IMPORT_SUCCESS" # no payload
+---| "HOUSING_BLUEPRINT_RENAME_FAILURE" # `blueprintID: number, result: Enum.HousingResult`
+---| "HOUSING_BLUEPRINT_RENAME_SUCCESS" # `blueprintID: number, name: string`
+---| "HOUSING_CATALOG_CATEGORY_UPDATED" # `categoryID: number` — Flags: `UniqueEvent`
+---| "HOUSING_CATALOG_SUBCATEGORY_UPDATED" # `subcategoryID: number` — Flags: `UniqueEvent`
+---| "HOUSING_CLEANUP_MODE_HOVERED_TARGET_CHANGED" # `hasHoveredTarget: boolean, targetType: Enum.HousingCleanupModeTargetType`
+---| "HOUSING_CLEANUP_MODE_TARGET_SELECTED" # no payload
+---| "HOUSING_CORE_FIXTURE_CHANGED" # `coreFixtureType: Enum.HousingFixtureType` — Flags: `UniqueEvent`
+---| "HOUSING_CUSTOMIZE_MODE_HOVERED_TARGET_CHANGED" # `hasHoveredTarget: boolean, targetType: Enum.HousingCustomizeModeTargetType`
+---| "HOUSING_CUSTOMIZE_MODE_SELECTED_TARGET_CHANGED" # `hasSelectedTarget: boolean, targetType: Enum.HousingCustomizeModeTargetType`
+---| "HOUSING_DECOR_ADD_TO_PREVIEW_LIST" # `previewItemData: HousingPreviewItemData`
+---| "HOUSING_DECOR_CUSTOMIZATION_CHANGED" # `decorGUID: WOWGUID`
+---| "HOUSING_DECOR_DYE_FAILURE" # `decorGUID: WOWGUID, housingResult: Enum.HousingResult`
+---| "HOUSING_DECOR_FREE_PLACE_STATUS_CHANGED" # `isFreePlaceEnabled: boolean`
+---| "HOUSING_DECOR_GRID_SNAP_OCCURRED" # no payload
+---| "HOUSING_DECOR_GRID_SNAP_STATUS_CHANGED" # `isGridSnapEnabled: boolean`
+---| "HOUSING_DECOR_GRID_VISIBILITY_STATUS_CHANGED" # `isGridVisible: boolean`
+---| "HOUSING_DECOR_PLACE_FAILURE" # `housingResult: Enum.HousingResult`
+---| "HOUSING_DECOR_PLACE_SUCCESS" # `decorGUID: WOWGUID, size: Enum.HousingCatalogEntrySize, isNew: boolean, isPreview: boolean`
+---| "HOUSING_DECOR_PRECISION_MANIPULATION_EVENT" # `event: Enum.TransformManipulatorEvent`
+---| "HOUSING_DECOR_PRECISION_MANIPULATION_STATUS_CHANGED" # `isManipulatingSelection: boolean`
+---| "HOUSING_DECOR_PRECISION_SUBMODE_CHANGED" # `activeSubmode?: Enum.HousingPrecisionSubmode`
+---| "HOUSING_DECOR_PREVIEW_LIST_REMOVE_FROM_WORLD" # `decorGUID: WOWGUID`
+---| "HOUSING_DECOR_PREVIEW_LIST_UPDATED" # no payload
+---| "HOUSING_DECOR_PREVIEW_STATE_CHANGED" # `isPreviewState: boolean`
+---| "HOUSING_DECOR_REMOVED" # `decorGUID: WOWGUID`
+---| "HOUSING_DECOR_SELECT_RESPONSE" # `result: Enum.HousingResult`
+---| "HOUSING_EXPERT_MODE_HOVERED_TARGET_CHANGED" # `hasHoveredTarget: boolean, targetType: Enum.HousingExpertModeTargetType`
+---| "HOUSING_EXPERT_MODE_PLACEMENT_FLAGS_UPDATED" # `targetType: Enum.HousingExpertModeTargetType, activeFlags: Enum.HousingDecorPlacementRestriction`
+---| "HOUSING_EXPERT_MODE_SELECTED_TARGET_CHANGED" # `hasSelectedTarget: boolean, targetType: Enum.HousingExpertModeTargetType`
+---| "HOUSING_FIXTURE_HOVER_CHANGED" # `anyHovered: boolean`
+---| "HOUSING_FIXTURE_POINT_FRAMES_RELEASED" # no payload
+---| "HOUSING_FIXTURE_POINT_FRAME_ADDED" # `pointFrame: HousingFixturePointFrame`
+---| "HOUSING_FIXTURE_POINT_FRAME_RELEASED" # `pointFrame: HousingFixturePointFrame`
+---| "HOUSING_FIXTURE_POINT_SELECTION_CHANGED" # `hasSelection: boolean`
+---| "HOUSING_FIXTURE_UNLOCKED" # `fixtureID: number` — Flags: `UniqueEvent`
+---| "HOUSING_INSPECT_MODE_DECOR_HOVERED_CHANGED" # no payload
+---| "HOUSING_INSPECT_MODE_STATE_UPDATED" # no payload
+---| "HOUSING_LAYOUT_DOOR_SELECTED" # `roomGUID: WOWGUID, componentID: number` — Fired when one of the door nodes of an already placed room has been selected
+---| "HOUSING_LAYOUT_DOOR_SELECTION_CHANGED" # `hasSelection: boolean` — Fired when one of the door nodes of an already placed room has been selected or deselected
+---| "HOUSING_LAYOUT_DRAG_TARGET_CHANGED" # `isDraggingRoom: boolean` — Fired when an already placed room has either started or stopped being dragged
+---| "HOUSING_LAYOUT_FLOORPLAN_SELECTION_CHANGED" # `hasSelection: boolean, roomID: number, blueprintShareCode?: string` — Fired when a room option in the House Chest has been selected or deselected
+---| "HOUSING_LAYOUT_OCCUPIED_FLOOR_RANGE_CHANGED" # `lowestFloor: number, highestFloor: number`
+---| "HOUSING_LAYOUT_PIN_FRAMES_RELEASED" # no payload
+---| "HOUSING_LAYOUT_PIN_FRAME_ADDED" # `pinFrame: HousingLayoutPinFrame`
+---| "HOUSING_LAYOUT_PIN_FRAME_RELEASED" # `pinFrame: HousingLayoutPinFrame`
+---| "HOUSING_LAYOUT_ROOM_COMPONENT_THEME_SET_CHANGED" # `roomGUID: WOWGUID, componentID: number, newThemeSet: number, result: Enum.HousingResult`
+---| "HOUSING_LAYOUT_ROOM_MOVED" # no payload — Fired when a previously placed room has been moved to a different position or rotation
+---| "HOUSING_LAYOUT_ROOM_MOVE_INVALID" # no payload
+---| "HOUSING_LAYOUT_ROOM_RECEIVED" # `playAddedSound: boolean` — Fired when info for a newly placed room has been recieved while in Layout Mode
+---| "HOUSING_LAYOUT_ROOM_REMOVED" # no payload — Fired when a previously placed room has been removed while in Layout Mode
+---| "HOUSING_LAYOUT_ROOM_RETURNED" # no payload — Fired when a room that was being dragged is let go of without being placed, and is returned to the House Chest
+---| "HOUSING_LAYOUT_ROOM_SELECTION_CHANGED" # `hasSelection: boolean` — Fired when an already placed room has been selected or deselected
+---| "HOUSING_LAYOUT_ROOM_SNAPPED" # no payload — Fired when a room being dragged has been snapped to a particular door connection
+---| "HOUSING_LAYOUT_VIEWED_FLOOR_CHANGED" # `floor: number`
+---| "HOUSING_MARKET_AVAILABILITY_UPDATED" # no payload
+---| "HOUSING_NEW_DECOR_PLACE_COMPLETE" # `decorGUID: WOWGUID`
+---| "HOUSING_NUM_DECOR_PLACED_CHANGED" # no payload
+---| "HOUSING_REFUND_LIST_UPDATED" # no payload
+---| "HOUSING_ROOM_COMPONENT_CUSTOMIZATION_CHANGED" # `roomGUID: WOWGUID, componentID: number`
+---| "HOUSING_ROOM_COMPONENT_CUSTOMIZATION_CHANGE_FAILED" # `roomGUID: WOWGUID, componentID: number, housingResult: Enum.HousingResult`
+---| "HOUSING_SERVICES_AVAILABILITY_UPDATED" # no payload
+---| "HOUSING_SET_EXTERIOR_HOUSE_SIZE_RESPONSE" # `result: Enum.HousingResult`
+---| "HOUSING_SET_EXTERIOR_HOUSE_TYPE_RESPONSE" # `result: Enum.HousingResult`
+---| "HOUSING_SET_FIXTURE_RESPONSE" # `result: Enum.HousingResult`
+---| "HOUSING_STORAGE_ENTRY_UPDATED" # `entryVariantID: HousingCatalogEntryVariantID` — Flags: `UniqueEvent`
+---| "HOUSING_STORAGE_UPDATED" # no payload — Flags: `UniqueEvent`
+---| "IGNORELIST_UPDATE" # no payload
+---| "IGNORE_NEIGHBORHOOD_RESPONSE" # `success: boolean, neighborhoodGuid: WOWGUID`
+---| "IMMERSIVE_INTERACTION_BEGIN" # no payload
+---| "IMMERSIVE_INTERACTION_END" # no payload
+---| "INCOMING_RESURRECT_CHANGED" # `unitTarget: UnitTokenVariant`
+---| "INCOMING_SUMMON_CHANGED" # `unitTarget: UnitTokenVariant`
+---| "INITIAL_CLUBS_LOADED" # no payload
+---| "INITIAL_HOTFIXES_APPLIED" # no payload
+---| "INITIATIVE_ACTIVITY_LOG_UPDATED" # no payload
+---| "INITIATIVE_COMPLETED" # `initiativeTitle: string`
+---| "INITIATIVE_TASKS_TRACKED_LIST_CHANGED" # `initiativeTaskID: number, added: boolean`
+---| "INITIATIVE_TASKS_TRACKED_UPDATED" # no payload — Flags: `UniqueEvent`
+---| "INITIATIVE_TASK_COMPLETED" # `taskName: string`
+---| "INSPECT_ACHIEVEMENT_READY" # `guid: WOWGUID`
+---| "INSPECT_HONOR_UPDATE" # no payload
+---| "INSPECT_READY" # `inspecteeGUID: WOWGUID`
+---| "INSTANCE_ABANDON_VOTE_FINISHED" # `votePassed: boolean`
+---| "INSTANCE_ABANDON_VOTE_STARTED" # no payload
+---| "INSTANCE_ABANDON_VOTE_UPDATED" # no payload
+---| "INSTANCE_BOOT_START" # no payload
+---| "INSTANCE_BOOT_STOP" # no payload
+---| "INSTANCE_ENCOUNTER_ADD_TIMER" # `timeRemaining: number`
+---| "INSTANCE_ENCOUNTER_ENGAGE_UNIT" # no payload
+---| "INSTANCE_ENCOUNTER_OBJECTIVE_COMPLETE" # `objectiveID: number`
+---| "INSTANCE_ENCOUNTER_OBJECTIVE_START" # `objectiveID: number, objectiveProgress: number`
+---| "INSTANCE_ENCOUNTER_OBJECTIVE_UPDATE" # `objectiveID: number, objectiveProgress: number`
+---| "INSTANCE_GROUP_SIZE_CHANGED" # no payload
+---| "INSTANCE_LEAVER_STATUS_CHANGED" # `isLeaver: boolean`
+---| "INSTANCE_LOCK_START" # no payload
+---| "INSTANCE_LOCK_STOP" # no payload
+---| "INSTANCE_LOCK_WARNING" # no payload
+---| "INSTANCE_RESET_WARNING" # `warningMessage: string, timeLeft: number`
+---| "INVENTORY_SEARCH_UPDATE" # no payload
+---| "INVITE_TO_PARTY_CONFIRMATION" # `targetName: string, willConvertToRaid: boolean, questSessionActive: boolean`
+---| "INVITE_TRAVEL_PASS_CONFIRMATION" # `targetName: string, targetGUID: WOWGUID, willConvertToRaid: boolean, questSessionActive: boolean`
+---| "ISLANDS_QUEUE_CLOSE" # no payload
+---| "ISLANDS_QUEUE_OPEN" # no payload
+---| "ISLAND_AZERITE_GAIN" # `amount: number, gainedByPlayer: boolean, factionIndex: number, gainedBy: WOWGUID, gainedFrom: WOWGUID`
+---| "ISLAND_COMPLETED" # `mapID: number, winner: number`
+---| "ITEM_CHANGED" # `previousHyperlink: string, newHyperlink: string`
+---| "ITEM_CONVERSION_DATA_READY" # `itemGUID: WOWGUID`
+---| "ITEM_COUNT_CHANGED" # `itemID: number` — Flags: `UniqueEvent`
+---| "ITEM_DATA_LOAD_RESULT" # `itemID: number, success: boolean`
+---| "ITEM_INTERACTION_CHARGE_INFO_UPDATED" # no payload
+---| "ITEM_INTERACTION_ITEM_SELECTION_UPDATED" # `itemLocation?: ItemLocationMixin`
+---| "ITEM_KEY_ITEM_INFO_RECEIVED" # `itemID: number`
+---| "ITEM_LOCKED" # `bagOrSlotIndex: Enum.BagIndex, slotIndex?: luaIndex`
+---| "ITEM_LOCK_CHANGED" # `bagOrSlotIndex: Enum.BagIndex, slotIndex?: luaIndex`
+---| "ITEM_PURCHASED" # `itemID: number`
+---| "ITEM_PUSH" # `bagSlot: luaIndex, iconFileID: number`
+---| "ITEM_RESTORATION_BUTTON_STATUS" # no payload
+---| "ITEM_SEARCH_RESULTS_ADDED" # `itemKey: ItemKey`
+---| "ITEM_SEARCH_RESULTS_UPDATED" # `itemKey: ItemKey, newAuctionID?: number` — Flags: `UniqueEvent`
+---| "ITEM_TEXT_BEGIN" # no payload
+---| "ITEM_TEXT_CLOSED" # no payload
+---| "ITEM_TEXT_READY" # no payload
+---| "ITEM_TEXT_TRANSLATION" # `delay: number`
+---| "ITEM_UNLOCKED" # `bagOrSlotIndex: Enum.BagIndex, slotIndex?: luaIndex`
+---| "ITEM_UPGRADE_FAILED" # no payload
+---| "ITEM_UPGRADE_MASTER_SET_ITEM" # no payload
+---| "ITEM_UPGRADE_MASTER_UPDATE" # no payload
+---| "JAILERS_TOWER_LEVEL_UPDATE" # `level: number, type: Enum.JailersTowerType`
+---| "KNOWN_TITLES_UPDATE" # `unitTarget: UnitTokenVariant`
+---| "LANGUAGE_LIST_CHANGED" # no payload
+---| "LEARNED_SPELL_IN_SKILL_LINE" # `spellID: number, skillLineIndex: luaIndex, isGuildPerkSpell: boolean`
+---| "LEAVE_PARTY_CONFIRMATION" # `reason: Enum.LeavePartyConfirmReason`
+---| "LEAVING_TUTORIAL_AREA" # no payload
+---| "LEGACY_FRIEND_SYSTEM_STATUS_UPDATED" # no payload
+---| "LEGACY_LOOT_RULES_CHANGED" # `isLegacyLootModeEnabled: boolean`
+---| "LET_RECENT_ALLIES_SEE_LOCATION_SETTING_UPDATED" # no payload
+---| "LFG_BOOT_PROPOSAL_UPDATE" # no payload
+---| "LFG_COMPLETION_REWARD" # no payload
+---| "LFG_COOLDOWNS_UPDATED" # no payload
+---| "LFG_ENABLED_STATE_CHANGED" # no payload
+---| "LFG_GROUP_DELISTED_LEADERSHIP_CHANGE" # `listingName: string, automaticDelistTimeRemaining: number`
+---| "LFG_INVALID_ERROR_MESSAGE" # `reason: number, subReason1: number, subReason2: number`
+---| "LFG_LIST_ACTIVE_ENTRY_UPDATE" # `created?: boolean`
+---| "LFG_LIST_APPLICANT_LIST_UPDATED" # `newPendingEntry?: boolean, newPendingEntryWithData?: boolean`
+---| "LFG_LIST_APPLICANT_UPDATED" # `applicantID: number`
+---| "LFG_LIST_APPLICATION_STATUS_UPDATED" # `searchResultID: number, newStatus: string, oldStatus: string, groupName: string`
+---| "LFG_LIST_AVAILABILITY_UPDATE" # no payload
+---| "LFG_LIST_CENSORED_ACTIVE_ENTRY_UPDATE" # `isCensored: boolean`
+---| "LFG_LIST_ENTRY_CREATION_FAILED" # no payload
+---| "LFG_LIST_ENTRY_EXPIRED_TIMEOUT" # no payload
+---| "LFG_LIST_ENTRY_EXPIRED_TOO_MANY_PLAYERS" # no payload
+---| "LFG_LIST_JOINED_GROUP" # `searchResultID: number, groupName: string`
+---| "LFG_LIST_REVEALED_CENSORED_ACTIVE_ENTRY" # no payload
+---| "LFG_LIST_SEARCH_FAILED" # `reason?: string`
+---| "LFG_LIST_SEARCH_RESULTS_RECEIVED" # no payload
+---| "LFG_LIST_SEARCH_RESULT_UPDATED" # `searchResultID: number`
+---| "LFG_LIST_UPDATE_SEARCH_RESULTS" # no payload
+---| "LFG_LOCK_INFO_RECEIVED" # no payload
+---| "LFG_OFFER_CONTINUE" # `name: string, lfgDungeonsID: number, typeID: number`
+---| "LFG_OPEN_FROM_GOSSIP" # `dungeonID: number`
+---| "LFG_PROPOSAL_DONE" # no payload
+---| "LFG_PROPOSAL_FAILED" # no payload
+---| "LFG_PROPOSAL_SHOW" # no payload
+---| "LFG_PROPOSAL_SUCCEEDED" # no payload
+---| "LFG_PROPOSAL_UPDATE" # no payload
+---| "LFG_QUEUE_STATUS_UPDATE" # no payload
+---| "LFG_READY_CHECK_DECLINED" # `name: string`
+---| "LFG_READY_CHECK_HIDE" # no payload
+---| "LFG_READY_CHECK_PLAYER_IS_READY" # `name: string`
+---| "LFG_READY_CHECK_SHOW" # `isRequeue: boolean`
+---| "LFG_READY_CHECK_UPDATE" # no payload
+---| "LFG_ROLE_CHECK_DECLINED" # no payload
+---| "LFG_ROLE_CHECK_HIDE" # no payload
+---| "LFG_ROLE_CHECK_ROLE_CHOSEN" # `name: string, isTank: boolean, isHealer: boolean, isDamage: boolean`
+---| "LFG_ROLE_CHECK_SHOW" # `isRequeue: boolean`
+---| "LFG_ROLE_CHECK_UPDATE" # no payload
+---| "LFG_ROLE_UPDATE" # no payload
+---| "LFG_UPDATE" # no payload
+---| "LFG_UPDATE_RANDOM_INFO" # no payload
+---| "LIFESTEAL_UPDATE" # no payload
+---| "LOADING_SCREEN_DISABLED" # no payload
+---| "LOADING_SCREEN_ENABLED" # no payload
+---| "LOBBY_MATCHMAKER_QUEUE_ABANDONED" # no payload
+---| "LOBBY_MATCHMAKER_QUEUE_ERROR" # no payload
+---| "LOBBY_MATCHMAKER_QUEUE_EXPIRED" # no payload
+---| "LOBBY_MATCHMAKER_QUEUE_POPPED" # no payload
+---| "LOBBY_MATCHMAKER_QUEUE_STATUS_UPDATE" # no payload
+---| "LOCALPLAYER_PET_RENAMED" # no payload
+---| "LOC_RESULT" # `result: string`
+---| "LOGOUT_CANCEL" # no payload
+---| "LOOT_BIND_CONFIRM" # `lootSlot: luaIndex`
+---| "LOOT_CLOSED" # no payload
+---| "LOOT_HISTORY_CLEAR_HISTORY" # no payload
+---| "LOOT_HISTORY_GO_TO_ENCOUNTER" # `encounterID: number` — Flags: `UniqueEvent`
+---| "LOOT_HISTORY_ONE_HUNDRED_ROLL" # `encounterID: number, lootListID: number`
+---| "LOOT_HISTORY_UPDATE_DROP" # `encounterID: number, lootListID: number` — Flags: `UniqueEvent`
+---| "LOOT_HISTORY_UPDATE_ENCOUNTER" # `encounterID: number` — Flags: `UniqueEvent`
+---| "LOOT_ITEM_AVAILABLE" # `itemTooltip: string, lootHandle: number`
+---| "LOOT_ITEM_ROLL_WON" # `itemLink: string, rollQuantity: number, rollType: number, roll: number, upgraded: boolean`
+---| "LOOT_JOURNAL_ITEM_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "LOOT_OPENED" # `autoLoot: boolean, isFromItem: boolean`
+---| "LOOT_READY" # `autoloot: boolean`
+---| "LOOT_ROLLS_COMPLETE" # `lootHandle: number`
+---| "LOOT_SLOT_CHANGED" # `lootSlot: luaIndex`
+---| "LOOT_SLOT_CLEARED" # `lootSlot: luaIndex`
+---| "LORE_TEXT_UPDATED_CAMPAIGN" # `campaignID: number, textEntries: LoreTextEntry[]`
+---| "LOSS_OF_CONTROL_ADDED" # `unitTarget: UnitTokenVariant, effectIndex: luaIndex`
+---| "LOSS_OF_CONTROL_COMMENTATOR_ADDED" # `victim: WOWGUID, effectIndex: luaIndex`
+---| "LOSS_OF_CONTROL_COMMENTATOR_UPDATE" # `victim: WOWGUID` — Flags: `UniqueEvent`
+---| "LOSS_OF_CONTROL_UPDATE" # `unitTarget: UnitTokenVariant` — Flags: `UniqueEvent`
+---| "LUA_WARNING" # `warningText: string`
+---| "MACRO_ACTION_BLOCKED" # `function_: string`
+---| "MACRO_ACTION_FORBIDDEN" # `function_: string`
+---| "MAIL_CLOSED" # no payload
+---| "MAIL_FAILED" # `itemID?: number`
+---| "MAIL_INBOX_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "MAIL_LOCK_SEND_ITEMS" # `attachSlot: luaIndex, itemLink: string`
+---| "MAIL_SEND_INFO_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "MAIL_SEND_SUCCESS" # no payload
+---| "MAIL_SHOW" # no payload
+---| "MAIL_SUCCESS" # `itemID?: number`
+---| "MAIL_UNLOCK_SEND_ITEMS" # no payload
+---| "MAIN_SPEC_NEED_ROLL" # `rollID: number, roll: number, isWinning: boolean`
+---| "MAJOR_FACTION_INTERACTION_ENDED" # no payload
+---| "MAJOR_FACTION_INTERACTION_STARTED" # no payload
+---| "MAJOR_FACTION_RENOWN_LEVEL_CHANGED" # `majorFactionID: number, newRenownLevel: number, oldRenownLevel: number`
+---| "MAJOR_FACTION_UNLOCKED" # `majorFactionID: number`
+---| "MAP_EXPLORATION_UPDATED" # no payload
+---| "MASTERY_UPDATE" # no payload
+---| "MAX_EXPANSION_LEVEL_UPDATED" # no payload
+---| "MAX_SPELL_START_RECOVERY_OFFSET_CHANGED" # `clampedNewQueueWindowMs: number`
+---| "MENTORSHIP_STATUS_CHANGED" # no payload
+---| "MERCHANT_CLOSED" # no payload
+---| "MERCHANT_CONFIRM_TRADE_TIMER_REMOVAL" # `itemLink: string`
+---| "MERCHANT_FILTER_ITEM_UPDATE" # `itemID: number`
+---| "MERCHANT_SHOW" # no payload
+---| "MERCHANT_UPDATE" # no payload
+---| "MINIMAP_PING" # `unitTarget: UnitTokenVariant, y: number, x: number` — Restricted — delivery to addons is subject to restrictions. Secret values — the payload may contain secret values. Flags: `CallbackEvent`
+---| "MINIMAP_UPDATE_TRACKING" # no payload — Flags: `UniqueEvent`
+---| "MINIMAP_UPDATE_ZOOM" # no payload — Flags: `UniqueEvent`
+---| "MIN_EXPANSION_LEVEL_UPDATED" # no payload
+---| "MIRROR_TIMER_PAUSE" # `timerName: string, paused: number`
+---| "MIRROR_TIMER_START" # `timerName: string, value: number, maxValue: number, scale: number, paused: number, timerLabel: string`
+---| "MIRROR_TIMER_STOP" # `timerName: string`
+---| "MODIFIER_STATE_CHANGED" # `key: string, down: number`
+---| "MOUNT_CURSOR_CLEAR" # no payload
+---| "MOUNT_EQUIPMENT_APPLY_RESULT" # `success: boolean`
+---| "MOUNT_JOURNAL_SEARCH_UPDATED" # no payload
+---| "MOUNT_JOURNAL_USABILITY_CHANGED" # no payload
+---| "MOVE_OUT_RESERVATION_UPDATED" # no payload
+---| "MUTELIST_UPDATE" # no payload
+---| "MYTHIC_PLUS_CURRENT_AFFIX_UPDATE" # no payload
+---| "MYTHIC_PLUS_NEW_WEEKLY_RECORD" # `mapChallengeModeID: number, completionMilliseconds: number, level: number`
+---| "NAME_PLATE_CREATED" # `namePlateFrame: NamePlateFrame`
+---| "NAME_PLATE_UNIT_ADDED" # `unitToken: UnitToken`
+---| "NAME_PLATE_UNIT_BEHIND_CAMERA_CHANGED" # `unitTarget: UnitTokenVariant, isBehindCamera: boolean`
+---| "NAME_PLATE_UNIT_REMOVED" # `unitToken: UnitToken`
+---| "NAVIGATION_DESTINATION_REACHED" # `isWaypoint: boolean`
+---| "NAVIGATION_FRAME_CREATED" # `region: ScriptRegion`
+---| "NAVIGATION_FRAME_DESTROYED" # no payload
+---| "NEIGHBORHOOD_GUILD_SIZE_VALIDATED" # `approved: boolean`
+---| "NEIGHBORHOOD_INFO_UPDATED" # `neighborhoodInfo: NeighborhoodInfo`
+---| "NEIGHBORHOOD_INITIATIVE_UPDATED" # no payload
+---| "NEIGHBORHOOD_INVITE_RESPONSE" # `result: Enum.NeighborhoodInviteResult`
+---| "NEIGHBORHOOD_LIST_UPDATED" # `result: Enum.HousingResult, neighborhoodInfos?: NeighborhoodInfo[]`
+---| "NEIGHBORHOOD_MAP_DATA_UPDATED" # no payload — Flags: `UniqueEvent`
+---| "NEIGHBORHOOD_NAME_UPDATED" # `neighborhoodGuid: WOWGUID, neighborhoodName: string` — Flags: `UniqueEvent`
+---| "NEIGHBORHOOD_NAME_VALIDATED" # `approved: boolean`
+---| "NEUTRAL_FACTION_SELECT_RESULT" # `success: boolean`
+---| "NEWCOMER_GRADUATION" # no payload
+---| "NEW_HOUSING_ITEM_ACQUIRED" # `itemType: Enum.HousingItemToastType, itemName: string, icon?: fileID`
+---| "NEW_MATCHMAKING_PARTY_INVITE" # no payload
+---| "NEW_MOUNT_ADDED" # `mountID: number`
+---| "NEW_PET_ADDED" # `battlePetGUID: WOWGUID`
+---| "NEW_RECIPE_LEARNED" # `recipeID: number, recipeLevel?: luaIndex, baseRecipeID?: number`
+---| "NEW_RUNEFORGE_POWER_ADDED" # `powerID: number`
+---| "NEW_TOY_ADDED" # `itemID: number`
+---| "NEW_WARBAND_SCENE_ADDED" # `warbandScenID: number`
+---| "NEW_WMO_CHUNK" # no payload
+---| "NOTCHED_DISPLAY_MODE_CHANGED" # no payload
+---| "NOTIFY_CHAT_SUPPRESSED" # no payload
+---| "NOTIFY_PVP_AFK_RESULT" # `offender: string, numBlackMarksOnOffender: number, numPlayersIHaveReported: number`
+---| "NOTIFY_TURN_STRAFE_CHANGE" # no payload
+---| "NPE_TUTORIAL_UPDATE" # no payload
+---| "OBJECT_ENTERED_AOI" # `guid: WOWGUID`
+---| "OBJECT_LEFT_AOI" # `guid: WOWGUID`
+---| "OBLITERUM_FORGE_PENDING_ITEM_CHANGED" # no payload
+---| "OPEN_CHARTER_CONFIRMATION_UI" # `neighborhoodName: string, locationName: string`
+---| "OPEN_CREATE_CHARTER_NEIGHBORHOOD_UI" # `locationName: string`
+---| "OPEN_CREATE_GUILD_NEIGHBORHOOD_UI" # `locationName: string`
+---| "OPEN_MASTER_LOOT_LIST" # no payload
+---| "OPEN_NEIGHBORHOOD_CHARTER" # `neighborhoodInfo: NeighborhoodInfo, signatures: string[], requiredSignatures: number`
+---| "OPEN_NEIGHBORHOOD_CHARTER_SIGNATURE_REQUEST" # `neighborhoodInfo: NeighborhoodInfo`
+---| "OPEN_PLOT_CORNERSTONE" # no payload
+---| "OPEN_RECIPE_RESPONSE" # `recipeID: number, skillLineID: number, expansionSkillLineID: number`
+---| "OPEN_SPLASH_SCREEN" # `info?: SplashScreenInfo`
+---| "OPEN_TABARD_FRAME" # no payload
+---| "OWNED_AUCTIONS_UPDATED" # no payload
+---| "OWNED_AUCTION_BIDDER_INFO_RECEIVED" # `auctionID: number, bidderName: string`
+---| "PARTY_ELIGIBILITY_FOR_DELVE_TIERS_CHANGED" # `playerName: string, maxEligibleLevel: number` — Signaled when responses come in from RequestPartyEligibilityForDelveTiers.
+---| "PARTY_INVITE_CANCEL" # no payload
+---| "PARTY_INVITE_REQUEST" # `name: string, isTank: boolean, isHealer: boolean, isDamage: boolean, isNativeRealm: boolean, allowMultipleRoles: boolean, inviterGUID: WOWGUID, questSessionActive: boolean`
+---| "PARTY_KILL" # `attackerGUID: WOWGUID, targetGUID: WOWGUID` — Secret values — payload values are secret when the unit isn't player-controlled or in the party/raid. For compound tokens (eg. 'boss1target'), results are secret if any unit in the chain fails this (`SecretWhenUnitIdentityRestricted`).
+---| "PARTY_LEADER_CHANGED" # no payload — Flags: `UniqueEvent`
+---| "PARTY_LFG_RESTRICTED" # no payload
+---| "PARTY_LOOT_METHOD_CHANGED" # no payload — Flags: `UniqueEvent`
+---| "PARTY_MEMBER_DISABLE" # `unitTarget: UnitTokenVariant`
+---| "PARTY_MEMBER_ENABLE" # `unitTarget: UnitTokenVariant`
+---| "PENDING_AZERITE_ESSENCE_CHANGED" # `essenceID?: number`
+---| "PENDING_NEIGHBORHOOD_INVITES_RECIEVED" # `result: Enum.NeighborhoodInviteResult, pendingInviteList?: string[]`
+---| "PERKS_ACTIVITIES_TRACKED_LIST_CHANGED" # `perksActivityID: number, added: boolean`
+---| "PERKS_ACTIVITIES_TRACKED_UPDATED" # no payload — Flags: `UniqueEvent`
+---| "PERKS_ACTIVITIES_UPDATED" # no payload — Flags: `UniqueEvent`
+---| "PERKS_ACTIVITY_COMPLETED" # `perksActivityID: number`
+---| "PERKS_PROGRAM_ADD_PENDING_SHOP_ITEM" # `vendorItemID: number`
+---| "PERKS_PROGRAM_CLOSE" # no payload
+---| "PERKS_PROGRAM_CURRENCY_AWARDED" # `value: number`
+---| "PERKS_PROGRAM_CURRENCY_REFRESH" # `oldValue: number, newValue: number`
+---| "PERKS_PROGRAM_DATA_REFRESH" # no payload
+---| "PERKS_PROGRAM_DATA_SPECIFIC_ITEM_REFRESH" # `vendorItemID: number`
+---| "PERKS_PROGRAM_DISABLED" # no payload
+---| "PERKS_PROGRAM_OPEN" # no payload
+---| "PERKS_PROGRAM_PURCHASE_CART_SUCCESS" # `vendorItemIDs: number[]`
+---| "PERKS_PROGRAM_PURCHASE_SUCCESS" # `vendorItemID: number`
+---| "PERKS_PROGRAM_REFUND_SUCCESS" # `vendorItemID: number`
+---| "PERKS_PROGRAM_REMOVE_PENDING_SHOP_ITEM" # `vendorItemID: number`
+---| "PERKS_PROGRAM_RESULT_ERROR" # no payload
+---| "PERKS_PROGRAM_SET_FROZEN_ITEM" # `vendorItemID: number`
+---| "PETITION_CLOSED" # no payload
+---| "PETITION_SHOW" # no payload
+---| "PET_ATTACK_START" # no payload
+---| "PET_ATTACK_STOP" # no payload
+---| "PET_BAR_HIDEGRID" # no payload
+---| "PET_BAR_SHOWGRID" # no payload
+---| "PET_BAR_UPDATE" # no payload
+---| "PET_BAR_UPDATE_COOLDOWN" # no payload
+---| "PET_BAR_UPDATE_USABLE" # no payload
+---| "PET_BATTLE_ABILITY_CHANGED" # `owner: number, petIndex: number, abilityID: number`
+---| "PET_BATTLE_ACTION_SELECTED" # no payload
+---| "PET_BATTLE_AURA_APPLIED" # `owner: number, petIndex: number, auraInstanceID: number`
+---| "PET_BATTLE_AURA_CANCELED" # `owner: number, petIndex: number, auraInstanceID: number`
+---| "PET_BATTLE_AURA_CHANGED" # `owner: number, petIndex: number, auraInstanceID: number`
+---| "PET_BATTLE_CAPTURED" # `owner: number, petIndex: number`
+---| "PET_BATTLE_CLOSE" # no payload
+---| "PET_BATTLE_FINAL_ROUND" # `owner: number`
+---| "PET_BATTLE_HEALTH_CHANGED" # `owner: number, petIndex: number, healthChange: number`
+---| "PET_BATTLE_LEVEL_CHANGED" # `owner: number, petIndex: number, newLevel: number`
+---| "PET_BATTLE_LOOT_RECEIVED" # `typeIdentifier: string, itemLink: string, quantity: number`
+---| "PET_BATTLE_MAX_HEALTH_CHANGED" # `owner: number, petIndex: number, healthChange: number`
+---| "PET_BATTLE_OPENING_DONE" # no payload
+---| "PET_BATTLE_OPENING_START" # no payload
+---| "PET_BATTLE_OVER" # no payload
+---| "PET_BATTLE_OVERRIDE_ABILITY" # `abilityIndex: number`
+---| "PET_BATTLE_PET_CHANGED" # `owner: number`
+---| "PET_BATTLE_PET_ROUND_PLAYBACK_COMPLETE" # `roundNumber: number`
+---| "PET_BATTLE_PET_ROUND_RESULTS" # `roundNumber: number`
+---| "PET_BATTLE_PET_TYPE_CHANGED" # `owner: number, petIndex: number, stateValue: number`
+---| "PET_BATTLE_PVP_DUEL_REQUESTED" # `fullName: string`
+---| "PET_BATTLE_PVP_DUEL_REQUEST_CANCEL" # no payload
+---| "PET_BATTLE_QUEUE_PROPOSAL_ACCEPTED" # no payload
+---| "PET_BATTLE_QUEUE_PROPOSAL_DECLINED" # no payload
+---| "PET_BATTLE_QUEUE_PROPOSE_MATCH" # no payload
+---| "PET_BATTLE_QUEUE_STATUS" # no payload
+---| "PET_BATTLE_XP_CHANGED" # `owner: number, petIndex: number, xpChange: number`
+---| "PET_DISMISS_START" # `delay: number`
+---| "PET_FORCE_NAME_DECLENSION" # `name: string, petNumber?: number, declinedName1?: string, declinedName2?: string, declinedName3?: string, declinedName4?: string, declinedName5?: string`
+---| "PET_INFO_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "PET_JOURNAL_AUTO_SLOTTED_PET" # `slotIndex: number, battlePetGUID: WOWGUID`
+---| "PET_JOURNAL_CAGE_FAILED" # no payload
+---| "PET_JOURNAL_LIST_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "PET_JOURNAL_NEW_BATTLE_SLOT" # no payload
+---| "PET_JOURNAL_PETS_HEALED" # no payload
+---| "PET_JOURNAL_PET_DELETED" # `battlePetGUID: WOWGUID`
+---| "PET_JOURNAL_PET_RESTORED" # `battlePetGUID: WOWGUID`
+---| "PET_JOURNAL_PET_REVOKED" # `battlePetGUID: WOWGUID`
+---| "PET_JOURNAL_TRAP_LEVEL_SET" # `trapLevel: number`
+---| "PET_SPECIALIZATION_CHANGED" # no payload
+---| "PET_SPELL_POWER_UPDATE" # no payload
+---| "PET_STABLE_CLOSED" # no payload
+---| "PET_STABLE_FAVORITES_UPDATED" # no payload
+---| "PET_STABLE_SHOW" # no payload
+---| "PET_STABLE_UPDATE" # no payload
+---| "PET_UI_CLOSE" # no payload
+---| "PET_UI_UPDATE" # no payload
+---| "PHOTO_SHARING_AUTHORIZATION_NEEDED" # no payload
+---| "PHOTO_SHARING_AUTHORIZATION_UPDATED" # `showNotification: boolean`
+---| "PHOTO_SHARING_PHOTO_UPLOAD_STATUS" # `uploadStatus: Enum.PhotoSharingUploadStatus`
+---| "PHOTO_SHARING_SCREENSHOT_READY" # no payload
+---| "PHOTO_SHARING_THIRD_PARTY_AUTHORIZATION_NEEDED" # `authUrl: string`
+---| "PING_SYSTEM_ERROR" # `error: string`
+---| "PLAYERBANKSLOTS_CHANGED" # `slot: number`
+---| "PLAYER_ACCOUNT_BANK_TAB_SLOTS_CHANGED" # `slot: number`
+---| "PLAYER_ALIVE" # no payload
+---| "PLAYER_AVG_ITEM_LEVEL_UPDATE" # no payload
+---| "PLAYER_CAMPING" # no payload
+---| "PLAYER_CAN_GLIDE_CHANGED" # `canGlide: boolean`
+---| "PLAYER_CHARACTER_LIST_UPDATED" # `characterInfos: HouseOwnerCharacterInfo[], ownerListIndex: number`
+---| "PLAYER_CHOICE_CLOSE" # no payload
+---| "PLAYER_CHOICE_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "PLAYER_CONTROL_GAINED" # no payload
+---| "PLAYER_CONTROL_LOST" # no payload
+---| "PLAYER_DAMAGE_DONE_MODS" # `unitTarget: UnitTokenVariant`
+---| "PLAYER_DEAD" # no payload
+---| "PLAYER_DIFFICULTY_CHANGED" # no payload
+---| "PLAYER_ENTERING_BATTLEGROUND" # no payload
+---| "PLAYER_ENTERING_WORLD" # `isInitialLogin: boolean, isReloadingUi: boolean`
+---| "PLAYER_ENTER_COMBAT" # no payload
+---| "PLAYER_EQUIPMENT_CHANGED" # `equipmentSlot: number, hasCurrent: boolean`
+---| "PLAYER_FARSIGHT_FOCUS_CHANGED" # no payload
+---| "PLAYER_FLAGS_CHANGED" # `unitTarget: UnitTokenVariant`
+---| "PLAYER_FOCUS_CHANGED" # no payload
+---| "PLAYER_GAINS_VEHICLE_DATA" # `unitTarget: UnitTokenVariant, vehicleUIIndicatorID: number`
+---| "PLAYER_GUILD_UPDATE" # `unitTarget: UnitTokenVariant`
+---| "PLAYER_HOUSE_LIST_UPDATED" # `houseInfos: HouseInfo[]`
+---| "PLAYER_IMPULSE_APPLIED" # no payload
+---| "PLAYER_INSIDE_QUEST_BLOB_STATE_CHANGED" # `questID: number, isInside: boolean`
+---| "PLAYER_INTERACTION_MANAGER_FRAME_HIDE" # `type: Enum.PlayerInteractionType`
+---| "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" # `type: Enum.PlayerInteractionType`
+---| "PLAYER_IN_COMBAT_CHANGED" # `inCombat: boolean`
+---| "PLAYER_IS_GLIDING_CHANGED" # `isGliding: boolean`
+---| "PLAYER_JOINED_PVP_MATCH" # no payload
+---| "PLAYER_LEARN_PVP_TALENT_FAILED" # no payload
+---| "PLAYER_LEARN_TALENT_FAILED" # no payload
+---| "PLAYER_LEAVE_COMBAT" # no payload
+---| "PLAYER_LEAVING_WORLD" # no payload
+---| "PLAYER_LEVEL_CHANGED" # `oldLevel: number, newLevel: number, real: boolean`
+---| "PLAYER_LEVEL_UP" # `level: number, healthDelta: number, powerDelta: number, numNewTalents: number, numNewPvpTalentSlots: number, strengthDelta: number, agilityDelta: number, staminaDelta: number, intellectDelta: number`
+---| "PLAYER_LOGIN" # no payload
+---| "PLAYER_LOGOUT" # no payload
+---| "PLAYER_LOOT_SPEC_UPDATED" # no payload
+---| "PLAYER_LOSES_VEHICLE_DATA" # `unitTarget: UnitTokenVariant`
+---| "PLAYER_MAP_CHANGED" # `oldMapID: number, newMapID: number`
+---| "PLAYER_MAX_LEVEL_UPDATE" # `unitTarget: UnitTokenVariant`
+---| "PLAYER_MONEY" # no payload
+---| "PLAYER_MOUNT_DISPLAY_CHANGED" # no payload
+---| "PLAYER_PVP_KILLS_CHANGED" # `unitTarget: UnitTokenVariant`
+---| "PLAYER_PVP_RANK_CHANGED" # `unitTarget: UnitTokenVariant`
+---| "PLAYER_PVP_TALENT_UPDATE" # no payload
+---| "PLAYER_QUITING" # no payload
+---| "PLAYER_REGEN_DISABLED" # no payload
+---| "PLAYER_REGEN_ENABLED" # no payload
+---| "PLAYER_REPORT_SUBMITTED" # `invitedByGUID: WOWGUID`
+---| "PLAYER_ROLES_ASSIGNED" # no payload — Flags: `UniqueEvent`
+---| "PLAYER_SKINNED" # `hasFreeRepop: number`
+---| "PLAYER_SOFT_ENEMY_CHANGED" # no payload
+---| "PLAYER_SOFT_FRIEND_CHANGED" # no payload
+---| "PLAYER_SOFT_INTERACT_CHANGED" # `oldTarget: WOWGUID, newTarget: WOWGUID` — Secret values — payload values are secret when the unit isn't player-controlled or in the party/raid. For compound tokens (eg. 'boss1target'), results are secret if any unit in the chain fails this (`SecretWhenUnitIdentityRestricted`).
+---| "PLAYER_SOFT_TARGET_INTERACTION" # no payload
+---| "PLAYER_SPECIALIZATION_CHANGED" # `unitTarget: UnitTokenVariant` — Flags: `UniqueEvent`
+---| "PLAYER_STARTED_LOOKING" # no payload
+---| "PLAYER_STARTED_MOVING" # no payload
+---| "PLAYER_STARTED_TURNING" # no payload
+---| "PLAYER_STOPPED_LOOKING" # no payload
+---| "PLAYER_STOPPED_MOVING" # no payload
+---| "PLAYER_STOPPED_TURNING" # no payload
+---| "PLAYER_TALENT_UPDATE" # no payload
+---| "PLAYER_TARGET_CHANGED" # no payload
+---| "PLAYER_TARGET_DIED" # no payload
+---| "PLAYER_TOTEM_UPDATE" # `totemSlot: luaIndex`
+---| "PLAYER_TRADE_CURRENCY" # no payload
+---| "PLAYER_TRADE_MONEY" # no payload
+---| "PLAYER_TRIAL_XP_UPDATE" # `unitTarget: UnitTokenVariant`
+---| "PLAYER_UNGHOST" # no payload
+---| "PLAYER_UPDATE_RESTING" # no payload
+---| "PLAYER_XP_UPDATE" # `unitTarget: UnitTokenVariant`
+---| "PLAY_MOVIE" # `movieID: number`
+---| "PORTRAITS_UPDATED" # no payload — Flags: `UniqueEvent`
+---| "POST_MATCH_CURRENCY_REWARD_UPDATE" # `reward: PVPPostMatchCurrencyReward`
+---| "POST_MATCH_ITEM_REWARD_UPDATE" # no payload
+---| "PROFESSION_EQUIPMENT_CHANGED" # `skillLineID: number, isTool: boolean`
+---| "PROFESSION_RESPEC_CONFIRMATION" # `skillName: string`
+---| "PROVING_GROUNDS_SCORE_UPDATE" # `points: number`
+---| "PURCHASE_PLOT_RESULT" # `result: number`
+---| "PVPQUEUE_ANYWHERE_SHOW" # no payload
+---| "PVPQUEUE_ANYWHERE_UPDATE_AVAILABLE" # no payload
+---| "PVP_BRAWL_INFO_UPDATED" # no payload
+---| "PVP_MATCH_ACTIVE" # no payload
+---| "PVP_MATCH_COMPLETE" # `winner: number, duration: time_t`
+---| "PVP_MATCH_INACTIVE" # no payload
+---| "PVP_MATCH_STATE_CHANGED" # no payload
+---| "PVP_POWER_UPDATE" # no payload
+---| "PVP_RATED_STATS_UPDATE" # no payload
+---| "PVP_REWARDS_UPDATE" # no payload
+---| "PVP_ROLE_POPUP_HIDE" # `readyCheckInfo?: PvpReadyCheckInfo`
+---| "PVP_ROLE_POPUP_SHOW" # `readyCheckInfo: PvpReadyCheckInfo`
+---| "PVP_ROLE_UPDATE" # no payload
+---| "PVP_SPECIAL_EVENT_INFO_UPDATED" # no payload
+---| "PVP_TIMER_UPDATE" # `unitTarget: UnitTokenVariant`
+---| "PVP_TYPES_ENABLED" # `wargameBattlegrounds: boolean, ratedBattlegrounds: boolean, ratedArenas: boolean, ratedSoloShuffle: boolean, ratedBGBlitz: boolean`
+---| "PVP_VEHICLE_INFO_UPDATED" # no payload — Flags: `UniqueEvent`
+---| "PVP_WORLDSTATE_UPDATE" # no payload
+---| "QUESTLINE_UPDATE" # `requestRequired: boolean`
+---| "QUEST_ACCEPTED" # `questId: number`
+---| "QUEST_ACCEPT_CONFIRM" # `name: string, questTitle: string, questID: number`
+---| "QUEST_AUTOCOMPLETE" # `questId: number`
+---| "QUEST_BOSS_EMOTE" # `text: string, playerName: string, displayTime: number, enableBossEmoteWarningSound: boolean`
+---| "QUEST_COMPLETE" # no payload
+---| "QUEST_CURRENCY_LOOT_RECEIVED" # `questID: number, currencyId: number, quantity: number`
+---| "QUEST_DATA_LOAD_RESULT" # `questID: number, success: boolean`
+---| "QUEST_DETAIL" # `questStartItemID?: number`
+---| "QUEST_FINISHED" # no payload
+---| "QUEST_GREETING" # no payload
+---| "QUEST_ITEM_UPDATE" # no payload
+---| "QUEST_LOG_CRITERIA_UPDATE" # `questID: number, specificTreeID: number, description: string, numFulfilled: number, numRequired: number`
+---| "QUEST_LOG_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "QUEST_LOOT_RECEIVED" # `questID: number, itemLink: string, quantity: number`
+---| "QUEST_POI_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "QUEST_PROGRESS" # no payload
+---| "QUEST_REMOVED" # `questID: number, wasReplayQuest: boolean`
+---| "QUEST_SESSION_CREATED" # no payload — Flags: `UniqueEvent`
+---| "QUEST_SESSION_DESTROYED" # no payload — Flags: `UniqueEvent`
+---| "QUEST_SESSION_ENABLED_STATE_CHANGED" # `enabled: boolean`
+---| "QUEST_SESSION_JOINED" # no payload — Flags: `UniqueEvent`
+---| "QUEST_SESSION_LEFT" # no payload — Flags: `UniqueEvent`
+---| "QUEST_SESSION_MEMBER_CONFIRM" # no payload
+---| "QUEST_SESSION_MEMBER_START_RESPONSE" # `guid: WOWGUID, response: boolean`
+---| "QUEST_SESSION_NOTIFICATION" # `result: Enum.QuestSessionResult, guid: WOWGUID`
+---| "QUEST_TURNED_IN" # `questID: number, xpReward: number, moneyReward: number`
+---| "QUEST_WATCH_LIST_CHANGED" # `questID?: number, added?: boolean` — Flags: `UniqueEvent`
+---| "QUEST_WATCH_UPDATE" # `questID: number`
+---| "QUICK_TICKET_SYSTEM_STATUS" # no payload
+---| "QUICK_TICKET_THROTTLE_CHANGED" # no payload
+---| "RAF_ENTITLEMENT_DELIVERED" # `entitlementType: Enum.WoWEntitlementType, textureID: number, name: string, payloadID?: number, showFancyToast: boolean, rafVersion: Enum.RecruitAFriendRewardsVersion`
+---| "RAF_INFO_UPDATED" # `info: RafInfo`
+---| "RAF_RECRUITING_ENABLED_STATUS" # `enabled: boolean`
+---| "RAF_REWARD_CLAIM_FAILED" # no payload
+---| "RAF_SYSTEM_ENABLED_STATUS" # `enabled: boolean`
+---| "RAF_SYSTEM_INFO_UPDATED" # `systemInfo: RafSystemInfo`
+---| "RAID_BOSS_EMOTE" # `text: string, playerName: string, displayTime: number, enableBossEmoteWarningSound: boolean`
+---| "RAID_BOSS_WHISPER" # `text: string, playerName: string, displayTime: number, enableBossEmoteWarningSound: boolean`
+---| "RAID_INSTANCE_WELCOME" # `mapname: string, timeLeft: number, locked: number, extended: number`
+---| "RAID_ROSTER_UPDATE" # no payload
+---| "RAID_TARGET_UPDATE" # no payload
+---| "RAISED_AS_GHOUL" # no payload
+---| "READY_CHECK" # `initiatorName: string, readyCheckTimeLeft: time_t` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "READY_CHECK_CONFIRM" # `unitTarget: UnitTokenVariant, isReady: boolean`
+---| "READY_CHECK_FINISHED" # `preempted: boolean`
+---| "RECEIVED_ACHIEVEMENT_LIST" # no payload — Flags: `UniqueEvent`
+---| "RECEIVED_ACHIEVEMENT_MEMBER_LIST" # `achievementID: number`
+---| "RECEIVED_HOUSE_LEVEL_REWARDS" # `level: number, rewards: HouseLevelReward[]`
+---| "RECENT_ALLIES_CACHE_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "RECENT_ALLIES_DATA_READY" # no payload
+---| "RECENT_ALLIES_SYSTEM_STATUS_UPDATED" # no payload
+---| "RECENT_ALLY_DATA_UPDATED" # `characterGUID: WOWGUID`
+---| "REJECTED_MATCHMAKING_PARTY_INVITE" # `name: string`
+---| "REMIX_ARTIFACT_ITEM_SPECS_LOADED" # `success: boolean`
+---| "REMIX_ARTIFACT_UPDATE" # no payload
+---| "REMIX_END_OF_EVENT" # no payload
+---| "REMOVE_NEIGHBORHOOD_CHARTER_SIGNATURE" # `signature: string`
+---| "REPLACE_ENCHANT" # `existingStr: string, replacementStr: string`
+---| "REPLACE_TRADESKILL_ENCHANT" # `existing: string, replacement: string`
+---| "REPLICATE_ITEM_LIST_UPDATE" # no payload
+---| "REPORT_PLAYER_RESULT" # `result: Enum.SendReportResult, reportType: Enum.ReportType`
+---| "REPORT_SCREENSHOT_READY" # no payload
+---| "REQUESTED_GUILD_RENAME_RESULT" # `newName: string, status: Enum.GuildErrorType`
+---| "REQUEST_CEMETERY_LIST_RESPONSE" # `isGossipTriggered: boolean`
+---| "REQUEST_INVITE_CONFIRMATION" # `targetName: string, partyLevelLink: number, questSessionActive: boolean, tank?: boolean, healer?: boolean, dps?: boolean`
+---| "REQUIRED_GUILD_RENAME_RESULT" # `success: boolean`
+---| "RESEARCH_ARTIFACT_COMPLETE" # `name: string`
+---| "RESEARCH_ARTIFACT_DIG_SITE_UPDATED" # no payload
+---| "RESEARCH_ARTIFACT_UPDATE" # no payload
+---| "RESURRECT_REQUEST" # `inviter: string`
+---| "ROLE_CHANGED_INFORM" # `changedName: string, fromName: string, oldRole: string, newRole: string`
+---| "ROLE_POLL_BEGIN" # `fromName: string`
+---| "RUNEFORGE_LEGENDARY_CRAFTING_CLOSED" # no payload
+---| "RUNEFORGE_LEGENDARY_CRAFTING_OPENED" # `isUpgrade: boolean`
+---| "RUNEFORGE_POWER_INFO_UPDATED" # `powerID: number`
+---| "RUNE_POWER_UPDATE" # `runeIndex: number, added?: boolean` — Secret values — the payload may contain secret values.
+---| "RUNE_TYPE_UPDATE" # `runeIndex: number` — Secret values — the payload may contain secret values.
+---| "SAVED_VARIABLES_TOO_LARGE" # `addOnName: string`
+---| "SCENARIO_BONUS_OBJECTIVE_COMPLETE" # `bonusObjectiveID: number`
+---| "SCENARIO_BONUS_VISIBILITY_UPDATE" # no payload
+---| "SCENARIO_COMPLETED" # `questID?: number, xp?: number, money?: number`
+---| "SCENARIO_CRITERIA_SHOW_STATE_UPDATE" # `show: boolean`
+---| "SCENARIO_CRITERIA_UPDATE" # `criteriaID: number`
+---| "SCENARIO_POI_UPDATE" # no payload
+---| "SCENARIO_SPELL_UPDATE" # no payload
+---| "SCENARIO_UPDATE" # `newStep?: boolean`
+---| "SCRAPPING_MACHINE_ITEM_ADDED" # `index: number`
+---| "SCRAPPING_MACHINE_ITEM_REMOVED" # `index: number`
+---| "SCRAPPING_MACHINE_PENDING_ITEM_CHANGED" # no payload
+---| "SCRAPPING_MACHINE_SCRAPPING_FINISHED" # no payload
+---| "SCREENSHOT_FAILED" # no payload
+---| "SCREENSHOT_STARTED" # no payload
+---| "SCREENSHOT_SUCCEEDED" # no payload
+---| "SCRIPTED_ANIMATIONS_UPDATE" # no payload
+---| "SEARCH_DB_LOADED" # no payload
+---| "SECURE_TRANSFER_CANCEL" # no payload
+---| "SECURE_TRANSFER_CONFIRM_HOUSING_PURCHASE" # no payload
+---| "SECURE_TRANSFER_CONFIRM_SEND_MAIL" # no payload
+---| "SECURE_TRANSFER_CONFIRM_TRADE_ACCEPT" # no payload
+---| "SECURE_TRANSFER_HOUSING_CURRENCY_PURCHASE_CONFIRMATION" # no payload
+---| "SELECTED_LOADOUT_CHANGED" # no payload
+---| "SELF_RES_SPELL_CHANGED" # no payload
+---| "SEND_MAIL_COD_CHANGED" # no payload
+---| "SEND_MAIL_MONEY_CHANGED" # no payload
+---| "SETTINGS_LOADED" # no payload
+---| "SETTINGS_PANEL_OPEN" # `openToCategoryID?: number, scrollToElementName?: string`
+---| "SET_SEEN_PRODUCTS" # `productIds: number[]`
+---| "SHIPMENT_CRAFTER_CLOSED" # no payload
+---| "SHIPMENT_CRAFTER_INFO" # `success: number, shipmentCount: number, maxShipments: number, ownedShipments: number, plotInstanceID: number`
+---| "SHIPMENT_CRAFTER_OPENED" # `charShipmentContainerID: number`
+---| "SHIPMENT_CRAFTER_REAGENT_UPDATE" # no payload
+---| "SHIPMENT_UPDATE" # `shipmentStarted?: boolean, hasAttachedFollower?: boolean`
+---| "SHOW_DELVES_COMPANION_CONFIGURATION_UI" # no payload — Signaled when SpellScript indicates that a curio has been learned or upgraded. Will show the companion config UI.
+---| "SHOW_END_OF_MATCH_UI" # no payload
+---| "SHOW_FACTION_SELECT_UI" # no payload
+---| "SHOW_HYPERLINK_TOOLTIP" # `hyperlink: string`
+---| "SHOW_JOURNEYS_UI" # `factionID: number` — Signaled when the UI needs to display the journeys dashboard at a specific faction.
+---| "SHOW_LFG_EXPAND_SEARCH_PROMPT" # no payload
+---| "SHOW_LOOT_TOAST" # `typeIdentifier: string, itemLink: string, quantity: number, specID: number, sex: number, personalLootToast: boolean, toastMethod: number, lessAwesome: boolean, upgraded: boolean, corrupted: boolean`
+---| "SHOW_LOOT_TOAST_LEGENDARY_LOOTED" # `itemLink: string`
+---| "SHOW_LOOT_TOAST_UPGRADE" # `itemLink: string, quantity: number, specID: number, sex: number, baseQuality: number, personalLootToast: boolean, lessAwesome: boolean`
+---| "SHOW_NEIGHBORHOOD_OWNERSHIP_TRANSFER_DIALOG" # `neighborhoodName: string, cosmeticOwnerName: string`
+---| "SHOW_NEW_PRODUCT_NOTIFICATION" # no payload
+---| "SHOW_PARTY_POSE_UI" # `mapID: number, won: boolean`
+---| "SHOW_PLAYER_EVICTED_DIALOG" # no payload
+---| "SHOW_PVP_FACTION_LOOT_TOAST" # `typeIdentifier: string, itemLink: string, quantity: number, specID: number, sex: number, personalLootToast: boolean, lessAwesome: boolean`
+---| "SHOW_RATED_PVP_REWARD_TOAST" # `typeIdentifier: string, itemLink: string, quantity: number, specID: number, sex: number, personalLootToast: boolean, lessAwesome: boolean`
+---| "SHOW_STAIR_DIRECTION_CONFIRMATION" # no payload
+---| "SHOW_SUBSCRIPTION_INTERSTITIAL" # `type: Enum.SubscriptionInterstitialType`
+---| "SHOW_SUBTITLE" # `subtitle: string, sender?: string`
+---| "SIMPLE_BROWSER_POPUP" # `url: string`
+---| "SIMPLE_BROWSER_SOCIAL_CALLBACK_INVOKED" # `url: string` — Flags: `UniqueEvent`
+---| "SIMPLE_BROWSER_WEB_ERROR" # `errorCode: number`
+---| "SIMPLE_BROWSER_WEB_PROXY_FAILED" # no payload
+---| "SIMPLE_CHECKOUT_CLOSED" # no payload
+---| "SKILL_LINES_CHANGED" # no payload
+---| "SKILL_LINE_SPECS_RANKS_CHANGED" # no payload — Flags: `UniqueEvent`
+---| "SKILL_LINE_SPECS_UNLOCKED" # `skillLineID: number, tradeSkillID: number` — Flags: `UniqueEvent`
+---| "SOCIAL_QUEUE_CONFIG_UPDATED" # no payload
+---| "SOCIAL_QUEUE_UPDATE" # `groupGUID: WOWGUID, numAddedItems?: number`
+---| "SOCIAL_UI_FRIENDS_LIST_SYSTEM_STATUS_UPDATED" # no payload
+---| "SOCIAL_UI_SOCIAL_QUEUE_SYSTEM_STATUS_UPDATED" # no payload
+---| "SOCIAL_UI_SYSTEM_STATUS_UPDATED" # no payload
+---| "SOCKET_INFO_ACCEPT" # no payload
+---| "SOCKET_INFO_BIND_CONFIRM" # no payload
+---| "SOCKET_INFO_CLOSE" # no payload
+---| "SOCKET_INFO_FAILURE" # no payload
+---| "SOCKET_INFO_REFUNDABLE_CONFIRM" # no payload
+---| "SOCKET_INFO_SUCCESS" # no payload
+---| "SOCKET_INFO_UI_EVENT_REGISTRATION_UPDATE" # `uiType: Enum.ItemSocketInfoUIType`
+---| "SOCKET_INFO_UPDATE" # no payload
+---| "SOULBIND_ACTIVATED" # `soulbindID: number`
+---| "SOULBIND_CONDUIT_COLLECTION_CLEARED" # no payload
+---| "SOULBIND_CONDUIT_COLLECTION_REMOVED" # `conduitID: number`
+---| "SOULBIND_CONDUIT_COLLECTION_UPDATED" # `collectionData: ConduitCollectionData`
+---| "SOULBIND_CONDUIT_INSTALLED" # `nodeID: number, data: SoulbindConduitData`
+---| "SOULBIND_CONDUIT_UNINSTALLED" # `nodeID: number, data: SoulbindConduitData`
+---| "SOULBIND_FORGE_INTERACTION_ENDED" # no payload
+---| "SOULBIND_FORGE_INTERACTION_STARTED" # no payload
+---| "SOULBIND_NODE_LEARNED" # `nodeID: number`
+---| "SOULBIND_NODE_UNLEARNED" # `nodeID: number`
+---| "SOULBIND_NODE_UPDATED" # `nodeID: number`
+---| "SOULBIND_PATH_CHANGED" # no payload
+---| "SOULBIND_PENDING_CONDUIT_CHANGED" # `nodeID: number, conduitID: number`
+---| "SOUNDKIT_FINISHED" # `soundHandle: number`
+---| "SOUND_DEVICE_UPDATE" # no payload
+---| "SPECIALIZATION_CHANGE_CAST_FAILED" # no payload
+---| "SPEC_INVOLUNTARILY_CHANGED" # `isPet: boolean`
+---| "SPEED_UPDATE" # no payload
+---| "SPELLS_CHANGED" # no payload — Flags: `UniqueEvent`
+---| "SPELL_ACTIVATION_OVERLAY_GLOW_HIDE" # `spellID: number`
+---| "SPELL_ACTIVATION_OVERLAY_GLOW_SHOW" # `spellID: number`
+---| "SPELL_ACTIVATION_OVERLAY_HIDE" # `spellID?: number`
+---| "SPELL_ACTIVATION_OVERLAY_SHOW" # `spellID: number, overlayFileDataID: number, locationType: Enum.ScreenLocationType, scale: number, r: number, g: number, b: number`
+---| "SPELL_CONFIRMATION_PROMPT" # `spellID: number, effectValue: number, message: string, duration: number, currencyTypesID: number, currencyCost: number, currentDifficulty: number, displayItemID: number, itemContext: number, treasureContextLevel: number`
+---| "SPELL_CONFIRMATION_TIMEOUT" # `spellID: number, effectValue: number`
+---| "SPELL_DATA_LOAD_RESULT" # `spellID: number, success: boolean`
+---| "SPELL_FLYOUT_UPDATE" # `flyoutID?: number, spellID?: number, isLearned?: boolean` — Flags: `UniqueEvent`
+---| "SPELL_POWER_CHANGED" # no payload
+---| "SPELL_PUSHED_TO_ACTIONBAR" # `spellID: number, slot: number, page: number`
+---| "SPELL_PUSHED_TO_FLYOUT_ON_ACTIONBAR" # `spellID: number, flyoutSlot: luaIndex, flyoutPage: luaIndex`
+---| "SPELL_RANGE_CHECK_UPDATE" # `spellIdentifier: SpellIdentifier, isInRange: boolean, checksRange: boolean` — Used in conjunction with EnableSpellRangeCheck to inform the UI when a spell goes in or out of range with the current target.
+---| "SPELL_TEXT_UPDATE" # `spellID: number`
+---| "SPELL_UPDATE_CHARGES" # no payload — Flags: `UniqueEvent`
+---| "SPELL_UPDATE_COOLDOWN" # `spellID?: number, baseSpellID?: number, category?: number, startRecoveryCategory?: number, itemID?: number` — Flags: `UniqueEvent`
+---| "SPELL_UPDATE_ICON" # `spellID?: number` — Flags: `UniqueEvent`
+---| "SPELL_UPDATE_USABLE" # no payload — Flags: `UniqueEvent`
+---| "SPELL_UPDATE_USES" # `spellID: number, baseSpellID?: number` — Flags: `UniqueEvent`
+---| "STARTER_BUILD_ACTIVATION_FAILED" # no payload
+---| "START_AUTOREPEAT_SPELL" # no payload
+---| "START_LOOT_ROLL" # `rollID: number, rollTime: number, lootHandle?: number`
+---| "START_PLAYER_COUNTDOWN" # `initiatedBy: WOWGUID, timeRemaining: time_t, totalTime: time_t, informChat: boolean, initiatedByName?: string` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "START_TIMER" # `timerType: Enum.StartTimerType, timeRemaining: time_t, totalTime: time_t`
+---| "STOP_AUTOREPEAT_SPELL" # no payload
+---| "STOP_MOVIE" # no payload
+---| "STOP_TIMER_OF_TYPE" # `timerType: Enum.StartTimerType`
+---| "STORE_FRONT_STATE_UPDATED" # `storeFrontID: number`
+---| "STREAMING_ICON" # `streamingStatus: number`
+---| "STREAM_VIEW_MARKER_UPDATED" # `clubId: ClubId, streamId: ClubStreamId, lastReadTime?: number` — Flags: `UniqueEvent`
+---| "STURDINESS_UPDATE" # no payload
+---| "SUPER_TRACKING_CHANGED" # no payload — Flags: `UniqueEvent`
+---| "SUPER_TRACKING_PATH_UPDATED" # no payload — Flags: `UniqueEvent`
+---| "SURVEY_DELIVERED" # no payload
+---| "SYSMSG" # `string: string, r: number, g: number, b: number`
+---| "SYSTEM_VISIBILITY_CHANGED" # no payload — Flags: `UniqueEvent`
+---| "TABARD_CANSAVE_CHANGED" # no payload
+---| "TABARD_SAVE_PENDING" # no payload
+---| "TALENTS_INVOLUNTARILY_RESET" # `isPetTalents: boolean`
+---| "TALKINGHEAD_CLOSE" # no payload
+---| "TALKINGHEAD_REQUESTED" # no payload
+---| "TASK_PROGRESS_UPDATE" # no payload
+---| "TAXIMAP_CLOSED" # no payload
+---| "TAXIMAP_OPENED" # `system: number`
+---| "TAXI_NODE_STATUS_CHANGED" # no payload
+---| "TIME_PLAYED_MSG" # `totalTimePlayed: number, timePlayedThisLevel: number`
+---| "TOGGLE_CONSOLE" # `showConsole?: boolean`
+---| "TOKEN_AUCTION_SOLD" # no payload
+---| "TOKEN_BUY_CONFIRM_REQUIRED" # no payload
+---| "TOKEN_BUY_RESULT" # `result: number`
+---| "TOKEN_CAN_VETERAN_BUY_UPDATE" # `result: number`
+---| "TOKEN_DISTRIBUTIONS_UPDATED" # `result: number`
+---| "TOKEN_MARKET_PRICE_UPDATED" # `result: number`
+---| "TOKEN_REDEEM_BALANCE_UPDATED" # no payload
+---| "TOKEN_REDEEM_CONFIRM_REQUIRED" # `choiceType: luaIndex`
+---| "TOKEN_REDEEM_FRAME_SHOW" # no payload
+---| "TOKEN_REDEEM_GAME_TIME_UPDATED" # no payload
+---| "TOKEN_REDEEM_RESULT" # `result: luaIndex, choiceType: luaIndex`
+---| "TOKEN_SELL_CONFIRMED" # no payload
+---| "TOKEN_SELL_CONFIRM_REQUIRED" # no payload
+---| "TOKEN_SELL_RESULT" # `result: number`
+---| "TOKEN_STATUS_CHANGED" # no payload
+---| "TOOLTIP_DATA_UPDATE" # `dataInstanceID?: number` — Sends an update to the UI that a sparse or cache lookup has resolved — Flags: `UniqueEvent`
+---| "TOOLTIP_SHOW_ITEM_COMPARISON" # `comparisonItem: table, tooltip: GameTooltip, anchorFrame?: Frame` — Flags: `CallbackEvent`
+---| "TOYS_UPDATED" # `itemID?: number, isNew?: boolean, hasFanfare?: boolean` — Flags: `UniqueEvent`
+---| "TRACKABLE_INFO_UPDATE" # `type: Enum.ContentTrackingType, id: number`
+---| "TRACKED_ACHIEVEMENT_LIST_CHANGED" # `achievementID?: number, added?: boolean`
+---| "TRACKED_ACHIEVEMENT_UPDATE" # `achievementID: number, criteriaID?: number, elapsed?: time_t, duration?: number`
+---| "TRACKED_HOUSE_CHANGED" # `trackedHouse?: WOWGUID`
+---| "TRACKED_RECIPE_UPDATE" # `recipeID: number, tracked: boolean`
+---| "TRACKING_TARGET_INFO_UPDATE" # `targetType: Enum.ContentTrackingTargetType, targetID: number`
+---| "TRADE_ACCEPT_UPDATE" # `playerAccepted: number, targetAccepted: number`
+---| "TRADE_CLOSED" # no payload
+---| "TRADE_CURRENCY_CHANGED" # no payload
+---| "TRADE_MONEY_CHANGED" # no payload
+---| "TRADE_PLAYER_ITEM_CHANGED" # `tradeSlotIndex: number`
+---| "TRADE_POTENTIAL_BIND_ENCHANT" # `canBecomeBoundForTrade: boolean`
+---| "TRADE_POTENTIAL_REMOVE_TRANSMOG" # `itemLink: string, tradeSlotIndex: number`
+---| "TRADE_REPLACE_ENCHANT" # `existing: string, replacement: string`
+---| "TRADE_REQUEST" # `name: string`
+---| "TRADE_REQUEST_CANCEL" # no payload
+---| "TRADE_SHOW" # no payload
+---| "TRADE_SKILL_CLOSE" # no payload
+---| "TRADE_SKILL_CRAFTING_REAGENT_BONUS_TEXT_UPDATED" # `itemID: number`
+---| "TRADE_SKILL_CRAFT_BEGIN" # `recipeSpellID: number`
+---| "TRADE_SKILL_CURRENCY_REWARD_RESULT" # `data: CraftingCurrencyResultData`
+---| "TRADE_SKILL_DATA_SOURCE_CHANGED" # no payload — Flags: `UniqueEvent`
+---| "TRADE_SKILL_DATA_SOURCE_CHANGING" # no payload — Flags: `UniqueEvent`
+---| "TRADE_SKILL_DETAILS_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "TRADE_SKILL_FAVORITES_CHANGED" # `isFavorite: boolean, recipeSpellID: number` — Flags: `UniqueEvent`
+---| "TRADE_SKILL_ITEM_CRAFTED_RESULT" # `data: CraftingItemResultData`
+---| "TRADE_SKILL_ITEM_UPDATE" # `itemGUID: WOWGUID`
+---| "TRADE_SKILL_LIST_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "TRADE_SKILL_NAME_UPDATE" # no payload
+---| "TRADE_SKILL_SHOW" # no payload
+---| "TRADE_TARGET_ITEM_CHANGED" # `tradeSlotIndex: number`
+---| "TRADE_UPDATE" # no payload
+---| "TRADE_UPDATE_WARNINGS" # no payload
+---| "TRAINER_CLOSED" # no payload
+---| "TRAINER_DESCRIPTION_UPDATE" # no payload
+---| "TRAINER_SERVICE_INFO_NAME_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "TRAINER_SHOW" # no payload
+---| "TRAINER_UPDATE" # no payload
+---| "TRAINING_GROUNDS_ENABLED_STATUS_UPDATED" # no payload
+---| "TRAIT_COND_INFO_CHANGED" # `condID: number`
+---| "TRAIT_CONFIG_CREATED" # `configInfo: TraitConfigInfo`
+---| "TRAIT_CONFIG_DELETED" # `configID: number`
+---| "TRAIT_CONFIG_LIST_UPDATED" # no payload
+---| "TRAIT_CONFIG_UPDATED" # `configID: number`
+---| "TRAIT_NODE_CHANGED" # `nodeID: number`
+---| "TRAIT_NODE_CHANGED_PARTIAL" # `ID: number, info: TraitNodeInfoPartial`
+---| "TRAIT_NODE_ENTRY_UPDATED" # `nodeEntryID: number`
+---| "TRAIT_SUB_TREE_CHANGED" # `subTreeID: number`
+---| "TRAIT_SYSTEM_INTERACTION_STARTED" # `treeID: number`
+---| "TRAIT_SYSTEM_NPC_CLOSED" # no payload
+---| "TRAIT_TREE_CHANGED" # `treeID: number`
+---| "TRAIT_TREE_CURRENCY_INFO_UPDATED" # `treeID: number`
+---| "TRANSMOGRIFY_CLOSE" # no payload
+---| "TRANSMOGRIFY_ITEM_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "TRANSMOGRIFY_OPEN" # no payload
+---| "TRANSMOGRIFY_SUCCESS" # `transmogLocation: TransmogLocationMixin`
+---| "TRANSMOGRIFY_UPDATE" # `transmogLocation?: TransmogLocationMixin, action?: string`
+---| "TRANSMOG_COLLECTION_CAMERA_UPDATE" # no payload
+---| "TRANSMOG_COLLECTION_ITEM_FAVORITE_UPDATE" # `itemAppearanceID: number, isFavorite: boolean`
+---| "TRANSMOG_COLLECTION_ITEM_UPDATE" # no payload — Flags: `UniqueEvent`
+---| "TRANSMOG_COLLECTION_SOURCE_ADDED" # `itemModifiedAppearanceID: number`
+---| "TRANSMOG_COLLECTION_SOURCE_REMOVED" # `itemModifiedAppearanceID: number`
+---| "TRANSMOG_COLLECTION_UPDATED" # `collectionIndex?: luaIndex, modID?: number, itemAppearanceID?: number, reason?: string` — Flags: `UniqueEvent`
+---| "TRANSMOG_COSMETIC_COLLECTION_SOURCE_ADDED" # `itemModifiedAppearanceID: number`
+---| "TRANSMOG_CUSTOM_SETS_CHANGED" # no payload
+---| "TRANSMOG_DISPLAYED_OUTFIT_CHANGED" # no payload
+---| "TRANSMOG_OUTFITS_CHANGED" # `newOutfitID?: number`
+---| "TRANSMOG_SEARCH_UPDATED" # `searchType: Enum.TransmogSearchType, collectionType?: Enum.TransmogCollectionType`
+---| "TRANSMOG_SETS_UPDATE_FAVORITE" # no payload
+---| "TRANSMOG_SOURCE_COLLECTABILITY_UPDATE" # `itemModifiedAppearanceID: number, collectable: boolean`
+---| "TREASURE_PICKER_CACHE_FLUSH" # no payload
+---| "TRIAL_CAP_REACHED_MONEY" # no payload
+---| "TRY_PURCHASE_TO_NODE_PARTIAL_SUCCESS" # `nodeFinishedOn: number`
+---| "TUTORIAL_COMBAT_EVENT" # no payload — Requires `RequireNPERestricted`; returns nothing otherwise.
+---| "TUTORIAL_HIGHLIGHT_SPELL" # `spellID: number, tutorialGlobalStringTag: string`
+---| "TUTORIAL_TRIGGER" # `tutorialIndex: number, forceShow: boolean`
+---| "TUTORIAL_UNHIGHLIGHT_SPELL" # no payload
+---| "UI_ERROR_MESSAGE" # `errorType: luaIndex, message: string` — Flags: `UniqueEvent`
+---| "UI_ERROR_POPUP" # `errorType: luaIndex, message: string` — Flags: `UniqueEvent`
+---| "UI_INFO_MESSAGE" # `errorType: luaIndex, message: string` — Flags: `UniqueEvent`
+---| "UI_MODEL_SCENE_INFO_UPDATED" # no payload — Flags: `UniqueEvent`
+---| "UI_SCALE_CHANGED" # no payload
+---| "UNIT_ABSORB_AMOUNT_CHANGED" # `unitTarget: UnitTokenVariant`
+---| "UNIT_AREA_CHANGED" # `unitTarget: UnitTokenVariant`
+---| "UNIT_ARENA_COOLDOWNS_UPDATE" # `unitTarget: UnitTokenVariant` — Only signaled when the active player is a commentator or spectator. — Flags: `UniqueEvent`
+---| "UNIT_ATTACK" # `unitTarget: UnitTokenVariant`
+---| "UNIT_ATTACK_POWER" # `unitTarget: UnitTokenVariant`
+---| "UNIT_ATTACK_SPEED" # `unitTarget: UnitTokenVariant`
+---| "UNIT_AURA" # `unitTarget: UnitTokenVariant, updateInfo: UnitAuraUpdateInfo` — Secret values — payload values are secret when combat, encounter, challenge mode, or PvP match addon restrictions are in effect (`SecretWhenAurasRestricted`).
+---| "UNIT_AURA_BLOCKED" # `unitTarget: UnitTokenVariant, auraInstanceID: number`
+---| "UNIT_AURA_BLOCK_LIST_CLEARED" # `unitTarget: UnitTokenVariant`
+---| "UNIT_CHEAT_TOGGLE_EVENT" # no payload
+---| "UNIT_CLASSIFICATION_CHANGED" # `unitTarget: UnitTokenVariant`
+---| "UNIT_COMBAT" # `unitTarget: UnitTokenVariant, event: string, flagText: string, amount: number, schoolMask: number`
+---| "UNIT_CONNECTION" # `unitTarget: UnitTokenVariant, isConnected: boolean`
+---| "UNIT_CTR_OPTIONS" # `unitTarget: UnitTokenVariant`
+---| "UNIT_DAMAGE" # `unitTarget: UnitTokenVariant`
+---| "UNIT_DEFENSE" # `unitTarget: UnitTokenVariant`
+---| "UNIT_DIED" # `unitGUID: WOWGUID` — Secret values — payload values are secret when the unit isn't player-controlled or in the party/raid. For compound tokens (eg. 'boss1target'), results are secret if any unit in the chain fails this (`SecretWhenUnitIdentityRestricted`).
+---| "UNIT_DISPLAYPOWER" # `unitTarget: UnitTokenVariant`
+---| "UNIT_DISTANCE_CHECK_UPDATE" # `unitTarget: UnitTokenVariant, isInDistance: boolean` — Secret values — the payload may contain secret values.
+---| "UNIT_ENTERED_VEHICLE" # `unitTarget: UnitTokenVariant, showVehicleFrame: boolean, isControlSeat: boolean, vehicleUIIndicatorID: number, vehicleGUID: WOWGUID, mayChooseExit: boolean, hasPitch: boolean`
+---| "UNIT_ENTERING_VEHICLE" # `unitTarget: UnitTokenVariant, showVehicleFrame: boolean, isControlSeat: boolean, vehicleUIIndicatorID: number, vehicleGUID: WOWGUID, mayChooseExit: boolean, hasPitch: boolean`
+---| "UNIT_EXITED_VEHICLE" # `unitTarget: UnitTokenVariant`
+---| "UNIT_EXITING_VEHICLE" # `unitTarget: UnitTokenVariant`
+---| "UNIT_FACTION" # `unitTarget: UnitTokenVariant`
+---| "UNIT_FLAGS" # `unitTarget: UnitTokenVariant`
+---| "UNIT_FORM_CHANGED" # `unitTarget: UnitTokenVariant` — Flags: `UniqueEvent`
+---| "UNIT_GUILD_LEVEL" # `newLevel: number`
+---| "UNIT_HEALTH" # `unitTarget: UnitTokenVariant` — Flags: `UniqueEvent`
+---| "UNIT_HEAL_ABSORB_AMOUNT_CHANGED" # `unitTarget: UnitTokenVariant`
+---| "UNIT_HEAL_PREDICTION" # `unitTarget: UnitTokenVariant`
+---| "UNIT_INVENTORY_CHANGED" # `unitTarget: UnitTokenVariant`
+---| "UNIT_IN_RANGE_UPDATE" # `unitTarget: UnitTokenVariant, isInRange: boolean` — Secret values — the payload may contain secret values.
+---| "UNIT_LEVEL" # `unitTarget: UnitTokenVariant` — Flags: `UniqueEvent`
+---| "UNIT_LOOT" # `unitGUID: WOWGUID, hasLoot: boolean`
+---| "UNIT_MANA" # `unitTarget: UnitTokenVariant`
+---| "UNIT_MAXHEALTH" # `unitTarget: UnitTokenVariant` — Flags: `UniqueEvent`
+---| "UNIT_MAXPOWER" # `unitTarget: UnitTokenVariant, powerType: string`
+---| "UNIT_MAX_HEALTH_MODIFIERS_CHANGED" # `unitTarget: UnitTokenVariant, percentMaxHealthAdjusted: number` — Secret values — the payload may contain secret values. Flags: `UniqueEvent`
+---| "UNIT_MODEL_CHANGED" # `unitTarget: UnitTokenVariant` — Flags: `UniqueEvent`
+---| "UNIT_NAME_UPDATE" # `unitTarget: UnitTokenVariant`
+---| "UNIT_OTHER_PARTY_CHANGED" # `unitTarget: UnitTokenVariant`
+---| "UNIT_PET" # `unitTarget: UnitTokenVariant`
+---| "UNIT_PET_EXPERIENCE" # `unitTarget: UnitTokenVariant`
+---| "UNIT_PHASE" # `unitTarget: UnitTokenVariant`
+---| "UNIT_PING_PIN_ADDED" # `guid: WOWGUID, uiTextureKit: textureKit` — Restricted — delivery to addons is subject to restrictions.
+---| "UNIT_PING_PIN_REMOVED" # `guid: WOWGUID` — Restricted — delivery to addons is subject to restrictions.
+---| "UNIT_PORTRAIT_UPDATE" # `unitTarget: UnitTokenVariant` — Flags: `UniqueEvent`
+---| "UNIT_POWER_BAR_HIDE" # `unitTarget: UnitTokenVariant`
+---| "UNIT_POWER_BAR_SHOW" # `unitTarget: UnitTokenVariant`
+---| "UNIT_POWER_BAR_TIMER_UPDATE" # `unitTarget: UnitTokenVariant` — Flags: `UniqueEvent`
+---| "UNIT_POWER_FREQUENT" # `unitTarget: UnitTokenVariant, powerType: string`
+---| "UNIT_POWER_POINT_CHARGE" # `unitTarget: UnitTokenVariant` — Secret values — payload values are secret for power types not explicitly flagged as being never secret, unless the subject unit does not have a power of this type (`SecretWhenUnitPowerRestricted`). Flags: `UniqueEvent`
+---| "UNIT_POWER_UPDATE" # `unitTarget: UnitTokenVariant, powerType: string`
+---| "UNIT_QUEST_LOG_CHANGED" # `unitTarget: UnitTokenVariant`
+---| "UNIT_RANGEDDAMAGE" # `unitTarget: UnitTokenVariant`
+---| "UNIT_RANGED_ATTACK_POWER" # `unitTarget: UnitTokenVariant`
+---| "UNIT_RESISTANCES" # `unitTarget: UnitTokenVariant`
+---| "UNIT_SPELLCAST_CHANNEL_START" # `unitTarget: UnitTokenVariant, castGUID: WOWGUID, spellID: number, castBarID?: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELLCAST_CHANNEL_STOP" # `unitTarget: UnitTokenVariant, castGUID: WOWGUID, spellID: number, interruptedBy: WOWGUID, castBarID?: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELLCAST_CHANNEL_UPDATE" # `unitTarget: UnitTokenVariant, castGUID: WOWGUID, spellID: number, castBarID?: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELLCAST_DELAYED" # `unitTarget: UnitTokenVariant, castGUID: WOWGUID, spellID: number, castBarID?: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELLCAST_EMPOWER_START" # `unitTarget: UnitTokenVariant, castGUID: WOWGUID, spellID: number, castBarID?: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELLCAST_EMPOWER_STOP" # `unitTarget: UnitTokenVariant, castGUID: WOWGUID, spellID: number, complete: boolean, interruptedBy: WOWGUID, castBarID?: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELLCAST_EMPOWER_UPDATE" # `unitTarget: UnitTokenVariant, castGUID: WOWGUID, spellID: number, castBarID?: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELLCAST_FAILED" # `unitTarget: UnitTokenVariant, castGUID: WOWGUID, spellID: number, castBarID?: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELLCAST_FAILED_QUIET" # `unitTarget: UnitTokenVariant, castGUID: WOWGUID, spellID: number, castBarID?: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELLCAST_INTERRUPTED" # `unitTarget: UnitTokenVariant, castGUID: WOWGUID, spellID: number, interruptedBy: WOWGUID, castBarID?: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELLCAST_INTERRUPTIBLE" # `unitTarget: UnitTokenVariant`
+---| "UNIT_SPELLCAST_NOT_INTERRUPTIBLE" # `unitTarget: UnitTokenVariant`
+---| "UNIT_SPELLCAST_RETICLE_CLEAR" # `unitTarget: UnitTokenVariant, castGUID: WOWGUID, spellID: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELLCAST_RETICLE_TARGET" # `unitTarget: UnitTokenVariant, castGUID: WOWGUID, spellID: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELLCAST_SENT" # `unitTarget: UnitTokenVariant, target: string, castGUID: WOWGUID, spellID: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELLCAST_START" # `unitTarget: UnitTokenVariant, castGUID: WOWGUID, spellID: number, castBarID?: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELLCAST_STOP" # `unitTarget: UnitTokenVariant, castGUID: WOWGUID, spellID: number, castBarID?: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELLCAST_SUCCEEDED" # `unitTarget: UnitTokenVariant, castGUID: WOWGUID, spellID: number, castBarID?: number` — Secret values — payload values are secret if the unit being queried for cast information is not the player or their pet. Individual spells may be flagged as never or always secret, which takes priority (`SecretWhenUnitSpellCastRestricted`).
+---| "UNIT_SPELL_DIMINISH_CATEGORY_STATE_UPDATED" # `unitTarget: UnitTokenVariant, trackerInfo: SpellDiminishTrackerInfo` — Secret values — the payload may contain secret values.
+---| "UNIT_SPELL_HASTE" # `unitTarget: UnitTokenVariant`
+---| "UNIT_STATS" # `unitTarget: UnitTokenVariant`
+---| "UNIT_TARGET" # `unitTarget: UnitTokenVariant`
+---| "UNIT_TARGETABLE_CHANGED" # `unitTarget: UnitTokenVariant` — Flags: `UniqueEvent`
+---| "UNIT_THREAT_LIST_UPDATE" # `unitTarget: UnitTokenVariant` — Flags: `UniqueEvent`
+---| "UNIT_THREAT_SITUATION_UPDATE" # `unitTarget: UnitTokenVariant` — Flags: `UniqueEvent`
+---| "UPDATE_ACTIVE_BATTLEFIELD" # no payload
+---| "UPDATE_ALL_UI_WIDGETS" # no payload
+---| "UPDATE_BATTLEFIELD_SCORE" # no payload
+---| "UPDATE_BATTLEFIELD_STATUS" # `battleFieldIndex: number`
+---| "UPDATE_BINDINGS" # no payload
+---| "UPDATE_BONUS_ACTIONBAR" # no payload — Flags: `UniqueEvent`
+---| "UPDATE_BULLETIN_BOARD_MEMBER_TYPE" # `player: WOWGUID, residentType: Enum.ResidentType`
+---| "UPDATE_BULLETIN_BOARD_ROSTER" # `neighborhoodInfo: NeighborhoodInfo, rosterMemberList: NeighborhoodRosterMemberInfo[]`
+---| "UPDATE_BULLETIN_BOARD_ROSTER_STATUSES" # `rosterMemberList: NeighborhoodRosterMemberUpdateInfo[]`
+---| "UPDATE_CHAT_COLOR" # `name: string, r: number, g: number, b: number`
+---| "UPDATE_CHAT_COLOR_NAME_BY_CLASS" # `name: string, colorNameByClass: boolean`
+---| "UPDATE_CHAT_WINDOWS" # no payload
+---| "UPDATE_EXHAUSTION" # no payload
+---| "UPDATE_EXTRA_ACTIONBAR" # no payload — Flags: `UniqueEvent`
+---| "UPDATE_FACTION" # no payload
+---| "UPDATE_FLOATING_CHAT_WINDOWS" # no payload
+---| "UPDATE_INSTANCE_INFO" # no payload
+---| "UPDATE_INVENTORY_ALERTS" # no payload
+---| "UPDATE_INVENTORY_DURABILITY" # no payload
+---| "UPDATE_LFG_LIST" # no payload
+---| "UPDATE_MACROS" # no payload
+---| "UPDATE_MASTER_LOOT_LIST" # no payload
+---| "UPDATE_MOUSEOVER_UNIT" # no payload
+---| "UPDATE_MULTI_CAST_ACTIONBAR" # no payload — Flags: `UniqueEvent`
+---| "UPDATE_OVERRIDE_ACTIONBAR" # no payload — Flags: `UniqueEvent`
+---| "UPDATE_PENDING_MAIL" # no payload
+---| "UPDATE_POSSESS_BAR" # no payload
+---| "UPDATE_SHAPESHIFT_COOLDOWN" # no payload — Flags: `UniqueEvent`
+---| "UPDATE_SHAPESHIFT_FORM" # no payload
+---| "UPDATE_SHAPESHIFT_FORMS" # no payload — Flags: `UniqueEvent`
+---| "UPDATE_SHAPESHIFT_USABLE" # no payload — Flags: `UniqueEvent`
+---| "UPDATE_SPELL_TARGET_ITEM_CONTEXT" # no payload
+---| "UPDATE_STEALTH" # no payload
+---| "UPDATE_SUMMONPETS_ACTION" # no payload
+---| "UPDATE_TRADESKILL_CAST_STOPPED" # `isScrapping: boolean` — Flags: `UniqueEvent`
+---| "UPDATE_UI_WIDGET" # `widgetInfo: UIWidgetInfo`
+---| "UPDATE_VEHICLE_ACTIONBAR" # no payload
+---| "UPDATE_WEB_TICKET" # `hasTicket: boolean, numTickets?: number, ticketStatus?: number, caseIndex?: number, waitTimeMinutes?: number, waitMessage?: string, caseTitle?: string, caseDescription?: string`
+---| "URL_TEXTURE_REQUEST_RESULT" # `texture: Texture, result: Enum.UrlTextureResult`
+---| "USER_WAYPOINT_UPDATED" # no payload
+---| "USE_BIND_CONFIRM" # no payload
+---| "USE_COMBINED_BAGS_CHANGED" # `useCombinedBags: boolean`
+---| "USE_GLYPH" # `spellID: number`
+---| "USE_NO_REFUND_CONFIRM" # no payload
+---| "VARIABLES_LOADED" # no payload
+---| "VEHICLE_ANGLE_SHOW" # `shouldShow?: number`
+---| "VEHICLE_ANGLE_UPDATE" # `normalizedPitch: number, radians: number`
+---| "VEHICLE_PASSENGERS_CHANGED" # no payload
+---| "VEHICLE_POWER_SHOW" # `shouldShow?: number`
+---| "VEHICLE_UPDATE" # no payload
+---| "VIEWED_TRANSMOG_OUTFIT_CHANGED" # no payload
+---| "VIEWED_TRANSMOG_OUTFIT_SECONDARY_SLOTS_CHANGED" # no payload
+---| "VIEWED_TRANSMOG_OUTFIT_SITUATIONS_CHANGED" # no payload
+---| "VIEWED_TRANSMOG_OUTFIT_SLOT_REFRESH" # no payload — Flags: `UniqueEvent`
+---| "VIEWED_TRANSMOG_OUTFIT_SLOT_SAVE_SUCCESS" # `slot: Enum.TransmogOutfitSlot, type: Enum.TransmogType, option: Enum.TransmogOutfitSlotOption`
+---| "VIEWED_TRANSMOG_OUTFIT_SLOT_WEAPON_OPTION_CHANGED" # `slot: Enum.TransmogOutfitSlot, weaponOption: Enum.TransmogOutfitSlotOption`
+---| "VIEW_HOUSES_LIST_RECIEVED" # `houseInfos: HouseInfo[]`
+---| "VIGNETTES_UPDATED" # no payload
+---| "VIGNETTE_MINIMAP_UPDATED" # `vignetteGUID: WOWGUID, onMinimap: boolean` — Flags: `UniqueEvent`
+---| "VOICE_CHAT_ACTIVE_INPUT_DEVICE_UPDATED" # no payload
+---| "VOICE_CHAT_ACTIVE_OUTPUT_DEVICE_UPDATED" # no payload
+---| "VOICE_CHAT_AUDIO_CAPTURE_ENERGY" # `isSpeaking: boolean, energy: number`
+---| "VOICE_CHAT_AUDIO_CAPTURE_STARTED" # no payload
+---| "VOICE_CHAT_AUDIO_CAPTURE_STOPPED" # no payload
+---| "VOICE_CHAT_CHANNEL_ACTIVATED" # `channelID: number`
+---| "VOICE_CHAT_CHANNEL_DEACTIVATED" # `channelID: number`
+---| "VOICE_CHAT_CHANNEL_DISPLAY_NAME_CHANGED" # `channelID: number, channelDisplayName: string` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "VOICE_CHAT_CHANNEL_JOINED" # `status: Enum.VoiceChatStatusCode, channelID: number, channelType: Enum.ChatChannelType, clubId?: ClubId, streamId?: ClubStreamId`
+---| "VOICE_CHAT_CHANNEL_MEMBER_ACTIVE_STATE_CHANGED" # `memberID: number, channelID: number, isActive: boolean` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "VOICE_CHAT_CHANNEL_MEMBER_ADDED" # `memberID: number, channelID: number` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "VOICE_CHAT_CHANNEL_MEMBER_ENERGY_CHANGED" # `memberID: number, channelID: number, speakingEnergy: number` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "VOICE_CHAT_CHANNEL_MEMBER_GUID_UPDATED" # `memberID: number, channelID: number` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "VOICE_CHAT_CHANNEL_MEMBER_MUTE_FOR_ALL_CHANGED" # `memberID: number, channelID: number, isMutedForAll: boolean` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "VOICE_CHAT_CHANNEL_MEMBER_MUTE_FOR_ME_CHANGED" # `memberID: number, channelID: number, isMutedForMe: boolean`
+---| "VOICE_CHAT_CHANNEL_MEMBER_REMOVED" # `memberID: number, channelID: number` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "VOICE_CHAT_CHANNEL_MEMBER_SILENCED_CHANGED" # `memberID: number, channelID: number, isSilenced: boolean` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "VOICE_CHAT_CHANNEL_MEMBER_SPEAKING_STATE_CHANGED" # `memberID: number, channelID: number, isSpeaking: boolean` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "VOICE_CHAT_CHANNEL_MEMBER_STT_MESSAGE" # `memberID: number, channelID: number, message: string, language: string` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "VOICE_CHAT_CHANNEL_MEMBER_VOLUME_CHANGED" # `memberID: number, channelID: number, volume: number` — Secret values — payload values are secret when encounter, challenge mode, or PvP match addon restrictions are in effect, and when the player is on a communication-restricted map such as a dungeon or raid (`SecretInChatMessagingLockdown`).
+---| "VOICE_CHAT_CHANNEL_MUTE_STATE_CHANGED" # `channelID: number, isMuted: boolean`
+---| "VOICE_CHAT_CHANNEL_PTT_CHANGED" # `channelID: number, pushToTalkSetting: string`
+---| "VOICE_CHAT_CHANNEL_REMOVED" # `channelID: number`
+---| "VOICE_CHAT_CHANNEL_TRANSCRIBING_CHANGED" # `channelID: number, isTranscribing: boolean`
+---| "VOICE_CHAT_CHANNEL_TRANSMIT_CHANGED" # `channelID: number, isTransmitting: boolean`
+---| "VOICE_CHAT_CHANNEL_VOLUME_CHANGED" # `channelID: number, volume: number`
+---| "VOICE_CHAT_COMMUNICATION_MODE_CHANGED" # `communicationMode: Enum.CommunicationMode`
+---| "VOICE_CHAT_CONNECTION_SUCCESS" # no payload
+---| "VOICE_CHAT_DEAFENED_CHANGED" # `isDeafened: boolean`
+---| "VOICE_CHAT_ERROR" # `platformCode: number, statusCode: Enum.VoiceChatStatusCode`
+---| "VOICE_CHAT_INPUT_DEVICES_UPDATED" # no payload
+---| "VOICE_CHAT_LOGIN" # `status: Enum.VoiceChatStatusCode`
+---| "VOICE_CHAT_LOGOUT" # `status: Enum.VoiceChatStatusCode`
+---| "VOICE_CHAT_MUTED_CHANGED" # `isMuted: boolean`
+---| "VOICE_CHAT_OUTPUT_DEVICES_UPDATED" # no payload
+---| "VOICE_CHAT_PENDING_CHANNEL_JOIN_STATE" # `channelType: Enum.ChatChannelType, clubId?: ClubId, streamId?: ClubStreamId, pendingJoin: boolean`
+---| "VOICE_CHAT_PTT_BUTTON_PRESSED_STATE_CHANGED" # `isPressed: boolean`
+---| "VOICE_CHAT_SILENCED_CHANGED" # `isSilenced: boolean`
+---| "VOICE_CHAT_SPEAK_FOR_ME_ACTIVE_STATUS_UPDATED" # no payload
+---| "VOICE_CHAT_SPEAK_FOR_ME_FEATURE_STATUS_UPDATED" # no payload
+---| "VOICE_CHAT_TTS_PLAYBACK_BOOKMARK" # `utteranceID: number, bookmarkName: string`
+---| "VOICE_CHAT_TTS_PLAYBACK_FAILED" # `utteranceID: number, status: Enum.VoiceTtsStatusCode`
+---| "VOICE_CHAT_TTS_PLAYBACK_FINISHED" # `utteranceID: number`
+---| "VOICE_CHAT_TTS_PLAYBACK_STARTED" # `utteranceID: number`
+---| "VOICE_CHAT_TTS_SPEAK_TEXT_UPDATE" # `status: Enum.VoiceTtsStatusCode, utteranceID: number`
+---| "VOICE_CHAT_TTS_VOICES_UPDATE" # no payload
+---| "VOICE_CHAT_VAD_SETTINGS_UPDATED" # no payload
+---| "VOTE_KICK_REASON_NEEDED" # `name: string, resultGUID: WOWGUID`
+---| "WALK_IN_DATA_UPDATE" # no payload — Signaled when the player or a private party member join a new walk-in instance or when the instance is shut down.
+---| "WARBAND_SCENE_FAVORITES_UPDATED" # no payload
+---| "WARFRONT_COMPLETED" # `mapID: number, winner: number`
+---| "WARGAME_INVITE_SENT" # no payload
+---| "WARGAME_REQUESTED" # `opposingPartyMemberName: string, battlegroundName: string, timeoutSeconds: time_t, tournamentRules: boolean`
+---| "WARGAME_REQUEST_RESPONSE" # `responderGUID: WOWGUID, responderName?: string, accepted: boolean`
+---| "WAR_MODE_STATUS_UPDATE" # `warModeEnabled: boolean`
+---| "WAYPOINT_UPDATE" # no payload
+---| "WEAPON_ENCHANT_CHANGED" # no payload — Flags: `UniqueEvent`
+---| "WEAPON_SLOT_CHANGED" # no payload — Flags: `UniqueEvent`
+---| "WEEKLY_REWARDS_ITEM_CHANGED" # no payload
+---| "WEEKLY_REWARDS_UPDATE" # no payload
+---| "WHO_LIST_UPDATE" # no payload
+---| "WORLD_CURSOR_TOOLTIP_UPDATE" # `anchorType: Enum.WorldCursorAnchorType` — Sends an update when the mouse enters or leaves something in-world (object, unit, etc) that should display a tooltip
+---| "WORLD_LOOT_OBJECT_INFO_UPDATED" # `guid: WOWGUID`
+---| "WORLD_MAP_OPEN" # `uiMapID?: number`
+---| "WORLD_PVP_QUEUE" # no payload
+---| "WORLD_QUEST_COMPLETED_BY_SPELL" # `questID: number`
+---| "WORLD_STATE_TIMER_START" # `timerID: number`
+---| "WORLD_STATE_TIMER_STOP" # `timerID: number`
+---| "WOW_MOUSE_NOT_FOUND" # no payload
+---| "ZONE_CHANGED" # no payload
+---| "ZONE_CHANGED_INDOORS" # no payload
+---| "ZONE_CHANGED_NEW_AREA" # no payload
