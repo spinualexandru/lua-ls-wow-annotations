@@ -1,0 +1,16 @@
+## Interface: 120100
+## Title: Starter Library
+## Notes: A starter template for library authors: an embeddable, versioned LibStub library.
+## Author: Your Name
+## Version: 1.0.0
+## X-Category: Library
+## IconTexture: Interface\Icons\INV_Misc_Book_09
+
+# This .toc lets the library be installed as a standalone addon. Addons that
+# embed it instead copy the StarterLibrary-1.0 folder (and LibStub) into their
+# own Libs folder and load them from their own .toc.
+Libs\LibStub\LibStub.lua
+StarterLibrary-1.0\lib.xml
+
+# An example consumer with a /starterlib command. Remove it before publishing.
+Demo.lua

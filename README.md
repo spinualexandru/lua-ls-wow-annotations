@@ -92,11 +92,16 @@ Use the same settings in a `.luarc.json` at the root of your addon:
 }
 ```
 
-### Starter template
+### Starter templates
 
-[`demo/StarterAddon`](demo/) is a complete small addon wired to these typings,
-ready to copy. It covers events, saved variables, a Settings panel, a frame
-that handles secret values, and a tooltip hook. See [demo/README.md](demo/README.md).
+Two complete small addons wired to these typings, ready to copy (see
+[demo/README.md](demo/README.md)):
+
+- [`demo/StarterAddon`](demo/StarterAddon) covers events, saved variables, a
+  Settings panel, a frame that handles secret values, and a tooltip hook.
+- [`demo/StarterLibraryAddon`](demo/StarterLibraryAddon) is for library
+  authors: an embeddable LibStub library with upgrade-safe versioning, typed
+  callbacks and embedding, annotated so that addons using it get types.
 
 ## Repository layout
 
@@ -116,7 +121,7 @@ pyproject.toml        uv project: CLI entry point, dev tools, lint and test sett
 data/wiki/            structural signature data extracted from warcraft.wiki.gg
 tests/python/         generator unit and integration tests (pytest)
 tests/addons/         sample addons that must type-check (see below)
-demo/StarterAddon/    starter-template addon using the typings
+demo/                 starter templates using the typings (an addon and a library)
 sources.json          pinned upstream sources, game build, and lua-language-server release
 ```
 

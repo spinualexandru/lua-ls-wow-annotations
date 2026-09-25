@@ -129,7 +129,7 @@ function strlower(s) end
 ---@return string
 function strupper(s) end
 
----@param s string
+---@param s string|number Numbers are converted to strings, as in `string.match`.
 ---@param pattern string
 ---@param init? integer
 ---@return string ... captures

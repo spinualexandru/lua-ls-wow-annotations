@@ -1,0 +1,5 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<!-- Addons that embed the library load this file from their .toc or embeds.xml.
+	     They must load LibStub before it. -->
+	<Script file="StarterLibrary-1.0.lua"/>
+</Ui>
