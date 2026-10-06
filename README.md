@@ -216,3 +216,10 @@ fails if the committed `library/generated` doesn't match a fresh strict build.
 
 Only structural facts (names, types, optionality) are taken from the wiki. Its
 prose is CC BY-SA licensed and isn't copied. Hovers link to the wiki page instead.
+
+## AI Disclaimer
+This project has been developed with the help of LLMs in the following areas:
+- Documentation such as COVERAGE.MD
+- Rendering function signatures that had no proper documentation in the official docs
+- BaseTypes
+- Refactoring and putting together the multiple one off scripts I used to do all this manually with
