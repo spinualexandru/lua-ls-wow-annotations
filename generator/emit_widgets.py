@@ -99,9 +99,11 @@ DOC_TO_CLASS = {
     "LuaDurationClockObjectAPI": "LuaDurationClockObject",
     "LuaDurationManualClockAPI": "LuaDurationManualClock",
     "LuaDurationObjectAPI": "LuaDurationObject",
+    "LuaLocaleContextAPI": "LuaLocaleContext",
     "NumericFormatterAPI": "NumericFormatter",
     "NumericRuleFormatterAPI": "NumericRuleFormatter",
     "SecondsFormatterAPI": "SecondsFormatter",
+    "TimedSignalMapAPI": "TimedSignalMap",
     "UnitHealPredictionCalculatorAPI": "UnitHealPredictionCalculator",
 }
 
@@ -126,6 +128,8 @@ EXTRA_CLASSES = {
     "LuaDurationClockObject": [],
     "LuaDurationManualClock": ["LuaDurationClockObject"],
     "LuaDurationObject": [],
+    "LuaLocaleContext": [],
+    "TimedSignalMap": [],
     "UnitHealPredictionCalculator": [],
 }
 

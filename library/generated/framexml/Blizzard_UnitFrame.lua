@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -831,6 +831,7 @@ DefaultCompactNamePlatePlayerFrameSetUpOptions = {}
 
 ---@class DefaultCompactUnitFrameOptions
 ---@field allowClassColorsForNPCs boolean
+---@field dispelIndicatorAnimatedBorder boolean
 ---@field dispelIndicatorOverlayAnimation boolean
 ---@field dispelIndicatorOverlayType integer
 ---@field displayAggroHighlight boolean
@@ -1939,10 +1940,6 @@ function StatusBarOverlaySegmentMixin:UpdateFillPosition(previousTexture, fillVa
 StealthedArenaUnitFrameMixin = {}
 
 ---@param self any
----@return table
-function StealthedArenaUnitFrameMixin:GetUnitClassInfo() end
-
----@param self any
 ---@return any
 function StealthedArenaUnitFrameMixin:HasValidUnitFrame() end
 
@@ -1951,8 +1948,7 @@ function StealthedArenaUnitFrameMixin:HasValidUnitFrame() end
 function StealthedArenaUnitFrameMixin:SetUnitFrame(unitFrame) end
 
 ---@param self any
----@param unitClassInfo any
-function StealthedArenaUnitFrameMixin:UpdateName(unitClassInfo) end
+function StealthedArenaUnitFrameMixin:UpdateName() end
 
 ---@param self any
 function StealthedArenaUnitFrameMixin:UpdateShownState() end
@@ -2218,6 +2214,16 @@ function TotemFrameMixin:OnLoad() end
 ---@param self any
 function TotemFrameMixin:Update() end
 
+---@class UnitFrameUtil
+---@field GetArenaOpponentSpecDisplayInfo any
+---@field GetUnitPvPIndicatorDisplayInfo any
+---@field GetUnitRoleIconDisplayInfo any
+---@field UpdateArenaOpponentSpecDisplay any
+---@field UpdateArenaOpponentSpecDisplayName any
+---@field UpdateUnitFrameRoleIcon any
+---@field UpdateUnitPvPIndicator any
+UnitFrameUtil = {}
+
 ---@class WarlockPowerBar
 WarlockPowerBar = {}
 
@@ -2389,6 +2395,10 @@ function CompactUnitFrame_GetOptionCustomHealthBarColorBG(frame) end
 ---@param frame any
 ---@return any
 function CompactUnitFrame_GetOptionCustomHealthBarColors(frame) end
+
+---@param frame any
+---@return any
+function CompactUnitFrame_GetOptionDispelIndicatorAnimatedBorder(frame) end
 
 ---@param frame any
 ---@return any
@@ -3865,6 +3875,7 @@ REQUIRED_REST_HOURS = 5
 ---@field buffFilterString any
 ---@field constrainedFlowLayoutLineSize integer
 ---@field debuffFilterString any
+---@field editModePreviewEnabled boolean
 ---@field flowLayoutElementSpacing integer
 ---@field flowLayoutLineSize integer
 ---@field flowLayoutLineSpacing integer

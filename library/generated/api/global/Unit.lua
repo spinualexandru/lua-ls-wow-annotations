@@ -345,7 +345,7 @@ function UnitCastingDuration(unit) end
 ---@return WOWGUID castID
 ---@return boolean? notInterruptible
 ---@return number castingSpellID
----@return number? castBarID
+---@return UnitCastBarID? castBarID
 ---@return number delayTimeMs
 function UnitCastingInfo(unit) end
 
@@ -368,7 +368,7 @@ function UnitChannelDuration(unit) end
 ---@return number spellID
 ---@return boolean isEmpowered
 ---@return number numEmpowerStages
----@return number? castBarID
+---@return UnitCastBarID? castBarID
 function UnitChannelInfo(unit) end
 
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:UnitChromieTimeID)
@@ -1425,7 +1425,7 @@ function WorldLootObjectExists(unit) end
 ---@field castID WOWGUID
 ---@field notInterruptible? boolean
 ---@field castingSpellID number
----@field castBarID? number
+---@field castBarID? UnitCastBarID
 ---@field delayTimeMs number
 
 ---@class UnitChannelInfoResult
@@ -1439,7 +1439,7 @@ function WorldLootObjectExists(unit) end
 ---@field spellID number
 ---@field isEmpowered boolean
 ---@field numEmpowerStages number
----@field castBarID? number
+---@field castBarID? UnitCastBarID
 
 ---@class UnitCreatureFamilyResult
 ---@field name string

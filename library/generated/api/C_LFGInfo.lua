@@ -52,6 +52,9 @@ function C_LFGInfo.DoesActivePartyMeetPremadeLaunchCount(lfgDungeonID) end
 ---@return boolean doesCrossFactionQueueRequireFullPremade
 function C_LFGInfo.DoesCrossFactionQueueRequireFullPremade(lfgDungeonID) end
 
+---@return string name
+function C_LFGInfo.GetActiveLFGDungeonName() end
+
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_LFGInfo.GetAllEntriesForCategory)
 ---@param category luaIndex
 ---@return number[] lfgDungeonIDs

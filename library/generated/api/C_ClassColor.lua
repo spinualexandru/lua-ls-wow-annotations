@@ -8,5 +8,6 @@ C_ClassColor = {}
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_ClassColor.GetClassColor)
 ---@param className string
+---@param tintColor? ColorMixin
 ---@return ColorMixin? classColor
-function C_ClassColor.GetClassColor(className) end
+function C_ClassColor.GetClassColor(className, tintColor) end

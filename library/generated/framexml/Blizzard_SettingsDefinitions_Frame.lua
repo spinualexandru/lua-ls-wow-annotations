@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -63,8 +63,11 @@ function ColorblindOverrides.CreateSettings(category, layout) end
 ---@field ALLOW_OVERLAP_YES boolean
 ---@field COOLDOWN_VIEWER_SOUND_OFFSET integer
 ---@field CVars table
+---@field HEALTH_PULSE_SAMPLE_PERCENT integer
+---@field HEALTH_PULSE_SAMPLE_SECONDS integer
 ---@field PARTY_HEALTH_UPDATE_MAX_SECONDS integer
 ---@field PARTY_HEALTH_UPDATE_MIN_SECONDS integer
+---@field SAMPLE_SETTLE_SECONDS number
 CombatAudioAlertConstants = {}
 
 ---@class CombatAudioAlertUtil
@@ -101,6 +104,9 @@ function CombatAudioAlertUtil.EnumeratePlayerDebuffFormatInfo() end
 function CombatAudioAlertUtil.EnumeratePlayerResourceFormatInfo() end
 
 ---@return any ...
+function CombatAudioAlertUtil.EnumeratePulseHealthPercentInfo() end
+
+---@return any ...
 function CombatAudioAlertUtil.EnumerateSayCastInfo() end
 
 ---@return any ...
@@ -130,6 +136,9 @@ function CombatAudioAlertUtil.GetCAACVarValueNumber(cvarConstant) end
 
 ---@return any
 function CombatAudioAlertUtil.GetCurrentPartyHealthPercentInfo() end
+
+---@return any
+function CombatAudioAlertUtil.GetCurrentPulseHealthPercentInfo() end
 
 ---@param cvarVal any
 ---@return any
@@ -178,6 +187,14 @@ function CombatAudioAlertUtil.GetPlayerResourceFormatInfoFromCVarVal(cvarVal) en
 ---@param numberVal any
 ---@return any ...
 function CombatAudioAlertUtil.GetPlayerResourceFormattedString(powerTypeOrToken, stringVal, numberVal) end
+
+---@param cvarVal any
+---@return any
+function CombatAudioAlertUtil.GetPulseHealthPercentInfo(cvarVal) end
+
+---@param healthPercent any
+---@return any
+function CombatAudioAlertUtil.GetPulseHealthSoundKit(healthPercent) end
 
 ---@param powerTypeOrToken any
 ---@return integer
@@ -245,6 +262,10 @@ function CombatAudioAlertUtil.GetWhenTargetDiesInfo(cvarVal) end
 ---@param powerTypeOrToken any
 ---@return boolean
 function CombatAudioAlertUtil.IsPlayerResource1(powerTypeOrToken) end
+
+---@param percentVal any
+---@param soundKitID any
+function CombatAudioAlertUtil.SetPulseHealthSoundKit(percentVal, soundKitID) end
 
 ---@class CombatOverrides
 CombatOverrides = {}
@@ -549,6 +570,9 @@ function PingSystemInitializer(category) end
 ---@type table<any, integer>
 CUSTOM_GAMEPLAY_SETTINGS_ORDER = {}
 
+---@type table<integer, integer>
+CombatAudioAlertPulseSoundData = {}
+
 -- XML templates
 
 ---@class ArachnophobiaTemplate: Frame, ArachnophobiaMixin, SettingsCheckboxControlTemplate
@@ -590,6 +614,7 @@ CUSTOM_GAMEPLAY_SETTINGS_ORDER = {}
 ---@field text FontString
 
 ---@class SettingsKeybindingSectionTemplate: EventFrame, SettingsKeybindingSectionMixin, SettingsExpandableSectionTemplate
+---@field NewFeature NewFeatureLabelTemplate
 
 ---@class SettingsKeybindingSpacerTemplate: Frame
 

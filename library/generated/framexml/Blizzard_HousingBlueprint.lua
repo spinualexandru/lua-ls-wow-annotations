@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -257,6 +257,7 @@ function HousingBlueprintCollectionMixin:SetBlueprintEntryClickedCallback(entryC
 
 ---@param self any
 ---@param blueprintInfo any
+---@return boolean
 ---@return any
 function HousingBlueprintCollectionMixin:ShouldShowContextImportOption(blueprintInfo) end
 
@@ -592,8 +593,9 @@ function HousingBlueprintExportInputContentMixin:OnLoad() end
 function HousingBlueprintExportInputContentMixin:OnShow() end
 
 ---@param self any
----@param errorText any
-function HousingBlueprintExportInputContentMixin:SetError(errorText) end
+---@param text any
+---@param isError any
+function HousingBlueprintExportInputContentMixin:SetNoticeText(text, isError) end
 
 ---@param self any
 function HousingBlueprintExportInputContentMixin:ShowRoomInput() end

@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -618,7 +618,7 @@ function AzeriteTierBaseAnimationMixin:GetAnimType() end
 ---@param self any
 ---@param animState any
 ---@param localPercent any
----@return any
+---@return number
 function AzeriteTierBaseAnimationMixin:GetTotalProgressPercent(animState, localPercent) end
 
 ---@param self any
@@ -738,7 +738,7 @@ function AzeriteTierRevealAnimationMixin:PerformAnimation(elapsed) end
 ---@param self any
 ---@param now any
 ---@param animStateData any
----@return any
+---@return number
 function AzeriteTierRevealAnimationMixin:PerformRotation(now, animStateData) end
 
 -- Global functions

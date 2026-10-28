@@ -1,9 +1,12 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
 ---@class CombatAudioAlertManagerMixin
+---@field healthPulseSampleTimer any
+---@field healthPulseSoundHandle any
+---@field healthPulseSoundKitID any
 ---@field initDone any
 ---@field lastInterruptedCast any
 ---@field lastPlayerPowerAnnouncePercent any
@@ -22,6 +25,9 @@ CombatAudioAlertManagerMixin = {}
 ---@param value any
 ---@return number
 function CombatAudioAlertManagerMixin:CAAValueToCooldownViewerSound(value) end
+
+---@param self any
+function CombatAudioAlertManagerMixin:CancelHealthPulseSampleTimer() end
 
 ---@param self any
 ---@param unitOrPowerType any
@@ -108,6 +114,10 @@ function CombatAudioAlertManagerMixin:GetPlayerResourceTextInfo(powerToken, powe
 
 ---@param self any
 ---@return any
+function CombatAudioAlertManagerMixin:GetPulsePlayerHealthPercent() end
+
+---@param self any
+---@return any
 function CombatAudioAlertManagerMixin:GetSayPartyHealthPercent() end
 
 ---@param self any
@@ -183,6 +193,10 @@ function CombatAudioAlertManagerMixin:IsInterruptCastSuccessEnabled() end
 ---@param unit UnitToken
 ---@return boolean
 function CombatAudioAlertManagerMixin:IsPartyUnit(unit) end
+
+---@param self any
+---@return boolean
+function CombatAudioAlertManagerMixin:IsPulsePlayerHealthEnabled() end
 
 ---@param self any
 ---@return any ...
@@ -311,6 +325,9 @@ function CombatAudioAlertManagerMixin:RefreshAllPartyHealthUnits() end
 function CombatAudioAlertManagerMixin:RefreshEvents(isInit) end
 
 ---@param self any
+function CombatAudioAlertManagerMixin:RefreshHealthPulseVolume() end
+
+---@param self any
 ---@param isInit any
 function CombatAudioAlertManagerMixin:RefreshThrottles(isInit) end
 
@@ -337,6 +354,10 @@ function CombatAudioAlertManagerMixin:SetCategoryVoice(categoryType, newVoiceID)
 function CombatAudioAlertManagerMixin:SetCategoryVolume(categoryType, newVolume) end
 
 ---@param self any
+---@param soundKitID any
+function CombatAudioAlertManagerMixin:SetHealthPulseSoundKit(soundKitID) end
+
+---@param self any
 ---@param newSpeed any
 function CombatAudioAlertManagerMixin:SetSpeakerSpeed(newSpeed) end
 
@@ -357,6 +378,15 @@ function CombatAudioAlertManagerMixin:ShouldReplaceTargetDeath() end
 ---@param self any
 ---@return boolean
 function CombatAudioAlertManagerMixin:ShouldSayTargetHealthOnTargetUpdate() end
+
+---@param self any
+function CombatAudioAlertManagerMixin:StartHealthPulseSampleTimer() end
+
+---@param self any
+function CombatAudioAlertManagerMixin:StopHealthPulse() end
+
+---@param self any
+function CombatAudioAlertManagerMixin:UpdateHealthPulse() end
 
 ---@param self any
 ---@param unit UnitToken

@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -1374,7 +1374,6 @@ EventToastManagerSingleLineWithIconMixin = {}
 function EventToastManagerSingleLineWithIconMixin:Setup(toastInfo) end
 
 ---@class EventToastScenarioBaseToastMixin
----@field hideParentAnim any
 ---@field uiTextureKit any
 EventToastScenarioBaseToastMixin = {}
 
@@ -1390,13 +1389,6 @@ function EventToastScenarioBaseToastMixin:PlayAnim() end
 ---@param self any
 ---@param toastInfo any
 function EventToastScenarioBaseToastMixin:Setup(toastInfo) end
-
----@param self any
-function EventToastScenarioBaseToastMixin:SetupBlackBGAtlas() end
-
----@param self any
----@param useWhiteGLineAtlas any
-function EventToastScenarioBaseToastMixin:SetupGLineAtlas(useWhiteGLineAtlas) end
 
 ---@param self any
 ---@param uiTextureKit any
@@ -5243,7 +5235,6 @@ ZonePVPType = nil
 ---@class EventToastScenarioBaseToastTemplate: Button, EventToastScenarioBaseToastMixin, ResizeLayoutFrame, EventToastAnimationsTemplate
 ---@field BG1 EventToastScenarioBaseToastTemplate.BG1
 ---@field Background EventToastScenarioBaseToastTemplate.Background
----@field BannerFrame EventToastScenarioBaseToastTemplate.BannerFrame
 ---@field Footer EventToastScenarioBaseToastTemplate.Footer
 ---@field NewStageTextureKit AnimationGroup
 ---@field Overlay EventToastScenarioBaseToastTemplate.Overlay
@@ -5254,18 +5245,13 @@ ZonePVPType = nil
 ---@field animInEndDelay number
 ---@field animInStartDelay number
 ---@field fixedWidth number
----@field hideAnim EventToastScenarioBaseToastTemplate.hideAnim
 ---@field hideParentAnim boolean
 ---@field minimumHeight number
----@field showAnim EventToastScenarioBaseToastTemplate.showAnim
 
 ---@class EventToastScenarioBaseToastTemplate.BG1: Texture
 ---@field ignoreInLayout boolean
 
 ---@class EventToastScenarioBaseToastTemplate.Background: Texture
----@field ignoreInLayout boolean
-
----@class EventToastScenarioBaseToastTemplate.BannerFrame: Frame
 ---@field ignoreInLayout boolean
 
 ---@class EventToastScenarioBaseToastTemplate.Footer: Texture
@@ -5276,12 +5262,6 @@ ZonePVPType = nil
 
 ---@class EventToastScenarioBaseToastTemplate.Topper: Texture
 ---@field ignoreInLayout boolean
-
----@class EventToastScenarioBaseToastTemplate.hideAnim: AnimationGroup, HideToastAnimGroupTemplate
----@field anim2 Alpha
-
----@class EventToastScenarioBaseToastTemplate.showAnim: AnimationGroup, ShowToastAnimGroupTemplate
----@field anim2 Alpha
 
 ---@class EventToastScenarioExpandToastTemplate: Button, EventToastScenarioExpandToastMixin, EventToastScenarioBaseToastTemplate
 ---@field Description FontString

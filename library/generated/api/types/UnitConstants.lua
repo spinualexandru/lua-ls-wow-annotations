@@ -27,9 +27,10 @@
 ---@class UnitAuraSoundInfo
 ---@field unitToken string
 ---@field spellID number
----@field soundFileName? string
----@field soundFileID? number
+---@field soundFileName? string Sound file to play. Playback stops after five seconds.
+---@field soundFileID? number Sound file to play. Playback stops after five seconds.
 ---@field outputChannel? string
+---@field throttleSeconds? number Minimum time in seconds between plays. Must be between 0 and 5 seconds, inclusive. Invalid values reject registration.
 
 ---@class UnitAuraUpdateInfo
 ---@field isFullUpdate boolean Default: `false`.

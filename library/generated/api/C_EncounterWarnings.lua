@@ -70,7 +70,7 @@ function C_EncounterWarnings.SetWarningsShown(shown) end
 ---@field tooltipSpellID number (always secret)
 ---@field isDeadly boolean (always secret)
 ---@field color ColorMixin (always secret)
----@field duration DurationSeconds
+---@field duration Seconds
 ---@field severity Enum.EncounterEventSeverity
 ---@field shouldPlaySound boolean
 ---@field shouldShowChatMessage boolean

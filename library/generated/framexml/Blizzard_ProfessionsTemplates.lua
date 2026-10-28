@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -33,7 +33,7 @@ function Professions.AnyRecraftablePredicate(itemGUID) end
 ---@param sortOrder any
 ---@param lhs any
 ---@param rhs any
----@return any
+---@return number?
 ---@return boolean
 function Professions.ApplySortOrder(sortOrder, lhs, rhs) end
 

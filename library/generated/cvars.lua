@@ -14,7 +14,6 @@
 ---| "ActionButtonUseKeyHeldSpell" # Activate the press and hold cast option on a keydown (default `0`)
 ---| "ActionCombatCameraEnable" # enable/disable action combat camera. (default: disabled) (default `0`)
 ---| "actionedAdventureJournalEntries" # Which adventure journal entries flagged with ADVENTURE_JOURNAL_HIDE_AFTER_ACTION the user acted upon
----| "activeCUFProfile" # The last active CUF Profile.
 ---| "addFriendInfoShown" # The info for Add Friend has been shown (default `0`)
 ---| "addonChallengeModeRestrictionsForced" # If set, APIs guarded by challenge mode and mythic plus status will be restricted, or may return secrets. (default `0`)
 ---| "addonChatRestrictionsForced" # If set, APIs guarded by in lockdown will be restricted, or may return secrets. (default `0`)
@@ -127,6 +126,8 @@
 ---| "CAAPlayerHealthThrottle" # The player's health will only be read every X seconds at most (default `0.000000`)
 ---| "CAAPlayerHealthVoice" # Voice to use for player health combat audio alerts (default `0`)
 ---| "CAAPlayerHealthVolume" # Volume of player health combat audio alerts (0 to 100) (default `100`)
+---| "CAAPulsePlayerHealthPercent" # Play a looping pulse sound once the player's health is below X percent. The pulse gets faster as health drops (default `0`)
+---| "CAAPulsePlayerHealthVolume" # Volume of the player health pulse combat audio alert (0 to 100) (default `100`)
 ---| "CAAResource1Formats" # Stores the format string to use (for each spec) when announcing the player's first resource
 ---| "CAAResource1Percents" # Stores the percentage band sizes to use (for each spec) when announcing the player's first resource
 ---| "CAAResource1Throttle" # Updates to the player's first resource will only be read every X seconds at most (default `0.000000`)
@@ -570,6 +571,7 @@
 ---| "Contrast" # Contrast adjustment. Range: [0 - 100] (default `50.000000`)
 ---| "cooldownViewerEnabled" # If true, show the cooldown viewer UI. (default `0`)
 ---| "cooldownViewerShowUnlearned" # In the cooldown viewer settings UI, determines whether or not to show unlearned cooldowns (default `1`)
+---| "coordsByTenths" # Show coordinates by tenths (default `1`)
 ---| "countdownForCooldowns" # Whether to use number countdown instead of radial swipe for action button cooldowns or not. (default `0`)
 ---| "covenantMissionTutorial" # Stores information about which covenant mission/adventures tutorials the player has seen (default `0`)
 ---| "craftingOrdersOnlyPreferredArmorCollectable" # Determines if crafting orders can treat armor that doesn't match the players best/preferred armor type as collectable (default `0`)
@@ -887,14 +889,13 @@
 ---| "interactOnLeftClick" # Test CVar for interacting with NPC's on left click (default `1`)
 ---| "interactQuestItems" # Enable Quest Item use as an interaction (default `1`)
 ---| "InvalidateDeactivatedHandles" # Turn on to treat WowCS Handles as invalid if referring to a deactivated entity (default `1`)
----| "KioskCanSessionExpire" # Determines if a Kiosk session can expire. 0: No, 1: Yes (default). (default `1`)
+---| "KioskCanSessionExpire" # Determines if a Kiosk session can expire. Defaults to 'true'. (default `1`)
 ---| "KioskCharacterTemplateSet" # Character template set ID to select at character creation. Defaults to 0. (default `0`)
----| "KioskLobbyKickSeconds" # Seconds until an expired session kicks the player back to the lobby. Defaults to 30 seconds. (default `30`)
+---| "KioskLobbyKickSeconds" # Seconds until an expired session kicks the player back to the lobby. Defaults to 30. (default `30`)
 ---| "lastAddonVersion" # Addon interface version number from previous build (default `0`)
 ---| "lastCharacterIndex" # Last character selected (default `0`)
 ---| "lastGarrisonMissionTutorial" # Stores the last garrison mission tutorial the player has accepted (default `0`)
 ---| "lastLaunchedExternalEventURL"
----| "lastLockedDelvesCompanionAbilities" # Stores the nodeIDs of the locked delve companion abilities, to highlight them when unlocked.
 ---| "lastLockedTieredEntranceCompanionAbilities" # Serialized mapping using a PDE ID. Stores the nodeIDs of the locked delve companion abilities, to highlight them when unlocked.
 ---| "lastRenownForCovenant1" # Stores the Kyrian renown when Renown UI is closed (default `0`)
 ---| "lastRenownForCovenant2" # Stores the Venthyr renown when Renown UI is closed (default `0`)
@@ -949,6 +950,7 @@
 ---| "maxFPS" # Set FPS limit. Min 8 (default `120`)
 ---| "maxFPSBk" # Set background FPS limit. Min 8 (default `30`)
 ---| "maxFPSLoading" # Set loading screen max FPS (default `10`)
+---| "maximumConnectionAttempts" # Maximum number of times to try to connect to a server using QUIC before doing TCP (default `2`)
 ---| "maxLevelSpecsUsed" # The specs the player has switched to at max level (default `0`)
 ---| "maxLightCount" # Maximum lights to render
 ---| "maxLightDist" # Maximum distance to render lights (default `2048`)
@@ -958,6 +960,7 @@
 ---| "minimapInsideZoom" # The current indoor minimap zoom level (default `0`)
 ---| "minimapPortalMax" # Max Number of Portals to traverse for minimap (default `99`)
 ---| "minimapShapeshiftTracking" # Stores shapeshift-specific tracking spells that were active last session.
+---| "minimapShowPlayerCoords" # Show player coordinates on the minimap (default `1`)
 ---| "minimapTrackedInfov4" # Stores the minimap tracking that was active last session. (default `3103471`)
 ---| "minimapTrackingClosestOnly" # If enabled, show only the closest tracked icon for certain minimap icon types. (default `1`)
 ---| "minimapTrackingShowAll" # If enabled, show dropdown for configuring all possible minimap tracking options. (default `0`)
@@ -984,6 +987,7 @@
 ---| "MSAAAlphaTest" # Enable MSAA for alpha-tested geometry (default `1`)
 ---| "MSAAQuality" # Multisampling AA quality (default `0`)
 ---| "nameplateAuraScale" # Controls the size multiplier for buffs and debuffs on nameplates. (default `1.000000`)
+---| "nameplateBottomInset" # The inset from the bottom (in screen percent) that nameplates are clamped to. (default `0.100000`)
 ---| "nameplateCheckDistanceForTarget" # If false, show our target's nameplate even if they're very far away. (default `0`)
 ---| "nameplateDebuffPadding" # The padding between the debuff list and the health bar on nameplates. (default `0`)
 ---| "nameplateForceShowUnitName" # If true, nameplates will always show the unit name regardless of other unit name settings. (default `0`)
@@ -997,6 +1001,7 @@
 ---| "nameplateMinAlphaDistance" # The distance from the max distance that nameplates will reach their minimum alpha. (default `10.000000`)
 ---| "nameplateMinScale" # The minimum scale of nameplates. (default `0.800000`)
 ---| "nameplateMinScaleDistance" # The distance from the max distance that nameplates will reach their minimum scale. (default `10.000000`)
+---| "nameplateMotionSpeed" # Controls the rate at which nameplate animates into their target locations [0.0-1.0] (default `0.025000`)
 ---| "nameplateNotSelectedAlpha" # When you have a target, the alpha of other nameplates (not used if value is negative). (default `-1.000000`)
 ---| "nameplateOccludedAlphaMult" # Alpha multiplier of nameplates for occluded targets. (default `0.400000`)
 ---| "nameplateOtherAtBase" # Position other nameplates at the base, rather than overhead (default `0`)
@@ -1033,6 +1038,7 @@
 ---| "nameplateStyle" # Determines how nameplate contents are displayed. (default `0`)
 ---| "nameplateTargetBehindMaxDistance" # The max distance to show the target nameplate when the target is behind the camera. (default `0.100000`)
 ---| "nameplateTargetRadialPosition" # When target is off screen, position its nameplate radially around sides and bottom. 1: Target Only. 2: All In Combat (default `0`)
+---| "nameplateTopInset" # The inset from the top (in screen percent) that nameplates are clamped to. (default `0.080000`)
 ---| "nameplateUseClassColorForFriendlyPlayerUnitNames" # Used to display the class color in friendly player unit nameplate names. (default `0`)
 ---| "nearclip" # Near clip plane distance (default `0.2`)
 ---| "newDelvesSeason" # Signals a new delves season for the user, so when they open the companion config UI it shows them a helptip with season info (default `1`)
@@ -1129,6 +1135,7 @@
 ---| "RAIDentityShadowFadeScale" # Raid Entity shadow fade scale (default `10`)
 ---| "RAIDfarclip" # Raid Far clip plane distance (default `1000`)
 ---| "raidFramesCenterBigDefensive" # Show big defensive raid buffs in the center of the unit frame (default `1`)
+---| "raidFramesDispelIndicatorAnimatedBorder" # When showing dispel indicators, display an animated border (default `0`)
 ---| "raidFramesDispelIndicatorOverlay" # When showing dispel indicators, also show a color gradient overlay (default `1`)
 ---| "raidFramesDispelIndicatorOverlayAnimation" # When showing dispel indicators, use a pulsing alpha anim (default `0`)
 ---| "raidFramesDispelIndicatorType" # Choose which dispel icon indicators to show in raid frames (default `2`)
@@ -1239,6 +1246,7 @@
 ---| "scrollToLogQuest" # Whether to scroll to a quest in the quest log when mousing over its map pin (default `0`)
 ---| "secondaryProfessionsFilter" # If enabled, secondary profession world quests icons will be shown on world maps (default `1`)
 ---| "secureAbilityToggle" # Whether you should be protected against accidentally double-clicking an aura (default `1`)
+---| "seenAgeVerificationRestrictionState" # Last acknowledged Age Verification restriction state. (default `0`)
 ---| "seenAlliedRaceUnlocks" # Bit array for which allied race unlocks have been seen (default `0`)
 ---| "seenAsiaCharacterUpgradePopup" # Seen the free character upgrade popup (Asia) (default `0`)
 ---| "seenCharacterUpgradePopup" # Seen the free character upgrade popup (default `6`)
@@ -1504,6 +1512,7 @@
 ---| "titleBarShowPID" # (default `0`)
 ---| "titleBarShowRealmName" # (default `0`)
 ---| "toastDuration" # How long to display Battle.net toast windows, in seconds (default `4`)
+---| "tooltipShowAuraCasterNames" # Show caster unit names in tooltips for unit auras. (default `0`)
 ---| "tooltipShowAuraSpellIDs" # Show spell IDs in tooltips for unit auras. (default `0`)
 ---| "toyBoxCollectedFilters" # Bitfield for which collected filters are applied in the toybox (default `0`)
 ---| "toyBoxExpansionFilters" # Bitfield for which expansion filters are applied in the toybox (default `0`)
@@ -1618,6 +1627,7 @@
 ---| "webChallengeURLTimeout" # How long to wait for the web challenge URL (in seconds). 0 means wait forever. (default `60`)
 ---| "whisperMode" # The action new whispers take by default: "popout", "inline", "popout_and_inline" (default `popout`)
 ---| "wholeChatWindowClickable" # Whether the user may click anywhere on a chat window to change EditBox focus (only works in IM style) (default `1`)
+---| "winePlatformTTS" # Use Windows TTS on Wine. Disabled by default as it can cause crashes. (default `0`)
 ---| "wmoDoodadDist" # Wmo doodad load distance (default `2000`)
 ---| "wmoLodDist" # Wmo level of detail distance (default `300`)
 ---| "wmoLodDistScale" # Wmo level of detail distance scale (default `1.0`)

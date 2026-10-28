@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -42,9 +42,6 @@ function BagTutorialBaseMixin:MarkTutorialComplete() end
 function BagTutorialBaseMixin:OnBagUpdate() end
 
 ---@param self any
-function BagTutorialBaseMixin:StartPhase_HelpPlayerOpenAllBags() end
-
----@param self any
 function BagTutorialBaseMixin:StartPhase_ListenForBagUpdate() end
 
 ---@param self any
@@ -52,9 +49,6 @@ function BagTutorialBaseMixin:StartPhase_PointAtItem() end
 
 ---@param self any
 function BagTutorialBaseMixin:StartPhase_TellPlayerToOpenBags() end
-
----@param self any
-function BagTutorialBaseMixin:StopPhase_HelpPlayerOpenAllBags() end
 
 ---@param self any
 function BagTutorialBaseMixin:StopPhase_ListenForBagUpdate() end

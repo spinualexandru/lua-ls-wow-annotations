@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -88,6 +88,9 @@ function GenericTraitUtil.GetFrameLayoutInfo(treeID) end
 ---@param treeID any
 ---@return any
 function GenericTraitUtil.GetFrameTutorialInfo(treeID) end
+
+---@return table
+function GenericTraitUtil.GetKnownTreeIDs() end
 
 -- Global functions
 

@@ -81,6 +81,12 @@ function C_PvP.GetArenaCrowdControlDuration(playerToken) end
 ---@return number? duration
 function C_PvP.GetArenaCrowdControlInfo(playerToken) end
 
+---* **Secret values** — always returns secret values to addon code.
+---@param index luaIndex
+---@return number? specializationID
+---@return number? gender
+function C_PvP.GetArenaOpponentSpec(index) end
+
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_PvP.GetArenaRewards)
 ---@param teamSize number
 ---@return number? honor
@@ -252,13 +258,19 @@ function C_PvP.GetRandomEpicBGInfo() end
 ---@return RoleShortageReward? roleShortageBonus
 function C_PvP.GetRandomEpicBGRewards() end
 
----[Documentation](https://warcraft.wiki.gg/wiki/API:C_PvP.GetRandomTrainingGroundRewards)
 ---@return number honor
 ---@return number experience
 ---@return BattlefieldItemReward[]? itemRewards
 ---@return BattlefieldCurrencyReward[]? currencyRewards
 ---@return RoleShortageReward? roleShortageBonus
-function C_PvP.GetRandomTrainingGroundRewards() end
+function C_PvP.GetRandomTrainingGroundArenaRewards() end
+
+---@return number honor
+---@return number experience
+---@return BattlefieldItemReward[]? itemRewards
+---@return BattlefieldCurrencyReward[]? currencyRewards
+---@return RoleShortageReward? roleShortageBonus
+function C_PvP.GetRandomTrainingGroundBGRewards() end
 
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_PvP.GetRatedBGRewards)
 ---@return number honor
@@ -370,9 +382,11 @@ function C_PvP.HasArenaSkirmishWinToday() end
 ---@return boolean hasStarted
 function C_PvP.HasMatchStarted() end
 
----[Documentation](https://warcraft.wiki.gg/wiki/API:C_PvP.HasRandomTrainingGroundWinToday)
----@return boolean hasRandomTrainingGroundWinToday
-function C_PvP.HasRandomTrainingGroundWinToday() end
+---@return boolean hasRandomTrainingGroundArenaWinToday
+function C_PvP.HasRandomTrainingGroundArenaWinToday() end
+
+---@return boolean hasRandomTrainingGroundBGWinToday
+function C_PvP.HasRandomTrainingGroundBGWinToday() end
 
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_PvP.IsActiveBattlefield)
 ---@return boolean isActiveBattlefield
@@ -463,6 +477,14 @@ function C_PvP.IsSoloShuffle() end
 ---@return boolean result
 function C_PvP.IsSubZonePVPPOI() end
 
+---@param lfgDungeonsID number
+---@return boolean isTrainingGroundsArena
+function C_PvP.IsTrainingGroundsArena(lfgDungeonsID) end
+
+---@param lfgDungeonsID number
+---@return boolean isTrainingGroundsBG
+function C_PvP.IsTrainingGroundsBG(lfgDungeonsID) end
+
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_PvP.IsWarModeActive)
 ---@return boolean warModeActive
 function C_PvP.IsWarModeActive() end
@@ -488,8 +510,7 @@ function C_PvP.JoinBrawl(isSpecialBrawl) end
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_PvP.JoinRandomTrainingGroundArena)
 function C_PvP.JoinRandomTrainingGroundArena() end
 
----[Documentation](https://warcraft.wiki.gg/wiki/API:C_PvP.JoinRandomTrainingGroundBattleground)
-function C_PvP.JoinRandomTrainingGroundBattleground() end
+function C_PvP.JoinRandomTrainingGroundBG() end
 
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_PvP.JoinRatedBGBlitz)
 function C_PvP.JoinRatedBGBlitz() end

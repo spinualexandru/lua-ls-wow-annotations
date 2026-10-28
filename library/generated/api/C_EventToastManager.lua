@@ -37,7 +37,6 @@ function C_EventToastManager.RemoveCurrentToast() end
 ---@field subtitleTooltip? string
 ---@field titleTooltipUiWidgetSetID? number
 ---@field subtitleTooltipUiWidgetSetID? number
----@field hideDefaultAtlas? boolean
 ---@field showSoundKitID? number
 ---@field hideSoundKitID? number
 ---@field colorTint? ColorMixin

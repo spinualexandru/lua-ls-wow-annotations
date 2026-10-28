@@ -7,7 +7,7 @@ C_EncounterTimeline = {}
 ---Adds a predefined set of events to the timeline for display in Edit Mode.
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_EncounterTimeline.AddEditModeEvents)
----@return DurationSeconds loopTimerDuration
+---@return Seconds loopTimerDuration
 function C_EncounterTimeline.AddEditModeEvents() end
 
 ---Adds a custom event to the timeline.
@@ -50,7 +50,7 @@ function C_EncounterTimeline.FinishScriptEvent(eventID) end
 ---Returns the current timestamp used for rendering the timeline display.
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_EncounterTimeline.GetCurrentTime)
----@return DurationSeconds currentTime
+---@return Seconds currentTime
 function C_EncounterTimeline.GetCurrentTime() end
 
 ---Returns the current color used to render timeline event.
@@ -75,7 +75,7 @@ function C_EncounterTimeline.GetEventCountBySource(source) end
 ---Returns the duration at which timeline events will be highlighted for imminency.
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_EncounterTimeline.GetEventHighlightTime)
----@return DurationSeconds highlightTime
+---@return Seconds highlightTime
 function C_EncounterTimeline.GetEventHighlightTime() end
 
 ---Returns information about a timeline event. This data is generally expected to be static for the lifetime of an event.
@@ -112,7 +112,7 @@ function C_EncounterTimeline.GetEventState(eventID) end
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_EncounterTimeline.GetEventTimeElapsed)
 ---@param eventID EncounterTimelineEventID
----@return DurationSeconds timeElapsed
+---@return Seconds timeElapsed
 function C_EncounterTimeline.GetEventTimeElapsed(eventID) end
 
 ---Returns the remaining duration of a timeline event.
@@ -122,7 +122,7 @@ function C_EncounterTimeline.GetEventTimeElapsed(eventID) end
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_EncounterTimeline.GetEventTimeRemaining)
 ---@param eventID EncounterTimelineEventID
----@return DurationSeconds timeRemaining
+---@return Seconds timeRemaining
 function C_EncounterTimeline.GetEventTimeRemaining(eventID) end
 
 ---Returns a Duration object that tracks the elapsed duration of a timeline event. This object tracks the range [0, duration] of the event and automatically pauses its progression based on event state.
@@ -151,7 +151,7 @@ function C_EncounterTimeline.GetEventTrack(eventID) end
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_EncounterTimeline.GetSortedEventList)
 ---@param maxEventCount? number Maximum number of sorted events to return.
----@param maxEventDuration? DurationSeconds Maximum duration of sorted events to return.
+---@param maxEventDuration? Seconds Maximum duration of sorted events to return.
 ---@param excludeTerminalStates? boolean If false, include events that are terminal states such as Canceled or Finished. Default: `true`.
 ---@param excludeHiddenEvents? boolean If false, include events that should be hidden by user configuration, such as events on long tracks when the user has opted to not show long countdowns. Default: `true`.
 ---@return EncounterTimelineEventID[] events
@@ -178,7 +178,7 @@ function C_EncounterTimeline.GetTrackList() end
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_EncounterTimeline.GetTrackMaxEventDuration)
 ---@param track Enum.EncounterTimelineTrack
----@return DurationSeconds maxEventDuration
+---@return Seconds maxEventDuration
 function C_EncounterTimeline.GetTrackMaxEventDuration(track) end
 
 ---Returns the type of a single timeline track.
@@ -280,7 +280,7 @@ function C_EncounterTimeline.SetViewType(viewType) end
 
 ---@class EncounterTimelineEventFilter
 ---@field maxEventCount? number Maximum number of sorted events to return.
----@field maxEventDuration? DurationSeconds Maximum duration of sorted events to return.
+---@field maxEventDuration? Seconds Maximum duration of sorted events to return.
 ---@field excludeTerminalStates boolean If false, include events that are terminal states such as Canceled or Finished. Default: `true`.
 ---@field excludeHiddenEvents boolean If false, include events that should be hidden by user configuration, such as events on long tracks when the user has opted to not show long countdowns. Default: `true`.
 
@@ -290,8 +290,8 @@ function C_EncounterTimeline.SetViewType(viewType) end
 ---@field spellName string Spell name associated with this event. For script events, this may instead be the contents of the 'overrideName' field if it wasn't empty.
 ---@field spellID number Spell ID associated with this event.
 ---@field iconFileID fileID Icon file ID associated with this event.
----@field duration DurationSeconds Base duration of this event at the point that it was queued onto the timeline.
----@field maxQueueDuration DurationSeconds Hold duration for this event after it reaches the end of the timeline. During this period, the event will sit in the queued track of the timeline until manually finished or this added duration expires.
+---@field duration Seconds Base duration of this event at the point that it was queued onto the timeline.
+---@field maxQueueDuration Seconds Hold duration for this event after it reaches the end of the timeline. During this period, the event will sit in the queued track of the timeline until manually finished or this added duration expires.
 ---@field icons Enum.EncounterEventIconmask Bitmask of active icon states for this event.
 ---@field severity Enum.EncounterEventSeverity Severity of this event.
 ---@field isApproximate boolean If true, this event is an approximation and may not occur exactly when the timeline suggests it will.
@@ -299,8 +299,8 @@ function C_EncounterTimeline.SetViewType(viewType) end
 ---@class EncounterTimelineScriptEventRequest
 ---@field spellID number
 ---@field iconFileID fileID
----@field duration DurationSeconds
----@field maxQueueDuration? DurationSeconds Default: `0`.
+---@field duration Seconds
+---@field maxQueueDuration? Seconds Default: `0`.
 ---@field overrideName? string Default: `""`.
 ---@field icons? Enum.EncounterEventIconmask
 ---@field severity? Enum.EncounterEventSeverity Default: `"Medium"`.
@@ -309,9 +309,9 @@ function C_EncounterTimeline.SetViewType(viewType) end
 ---@class EncounterTimelineTrackInfo
 ---@field id Enum.EncounterTimelineTrack
 ---@field type Enum.EncounterTimelineTrackType
----@field minimumDuration? DurationSeconds The exclusive lower bound of durations for events on this track. If zero, this should be treated as an inclusive lower bound. This bound is ignored by the timeline sequence in circumstances where an adjacent Sorted track would exceed its maximum event count, requiring events be pushed 'to the left' by one track.
----@field maximumDuration? DurationSeconds The inclusive upper bound of durations for events on this track.
----@field minimumEventIntroDuration? DurationSeconds Lower duration bound for events that want to transition onto this track from an Indeterminate position. Events below this duration are artificially kept in the indeterminate track state until they can transition into a later track in the timeline sequence.
----@field minimumEventGapDuration? DurationSeconds Minimum duration gap that must exist between two sequential candidate events for this track. If two event durations have a distance under this figure, the later of the two events will be artifically kept in the indeterminate track state until it can transition into a later track in the timeline sequence.
+---@field minimumDuration? Seconds The exclusive lower bound of durations for events on this track. If zero, this should be treated as an inclusive lower bound. This bound is ignored by the timeline sequence in circumstances where an adjacent Sorted track would exceed its maximum event count, requiring events be pushed 'to the left' by one track.
+---@field maximumDuration? Seconds The inclusive upper bound of durations for events on this track.
+---@field minimumEventIntroDuration? Seconds Lower duration bound for events that want to transition onto this track from an Indeterminate position. Events below this duration are artificially kept in the indeterminate track state until they can transition into a later track in the timeline sequence.
+---@field minimumEventGapDuration? Seconds Minimum duration gap that must exist between two sequential candidate events for this track. If two event durations have a distance under this figure, the later of the two events will be artifically kept in the indeterminate track state until it can transition into a later track in the timeline sequence.
 ---@field maximumEventCount? number The maximum number of events permitted within this track. This only applies to Sorted tracks.
 ---@field sortDirection? Enum.EncounterTimelineEventSortDirection Sort ordering for events within this track. This only applies to Sorted tracks.

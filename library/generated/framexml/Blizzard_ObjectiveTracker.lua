@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -1680,11 +1680,10 @@ ScenarioObjectiveTrackerStageMixin = {}
 function ScenarioObjectiveTrackerStageMixin:ClearWidgetSet() end
 
 ---@param self any
----@param scenarioType any
 ---@param textureKit any
+---@return string
 ---@return string?
----@return string?
-function ScenarioObjectiveTrackerStageMixin:GetBGAtlases(scenarioType, textureKit) end
+function ScenarioObjectiveTrackerStageMixin:GetBGAtlases(textureKit) end
 
 ---@param self any
 function ScenarioObjectiveTrackerStageMixin:OnEnter() end
@@ -1700,14 +1699,13 @@ function ScenarioObjectiveTrackerStageMixin:UpdateFindGroupButton(scenarioID) en
 
 ---@param self any
 ---@param scenarioID any
----@param scenarioType any
 ---@param widgetSetID any
 ---@param textureKit any
 ---@param flags any
 ---@param currentStage any
 ---@param stageName any
 ---@param numStages any
-function ScenarioObjectiveTrackerStageMixin:UpdateStageBlock(scenarioID, scenarioType, widgetSetID, textureKit, flags, currentStage, stageName, numStages) end
+function ScenarioObjectiveTrackerStageMixin:UpdateStageBlock(scenarioID, widgetSetID, textureKit, flags, currentStage, stageName, numStages) end
 
 ---@param self any
 function ScenarioObjectiveTrackerStageMixin:UpdateWidgetRegistration() end
@@ -1859,6 +1857,7 @@ OBJECTIVE_DASH_STYLE_SHOW = 1
 ---@field BorderTopLeft AutoQuestToastBorder_TopLeft
 ---@field BorderTopRight AutoQuestToastBorder_TopRight
 ---@field BottomText FontString
+---@field CircleMask MaskTexture
 ---@field Exclamation QuestIcon_Exclamation
 ---@field FlashFrame AutoQuestPopUpBlockTemplate.Contents.FlashFrame
 ---@field IconShine AutoQuestPopUpBlockTemplate.Contents.IconShine

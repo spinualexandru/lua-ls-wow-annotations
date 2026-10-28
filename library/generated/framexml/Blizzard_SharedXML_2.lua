@@ -1,7 +1,132 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Global functions (continued)
+
+---@param numerator any
+---@param denominator any
+---@return any ...
+function FormatFraction(numerator, denominator) end
+
+---@param amount any
+---@return string
+function FormatLargeNumber(amount) end
+
+---@param percentage any
+---@param roundToNearestInteger any
+---@return any ...
+function FormatPercentage(percentage, roundToNearestInteger) end
+
+---@param value any
+---@return any ...
+function FormatPercentageRounded(value) end
+
+---@param day any
+---@param month any
+---@param year any
+---@return any ...
+function FormatShortDate(day, month, year) end
+
+---@param tooltip any
+---@param headerText any
+---@param senders any
+function FormatUnreadMailTooltip(tooltip, headerText, senders) end
+
+---@param value any
+---@return any ...
+function FormatValueWithSign(value) end
+
+---@param self any
+---@param atticHeight any
+function FrameTemplate_SetAtticHeight(self, atticHeight) end
+
+---@param self any
+---@param buttonBarHeight any
+function FrameTemplate_SetButtonBarHeight(self, buttonBarHeight) end
+
+---@return any
+function GameLimitedMode_GetLevelLimit() end
+
+---@return any
+function GameLimitedMode_IsActive() end
+
+---@return any
+function GameLimitedMode_IsBankedXPActive() end
+
+---@param tooltip any
+function GameTooltip_AddBlankLineToTooltip(tooltip) end
+
+---@param tooltip any
+---@param numLines any
+function GameTooltip_AddBlankLinesToTooltip(tooltip, numLines) end
+
+---@param ... any
+function GameTooltip_AddBodyLine(...) end
+
+---@param tooltip any
+---@param leftText any
+---@param rightText any
+---@param leftColor any
+---@param rightColor any
+---@param wrap any
+---@param leftOffset any
+function GameTooltip_AddColoredDoubleLine(tooltip, leftText, rightText, leftColor, rightColor, wrap, leftOffset) end
+
+---@param tooltip any
+---@param text any
+---@param color any
+---@param wrap any
+---@param leftOffset any
+function GameTooltip_AddColoredLine(tooltip, text, color, wrap, leftOffset) end
+
+---@param tooltip any
+---@param text any
+---@param wrap any
+---@param leftOffset any
+function GameTooltip_AddDisabledLine(tooltip, text, wrap, leftOffset) end
+
+---@param tooltip any
+---@param text any
+---@param wrap any
+---@param leftOffset any
+function GameTooltip_AddErrorLine(tooltip, text, wrap, leftOffset) end
+
+---@param tooltip any
+---@param text any
+---@param wrap any
+---@param leftOffset any
+function GameTooltip_AddHighlightLine(tooltip, text, wrap, leftOffset) end
+
+---@param tooltip any
+---@param text any
+---@param wrap any
+---@param leftOffset any
+function GameTooltip_AddInstructionLine(tooltip, text, wrap, leftOffset) end
+
+---@param frame any
+---@param normalText any
+---@param r any
+---@param g any
+---@param b any
+---@param newbieText any
+---@param noNormalText any
+function GameTooltip_AddNewbieTip(frame, normalText, r, g, b, newbieText, noNormalText) end
+
+---@param tooltip any
+---@param text any
+---@param wrap any
+---@param leftOffset any
+function GameTooltip_AddNormalLine(tooltip, text, wrap, leftOffset) end
+
+---@param tooltipFrame any
+---@param frame any
+---@param verticalPadding any
+---@return number
+function GameTooltip_InsertFrame(tooltipFrame, frame, verticalPadding) end
+
+---@param tooltip any
+---@param parent any
+function GameTooltip_SetDefaultAnchor(tooltip, parent) end
 
 ---@param tooltip any
 ---@param text any
@@ -220,7 +345,7 @@ function HybridScrollFrame_ExpandButton(self, offset, height) end
 
 ---@param self any
 ---@param button any
----@return any
+---@return any ...
 function HybridScrollFrame_GetButtonIndex(self, button) end
 
 ---@param self any
@@ -412,6 +537,29 @@ function LocalizeFrames() end
 
 ---@param self any
 function MagicButton_OnLoad(self) end
+
+---@param parent any
+---@param width any
+---@param height any
+---@param optTemplate any
+---@param optAnchor any
+---@param optParentKey any
+---@return any
+function MarchingAnts_Create(parent, width, height, optTemplate, optAnchor, optParentKey) end
+
+---@param parent any
+---@param optTemplate any
+---@param optParentKey any
+---@return any
+function MarchingAnts_CreateAsChildOf(parent, optTemplate, optParentKey) end
+
+---@param target any
+---@param optTemplate any
+---@param optPaddingHorizontal any
+---@param optPaddingVertical any
+---@param optParentKey any
+---@return any
+function MarchingAnts_CreateForTarget(target, optTemplate, optPaddingHorizontal, optPaddingVertical, optParentKey) end
 
 ---@param minutes any
 ---@return number
@@ -779,11 +927,6 @@ function SplitTextIntoLines(text, delimiter) end
 ---@return any
 ---@return any
 function StoreErrorData_GetMessage(errorCode) end
-
----@param string any
----@param substring any
----@return boolean
-function StringContains(string, substring) end
 
 ---@param sep any
 ---@param string any
@@ -2215,6 +2358,14 @@ WRAPPED_PRESENT_SPELL_VISUAL_KIT_ID = 73393
 ---@class ManagedHorizontalLayoutFrameTemplate: Frame, ManagedLayoutFrameMixin, HorizontalLayoutFrame
 
 ---@class ManagedVerticalLayoutFrameTemplate: Frame, ManagedLayoutFrameMixin, VerticalLayoutFrame
+
+---@class MarchingAntsTemplate: Frame, MarchingAntsMixin
+---@field Bottom Texture
+---@field Corners Texture
+---@field Left Texture
+---@field MarchingAnim AnimationGroup
+---@field Right Texture
+---@field Top Texture
 
 ---@class MaximizeMinimizeButtonFrameTemplate: Frame, MaximizeMinimizeButtonFrameMixin
 ---@field MaximizeButton Button

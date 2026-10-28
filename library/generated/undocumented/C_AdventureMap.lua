@@ -23,24 +23,6 @@ function C_AdventureMap.GetMapInsetDetailTileInfo(insetIndex, tileIndex) end
 ---@return any ...
 function C_AdventureMap.GetMapInsetInfo(insetIndex) end
 
----* Not described by Blizzard's API documentation; signature from the community wiki.
----
----[Documentation](https://warcraft.wiki.gg/wiki/API:C_AdventureMap.GetNumMapInsets)
----@return number numMapInsets
-function C_AdventureMap.GetNumMapInsets() end
-
----* Not described by Blizzard's API documentation; signature from the community wiki.
----
----[Documentation](https://warcraft.wiki.gg/wiki/API:C_AdventureMap.GetNumQuestOffers)
----@return number numQuestOffers
-function C_AdventureMap.GetNumQuestOffers() end
-
----* Not described by Blizzard's API documentation; signature from the community wiki.
----
----[Documentation](https://warcraft.wiki.gg/wiki/API:C_AdventureMap.GetNumZoneChoices)
----@return number numZoneChoices
-function C_AdventureMap.GetNumZoneChoices() end
-
 ---* Not described by Blizzard's API documentation; argument names from the community wiki's API list, types unknown.
 ---@param questID any
 ---@return any ...

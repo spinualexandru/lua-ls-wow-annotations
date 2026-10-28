@@ -57,6 +57,7 @@ function AnimationGroup:GetScript(scriptType, bindingType) end
 ---@return boolean hasScript
 function AnimationGroup:HasScript(scriptType) end
 
+---* Fails if the object has the forbidden aspect `AddAnimations`.
 ---* Never accepts secret values as arguments.
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:AnimationGroup_CreateAnimation)
@@ -81,10 +82,14 @@ function AnimationGroup:GetAnimations() end
 ---@return number durationSec
 function AnimationGroup:GetDuration() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:AnimationGroup_GetElapsed)
 ---@return number elapsedSec
 function AnimationGroup:GetElapsed() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:AnimationGroup_GetLoopState)
 ---@return string loopState
 function AnimationGroup:GetLoopState() end
@@ -93,26 +98,38 @@ function AnimationGroup:GetLoopState() end
 ---@return LoopType loopType
 function AnimationGroup:GetLooping() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:AnimationGroup_GetProgress)
 ---@return number progress
 function AnimationGroup:GetProgress() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:AnimationGroup_IsDone)
 ---@return boolean isDone
 function AnimationGroup:IsDone() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:AnimationGroup_IsPaused)
 ---@return boolean isPaused
 function AnimationGroup:IsPaused() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:AnimationGroup_IsPendingFinish)
 ---@return boolean isPendingFinish
 function AnimationGroup:IsPendingFinish() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:AnimationGroup_IsPlaying)
 ---@return boolean isPlaying
 function AnimationGroup:IsPlaying() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:AnimationGroup_IsReverse)
 ---@return boolean isReverse
 function AnimationGroup:IsReverse() end

@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -3429,12 +3429,26 @@ function UnitPopupWhisperButtonMixin:GetText(contextData) end
 
 ---@param self any
 ---@param contextData any
+---@return any ...
+function UnitPopupWhisperButtonMixin:IsDisabled(contextData) end
+
+---@param self any
+---@param contextData any
 ---@return any
 function UnitPopupWhisperButtonMixin:IsEnabled(contextData) end
 
 ---@param self any
 ---@param contextData any
 function UnitPopupWhisperButtonMixin:OnClick(contextData) end
+
+---@param self any
+---@param contextData any
+---@return any
+function UnitPopupWhisperButtonMixin:TooltipWarning(contextData) end
+
+---@param self any
+---@return boolean
+function UnitPopupWhisperButtonMixin:TooltipWhileDisabled() end
 
 -- Global functions
 

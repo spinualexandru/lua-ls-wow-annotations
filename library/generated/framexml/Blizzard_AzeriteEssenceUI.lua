@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -131,6 +131,7 @@ function AzeriteEssenceListMixin:UpdateMouseOverTooltip() end
 ---@class AzeriteEssenceUIMixin: CallbackRegistryMixin
 ---@field Lines any
 ---@field Milestones any
+---@field Slots any
 ---@field isAzeriteItemEnabled any
 ---@field itemDataLoadedCancelFunc any
 ---@field newlyActivatedEssenceID any

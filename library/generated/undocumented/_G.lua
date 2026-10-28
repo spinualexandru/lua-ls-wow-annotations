@@ -5054,6 +5054,11 @@ function GetTaxiMapID() end
 ---@return string text
 function GetText(token, gender, ordinal) end
 
+---* Signature unknown: not described by Blizzard's API documentation or the community wiki.
+---@param ... any
+---@return any ...
+function GetTextureMetatable(...) end
+
 ---* Not described by Blizzard's API documentation; signature from the community wiki.
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:GetTitleText)

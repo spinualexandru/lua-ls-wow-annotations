@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -26,6 +26,10 @@ function GameEvent.HandleAddonActionForbidden(_dispatcher, _event, arg1) end
 ---@param _event any
 ---@param followerTypeID any
 function GameEvent.HandleAdventureMapOpen(_dispatcher, _event, followerTypeID) end
+
+---@param _dispatcher any
+---@param _event any
+function GameEvent.HandleAlertAgeVerificationRestricted(_dispatcher, _event) end
 
 ---@param _dispatcher any
 ---@param _event any

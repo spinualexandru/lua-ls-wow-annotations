@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -111,7 +111,8 @@ function GetUIPanelWidthUnscaled(frame, extraWidth) end
 
 ---@param frame any
 ---@param skipSetPoint any
-function HideUIPanel(frame, skipSetPoint) end
+---@param skipShownCheck any
+function HideUIPanel(frame, skipSetPoint, skipShownCheck) end
 
 ---@return integer?
 function IsOptionFrameOpen() end
@@ -187,6 +188,8 @@ UIChildWindows = {}
 UIPANEL_DO_SET_POINT = nil
 
 UIPANEL_SKIP_SET_POINT = true
+
+UIPANEL_SKIP_SHOWN_CHECK = true
 
 UIPANEL_VALIDATE_CURRENT_FRAME = true
 

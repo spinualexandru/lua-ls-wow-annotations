@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -1745,8 +1745,8 @@ function TalentFrameBaseMixin:GetMaximumCommitTime() end
 function TalentFrameBaseMixin:GetNodeCost(nodeID) end
 
 ---@param self any
----@return any
----@return any
+---@return number
+---@return number
 function TalentFrameBaseMixin:GetPanExtents() end
 
 ---@param self any

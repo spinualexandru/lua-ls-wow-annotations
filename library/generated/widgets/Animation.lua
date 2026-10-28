@@ -57,6 +57,8 @@ function Animation:HasScript(scriptType) end
 ---@return number durationSec
 function Animation:GetDuration() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Animation_GetElapsed)
 ---@return number elapsedSec
 function Animation:GetElapsed() end
@@ -69,6 +71,8 @@ function Animation:GetEndDelay() end
 ---@return number order
 function Animation:GetOrder() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Animation_GetProgress)
 ---@return number progress
 function Animation:GetProgress() end
@@ -77,6 +81,8 @@ function Animation:GetProgress() end
 ---@return FrameScriptObject region
 function Animation:GetRegionParent() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Animation_GetSmoothProgress)
 ---@return number progress
 function Animation:GetSmoothProgress() end
@@ -93,22 +99,32 @@ function Animation:GetStartDelay() end
 ---@return FrameScriptObject target
 function Animation:GetTarget() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Animation_IsDelaying)
 ---@return boolean isDelaying
 function Animation:IsDelaying() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Animation_IsDone)
 ---@return boolean isDone
 function Animation:IsDone() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Animation_IsPaused)
 ---@return boolean isPaused
 function Animation:IsPaused() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Animation_IsPlaying)
 ---@return boolean isPlaying
 function Animation:IsPlaying() end
 
+---* Fails if the object has the forbidden aspect `QueryAnimationProgress`.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Animation_IsStopped)
 ---@return boolean isStopped
 function Animation:IsStopped() end
@@ -147,6 +163,7 @@ function Animation:SetEndDelay(delaySec, recomputeGroupDuration) end
 ---@param newOrder number
 function Animation:SetOrder(newOrder) end
 
+---* Fails if the object has the forbidden aspect `AddAnimations`.
 ---* Flags: `CheckAllowChangeParent`
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Animation_SetParent)

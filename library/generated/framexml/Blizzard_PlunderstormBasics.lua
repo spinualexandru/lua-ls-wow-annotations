@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -61,7 +61,7 @@ function PlunderstormBasicsContainerFrameMixin:UpdateScaleToFit() end
 ---@field PlunderstormBasicsTitle PlunderstormBasicsContainerFrame.PlunderstormBasicsTitle
 ---@field PlunderstormLine PlunderstormBasicsContainerFrame.PlunderstormLine
 ---@field PlunderstormSwords PlunderstormBasicsContainerFrame.PlunderstormSwords
----@field fixedWidth string
+---@field fixedWidth number
 PlunderstormBasicsContainerFrame = {}
 
 ---@class PlunderstormBasicsContainerFrame.Border: Frame, NineSlicePanelTemplate

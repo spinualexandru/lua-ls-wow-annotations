@@ -4,6 +4,8 @@
 
 C_UnitAuras = {}
 
+---Registers a sound for an aura event. The sound is stopped after five seconds of playback. The throttleSeconds value must be between 0 and 5 seconds, inclusive.
+---
 ---* **Restricted** — subject to addon restrictions in some contexts.
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_UnitAuras.AddAuraSound)
@@ -87,6 +89,15 @@ function C_UnitAuras.GetAuraApplicationDisplayCount(auraInstanceUnit, auraInstan
 ---@param spellID? SpellIdentifier
 ---@return number? newDuration
 function C_UnitAuras.GetAuraBaseDuration(auraInstanceUnit, auraInstanceID, spellID) end
+
+---* **Requires** callers have access to unit aura data (`RequiresUnitAuraAccess`); raises an error otherwise.
+---* **Requires** `RequiresValidUnitAuraInstance`; returns nothing otherwise.
+---* **Secret values** — returns secret values when combat, encounter, challenge mode, or PvP match addon restrictions are in effect. Individual spells may be flagged as never or always secret, which takes priority over restrictions (`SecretWhenUnitAuraRestricted`).
+---* Accepts secret values as arguments, even from addon code.
+---@param auraInstanceUnit UnitToken
+---@param auraInstanceID number
+---@return WOWGUID? casterGUID
+function C_UnitAuras.GetAuraCasterGUID(auraInstanceUnit, auraInstanceID) end
 
 ---* **Requires** callers have access to unit aura data (`RequiresUnitAuraAccess`); raises an error otherwise.
 ---* **Secret values** — returns secret values when combat, encounter, challenge mode, or PvP match addon restrictions are in effect. Individual spells may be flagged as never or always secret, which takes priority over restrictions (`SecretWhenUnitAuraRestricted`).
@@ -203,6 +214,18 @@ function C_UnitAuras.GetHiddenGroupBuffs() end
 ---@param spellID SpellIdentifier
 ---@return AuraData? aura
 function C_UnitAuras.GetPlayerAuraBySpellID(spellID) end
+
+---Returns the client-predicted amount of time that a new spellcast of the same spell would carry over to the new application of that aura. Takes an optional spellID to use as the new duration if that cannot be derived from the aura, if that value isn't supplied the aura's spellID will be used
+---
+---* **Requires** callers have access to unit aura data (`RequiresUnitAuraAccess`); raises an error otherwise.
+---* **Requires** `RequiresValidUnitAuraInstance`; returns nothing otherwise.
+---* **Secret values** — returns secret values when combat, encounter, challenge mode, or PvP match addon restrictions are in effect. Individual spells may be flagged as never or always secret, which takes priority over restrictions (`SecretWhenUnitAuraRestricted`).
+---* Accepts secret values as arguments, even from addon code.
+---@param auraInstanceUnit UnitToken
+---@param auraInstanceID number
+---@param spellID? SpellIdentifier
+---@return number? newDuration
+function C_UnitAuras.GetRefreshCarryOverDuration(auraInstanceUnit, auraInstanceID, spellID) end
 
 ---Returns the client-predicted new duration of this aura if it were cast again right now. Takes an optional spellID to use as the new duration if that cannot be derived from the aura, if that value isn't supplied the aura's spellID will be used
 ---

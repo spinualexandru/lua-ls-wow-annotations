@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -3496,6 +3496,7 @@ function QuestLogQuestDetailsMixin:SetRewardsHeight(height) end
 
 ---@class QuestLogScrollFrameMixin
 ---@field CampaignTooltip any
+---@field StoryTooltip any
 ---@field calloutQuestID any
 ---@field campaignHeaderFramePool any
 ---@field campaignHeaderMinimalFramePool any
@@ -5967,6 +5968,9 @@ function QuestMapLogTitleButton_OnMouseUp(self) end
 ---@return any
 function QuestMapLog_GetCampaignTooltip() end
 
+---@return any
+function QuestMapLog_GetStoryTooltip() end
+
 ---@param questID any
 function QuestMapQuestOptions_AbandonQuest(questID) end
 
@@ -7520,6 +7524,14 @@ ZoneAbilityFramePriority = 200
 ---@field IconOverlay Texture
 ---@field IconOverlay2 Texture
 ---@field QuestRewardContextIcon QuestRewardContextIconTemplate
+
+---@class StoryTooltipTemplate: Frame, TooltipBackdropTemplate
+---@field Line1 FontString
+---@field ProgressCount FontString
+---@field ProgressLabel FontString
+---@field Title FontString
+---@field CheckMarks GreenCheckMarkTemplate[]
+---@field Lines FontString[]
 
 ---@class TabardFrameCustomizeTemplate: Frame
 
@@ -10639,7 +10651,6 @@ QuestRewardScrollFrame = nil
 ---@field NoSearchResultsText FontString
 ---@field SearchBox QuestScrollFrame.SearchBox
 ---@field SettingsDropdown UIPanelIconDropdownButtonTemplate
----@field StoryTooltip QuestScrollFrame.StoryTooltip
 ---@field scrollBarBottomY number
 ---@field scrollBarTopY number
 ---@field scrollBarX number
@@ -10664,14 +10675,6 @@ QuestScrollFrame = {}
 ---@field Text FontString
 
 ---@class QuestScrollFrame.SearchBox: EditBox, QuestLogSearchBoxMixin, SearchBoxTemplate
-
----@class QuestScrollFrame.StoryTooltip: Frame, TooltipBackdropTemplate
----@field Line1 FontString
----@field ProgressCount FontString
----@field ProgressLabel FontString
----@field Title FontString
----@field CheckMarks GreenCheckMarkTemplate[]
----@field Lines FontString[]
 
 ---@class ReputationFrame: Frame, ReputationFrameMixin
 ---@field ReputationDetailFrame ReputationFrame.ReputationDetailFrame

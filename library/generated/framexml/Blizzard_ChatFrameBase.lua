@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -714,6 +714,10 @@ function ChatFrameUtil.GetSenderNameFilters() end
 ---@return string
 function ChatFrameUtil.GetSlashCommandForChannelOpenChat(localID) end
 
+---@param chatTab any
+---@return any ...
+function ChatFrameUtil.GetTabAlphas(chatTab) end
+
 ---@return any
 function ChatFrameUtil.GetTimestampFormat() end
 
@@ -735,6 +739,10 @@ function ChatFrameUtil.ImportEmoteTokensToHash() end
 ---@param text any
 ---@return boolean
 function ChatFrameUtil.InsertLink(text) end
+
+---@param chatTab any
+---@return any ...
+function ChatFrameUtil.IsTabAlerting(chatTab) end
 
 ---@param itemID any
 ---@param itemLink any
@@ -828,6 +836,15 @@ function ChatFrameUtil.SetLastTellTarget(target, chatType) end
 ---@param chatType any
 function ChatFrameUtil.SetLastToldTarget(name, chatType) end
 
+---@param chatTab any
+---@param alerting any
+function ChatFrameUtil.SetTabAlerting(chatTab, alerting) end
+
+---@param chatTab any
+---@param mouseOverAlpha any
+---@param noMouseAlpha any
+function ChatFrameUtil.SetTabAlphas(chatTab, mouseOverAlpha, noMouseAlpha) end
+
 ---@param chatTypeInfo any
 ---@return any
 function ChatFrameUtil.ShouldColorChatByClass(chatTypeInfo) end
@@ -840,6 +857,19 @@ function ChatFrameUtil.ShowChatChannelContextMenu(chatFrame, chatType, chatTarge
 
 ---@param s any
 function ChatFrameUtil.ShowNewcomerGraduation(s) end
+
+---@param region any
+---@param animGroup any
+function ChatFrameUtil.StartFlash(region, animGroup) end
+
+---@param region any
+---@param animGroup any
+function ChatFrameUtil.StartSyncedFlash(region, animGroup) end
+
+---@param region any
+---@param animGroup any
+---@param showWhenDone any
+function ChatFrameUtil.StopFlash(region, animGroup, showWhenDone) end
 
 ---@param msg any
 ---@return any
@@ -2550,17 +2580,32 @@ hash_EmoteTokenList = {}
 ---@field Left Texture
 ---@field Middle Texture
 ---@field Right Texture
----@field glow Texture
+---@field glow ChatTabArtTemplate.glow
+
+---@class ChatTabArtTemplate.glow: Texture
+---@field FlashAnim ChatTabArtTemplate.glow.FlashAnim
+
+---@class ChatTabArtTemplate.glow.FlashAnim: AnimationGroup, SyncedAnimGroupTemplate
+---@field syncKey string
 
 ---@class ChatTabConversationIconTemplate: Texture
 
 ---@class ChatTabTemplate: Button, ChatTabArtTemplate
 ---@field Text FontString
 
+---@class ChatTabTemplate.Flash: Frame
+---@field FlashAnim AnimationGroup
+
 ---@class DockManagerOverflowListButtonTemplate: Button
 ---@field conversationIcon Texture
----@field glow Texture
+---@field glow DockManagerOverflowListButtonTemplate.glow
 ---@field highlight Texture
+
+---@class DockManagerOverflowListButtonTemplate.glow: Texture
+---@field FlashAnim DockManagerOverflowListButtonTemplate.glow.FlashAnim
+
+---@class DockManagerOverflowListButtonTemplate.glow.FlashAnim: AnimationGroup, SyncedAnimGroupTemplate
+---@field syncKey string
 
 ---@class DockManagerOverflowListTemplate: Frame, TooltipBackdropTemplate
 ---@field numTabs FontString
@@ -2589,7 +2634,13 @@ hash_EmoteTokenList = {}
 ---@field Right Texture
 ---@field Text FontString
 ---@field conversationIcon Texture
----@field glow Texture
+---@field glow FloatingChatFrameMinimizedTemplate.glow
+
+---@class FloatingChatFrameMinimizedTemplate.glow: Texture
+---@field FlashAnim FloatingChatFrameMinimizedTemplate.glow.FlashAnim
+
+---@class FloatingChatFrameMinimizedTemplate.glow.FlashAnim: AnimationGroup, SyncedAnimGroupTemplate
+---@field syncKey string
 
 ---@class FloatingChatFrameTemplate: ScrollingMessageFrame, FloatingChatFrameMixin, ChatFrameTemplate, FloatingBorderedFrame
 ---@field ResizeButton Button
@@ -2599,7 +2650,14 @@ hash_EmoteTokenList = {}
 ---@field editBox ChatFrameEditBoxTemplate
 
 ---@class FloatingChatFrameTemplate.ScrollToBottomButton: Button
----@field Flash Texture
+---@field Flash FloatingChatFrameTemplate.ScrollToBottomButton.Flash
+
+---@class FloatingChatFrameTemplate.ScrollToBottomButton.Flash: Texture
+---@field FlashAnim FloatingChatFrameTemplate.ScrollToBottomButton.Flash.FlashAnim
+
+---@class FloatingChatFrameTemplate.ScrollToBottomButton.Flash.FlashAnim: AnimationGroup
+---@field FadeIn Alpha
+---@field FadeOut Alpha
 
 ---@class FloatingChatFrameTemplate.buttonFrame: Frame, FloatingBorderedFrame
 ---@field minimizeButton Button
@@ -2709,10 +2767,10 @@ ChatFrame10RightTexture = nil
 ---@type ChatTabTemplate
 ChatFrame10Tab = nil
 
----@type Frame
+---@type ChatTabTemplate.Flash
 ChatFrame10TabFlash = nil
 
----@type Texture
+---@type ChatTabArtTemplate.glow
 ChatFrame10TabGlow = nil
 
 ---@type Texture
@@ -2820,10 +2878,10 @@ ChatFrame1RightTexture = nil
 ---@type ChatTabTemplate
 ChatFrame1Tab = nil
 
----@type Frame
+---@type ChatTabTemplate.Flash
 ChatFrame1TabFlash = nil
 
----@type Texture
+---@type ChatTabArtTemplate.glow
 ChatFrame1TabGlow = nil
 
 ---@type Texture
@@ -2934,10 +2992,10 @@ ChatFrame2RightTexture = nil
 ---@type ChatTabTemplate
 ChatFrame2Tab = nil
 
----@type Frame
+---@type ChatTabTemplate.Flash
 ChatFrame2TabFlash = nil
 
----@type Texture
+---@type ChatTabArtTemplate.glow
 ChatFrame2TabGlow = nil
 
 ---@type Texture
@@ -3048,10 +3106,10 @@ ChatFrame3RightTexture = nil
 ---@type ChatTabTemplate
 ChatFrame3Tab = nil
 
----@type Frame
+---@type ChatTabTemplate.Flash
 ChatFrame3TabFlash = nil
 
----@type Texture
+---@type ChatTabArtTemplate.glow
 ChatFrame3TabGlow = nil
 
 ---@type Texture
@@ -3162,10 +3220,10 @@ ChatFrame4RightTexture = nil
 ---@type ChatTabTemplate
 ChatFrame4Tab = nil
 
----@type Frame
+---@type ChatTabTemplate.Flash
 ChatFrame4TabFlash = nil
 
----@type Texture
+---@type ChatTabArtTemplate.glow
 ChatFrame4TabGlow = nil
 
 ---@type Texture
@@ -3276,10 +3334,10 @@ ChatFrame5RightTexture = nil
 ---@type ChatTabTemplate
 ChatFrame5Tab = nil
 
----@type Frame
+---@type ChatTabTemplate.Flash
 ChatFrame5TabFlash = nil
 
----@type Texture
+---@type ChatTabArtTemplate.glow
 ChatFrame5TabGlow = nil
 
 ---@type Texture
@@ -3390,10 +3448,10 @@ ChatFrame6RightTexture = nil
 ---@type ChatTabTemplate
 ChatFrame6Tab = nil
 
----@type Frame
+---@type ChatTabTemplate.Flash
 ChatFrame6TabFlash = nil
 
----@type Texture
+---@type ChatTabArtTemplate.glow
 ChatFrame6TabGlow = nil
 
 ---@type Texture
@@ -3504,10 +3562,10 @@ ChatFrame7RightTexture = nil
 ---@type ChatTabTemplate
 ChatFrame7Tab = nil
 
----@type Frame
+---@type ChatTabTemplate.Flash
 ChatFrame7TabFlash = nil
 
----@type Texture
+---@type ChatTabArtTemplate.glow
 ChatFrame7TabGlow = nil
 
 ---@type Texture
@@ -3618,10 +3676,10 @@ ChatFrame8RightTexture = nil
 ---@type ChatTabTemplate
 ChatFrame8Tab = nil
 
----@type Frame
+---@type ChatTabTemplate.Flash
 ChatFrame8TabFlash = nil
 
----@type Texture
+---@type ChatTabArtTemplate.glow
 ChatFrame8TabGlow = nil
 
 ---@type Texture
@@ -3732,10 +3790,10 @@ ChatFrame9RightTexture = nil
 ---@type ChatTabTemplate
 ChatFrame9Tab = nil
 
----@type Frame
+---@type ChatTabTemplate.Flash
 ChatFrame9TabFlash = nil
 
----@type Texture
+---@type ChatTabArtTemplate.glow
 ChatFrame9TabGlow = nil
 
 ---@type Texture

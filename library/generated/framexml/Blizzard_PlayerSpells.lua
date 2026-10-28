@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -3281,6 +3281,7 @@ SPEC_STAT_STRINGS = {}
 ---@field AssistedCombatIconCover Texture
 ---@field AutoCastOverlay SpellBookItemAutoCastTemplate
 ---@field Border Texture
+---@field BorderShadow Texture
 ---@field BorderSheen SpellBookItemTemplate.Button.BorderSheen
 ---@field BorderSheenMask MaskTexture
 ---@field ClickBindingHighlight Texture

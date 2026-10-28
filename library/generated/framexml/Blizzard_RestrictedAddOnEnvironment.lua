@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -22,16 +22,6 @@ SecureStateDriverManager = {}
 ---@field unpack function
 ---@field wipe function
 rtable = {}
-
----@class string
-string = {}
-
----@param s any
----@param pattern any
----@param repl any
----@param n any
----@return any ...
-function string.rtgsub(s, pattern, repl, n) end
 
 -- Global functions
 

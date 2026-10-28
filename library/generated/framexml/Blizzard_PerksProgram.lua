@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -228,7 +228,8 @@ function PerksProgramDividerFrameMixin:OnLoad() end
 
 ---@param self any
 ---@param data any
-function PerksProgramDividerFrameMixin:OnProductSelectedAfterModel(data) end
+---@param skipTelemetry any
+function PerksProgramDividerFrameMixin:OnProductSelectedAfterModel(data, skipTelemetry) end
 
 ---@class PerksProgramErrorIndicatorMixin
 PerksProgramErrorIndicatorMixin = {}
@@ -265,7 +266,8 @@ function PerksProgramFooterFrameMixin:OnProductPurchasedStateChange(data) end
 
 ---@param self any
 ---@param data any
-function PerksProgramFooterFrameMixin:OnProductSelected(data) end
+---@param skipTelemetry any
+function PerksProgramFooterFrameMixin:OnProductSelected(data, skipTelemetry) end
 
 ---@param self any
 function PerksProgramFooterFrameMixin:OnServerErrorStateChanged() end
@@ -399,17 +401,17 @@ function PerksProgramItemDetailsListMixin:UpdateSelectedItems() end
 ---@class PerksProgramMixin
 ---@field UseNativeForm any
 ---@field activeFilters any
----@field attackAnimationPlaying any
+---@field attackAnimationSetting any
 ---@field categories any
 ---@field categoryIDs any
 ---@field currencyIconMarkup any
 ---@field fadeInModelUpdater any
 ---@field hasServerErrorOccurred any
----@field hidePlayerArmorSetting any
----@field hidePlayerForPreview any
+---@field hideArmorSetting any
+---@field hidePlayerOnMountSetting any
 ---@field labelFont any
 ---@field modelFadeInTimer any
----@field mountSpecialAnimPlaying any
+---@field mountSpecialPreviewSetting any
 ---@field purchaseStateTimer any
 ---@field refundStateTimer any
 ---@field sortAscending any
@@ -489,6 +491,10 @@ function PerksProgramMixin:GetHideArmorSetting() end
 
 ---@param self any
 ---@return any
+function PerksProgramMixin:GetHidePlayerOnMountSetting() end
+
+---@param self any
+---@return any
 function PerksProgramMixin:GetLabelFont() end
 
 ---@param self any
@@ -510,10 +516,6 @@ function PerksProgramMixin:GetSortAscending() end
 ---@param self any
 ---@return any
 function PerksProgramMixin:GetSortField() end
-
----@param self any
----@return any
-function PerksProgramMixin:GetTogglePlayerSetting() end
 
 ---@param self any
 ---@return any
@@ -556,14 +558,6 @@ function PerksProgramMixin:OnLoad() end
 function PerksProgramMixin:OnShow() end
 
 ---@param self any
----@param playAttackAnimation any
-function PerksProgramMixin:PlayerSetAttackAnimationOnClick(playAttackAnimation) end
-
----@param self any
----@param hidePlayerArmor any
-function PerksProgramMixin:PlayerToggledHideArmorOnClick(hidePlayerArmor) end
-
----@param self any
 ---@param data any
 function PerksProgramMixin:Purchase(data) end
 
@@ -587,6 +581,10 @@ function PerksProgramMixin:SelectNextProduct() end
 function PerksProgramMixin:SelectPreviousProduct() end
 
 ---@param self any
+---@param attackAnimation any
+function PerksProgramMixin:SetAttackAnimationSetting(attackAnimation) end
+
+---@param self any
 function PerksProgramMixin:SetDefaultSort() end
 
 ---@param self any
@@ -595,16 +593,20 @@ function PerksProgramMixin:SetDefaultSort() end
 function PerksProgramMixin:SetFilterState(categoryID, value) end
 
 ---@param self any
----@param playerArmorSetting any
-function PerksProgramMixin:SetHideArmorSetting(playerArmorSetting) end
+---@param hideArmor any
+function PerksProgramMixin:SetHideArmorSetting(hideArmor) end
+
+---@param self any
+---@param hidePlayerOnMount any
+function PerksProgramMixin:SetHidePlayerOnMountSetting(hidePlayerOnMount) end
 
 ---@param self any
 ---@param font any
 function PerksProgramMixin:SetLabelFont(font) end
 
 ---@param self any
----@param playMountSpecialAnim any
-function PerksProgramMixin:SetMountSpecialPreviewOnClick(playMountSpecialAnim) end
+---@param mountSpecialPreview any
+function PerksProgramMixin:SetMountSpecialPreviewSetting(mountSpecialPreview) end
 
 ---@param self any
 ---@param hasErrorOccurred any
@@ -626,12 +628,20 @@ function PerksProgramMixin:SetUseNativeForm(useNativeForm) end
 function PerksProgramMixin:ShowServerErrorDialog() end
 
 ---@param self any
----@param playerArmorSetting any
-function PerksProgramMixin:ToggleHideArmorSetting(playerArmorSetting) end
+---@param attackAnimation any
+function PerksProgramMixin:ToggleAttackAnimationOnClick(attackAnimation) end
 
 ---@param self any
----@param hidePlayerForPreview any
-function PerksProgramMixin:TogglePlayerPreviewOnClick(hidePlayerForPreview) end
+---@param hideArmor any
+function PerksProgramMixin:ToggleHideArmorOnClick(hideArmor) end
+
+---@param self any
+---@param hidePlayerOnMount any
+function PerksProgramMixin:ToggleHidePlayerOnMountOnClick(hidePlayerOnMount) end
+
+---@param self any
+---@param mountSpecialPreview any
+function PerksProgramMixin:ToggleMountSpecialPreviewOnClick(mountSpecialPreview) end
 
 ---@param self any
 function PerksProgramMixin:ViewCart() end
@@ -678,6 +688,9 @@ function PerksProgramMixin.TimeLeftListFormatter:GetMinInterval(seconds) end
 ---@field previousMainModelSceneID any
 ---@field selectedItems any
 PerksProgramModelSceneContainerFrameMixin = {}
+
+---@param self any
+function PerksProgramModelSceneContainerFrameMixin:CancelMountSpecialTimer() end
 
 ---@param self any
 function PerksProgramModelSceneContainerFrameMixin:Init() end
@@ -730,7 +743,8 @@ function PerksProgramModelSceneContainerFrameMixin:OnProductCategoryChanged(perk
 ---@param self any
 ---@param data any
 ---@param forceSceneChange any
-function PerksProgramModelSceneContainerFrameMixin:OnProductSelected(data, forceSceneChange) end
+---@param skipTelemetry any
+function PerksProgramModelSceneContainerFrameMixin:OnProductSelected(data, forceSceneChange, skipTelemetry) end
 
 ---@param self any
 ---@param cartShown any
@@ -895,7 +909,8 @@ function PerksProgramProductDetailsFrameMixin:OnProductInfoChanged(data) end
 
 ---@param self any
 ---@param data any
-function PerksProgramProductDetailsFrameMixin:OnProductSelectedAfterModel(data) end
+---@param skipTelemetry any
+function PerksProgramProductDetailsFrameMixin:OnProductSelectedAfterModel(data, skipTelemetry) end
 
 ---@param self any
 function PerksProgramProductDetailsFrameMixin:OnShow() end
@@ -946,7 +961,8 @@ function PerksProgramProductsFrameMixin:OnProductSelected(productItemInfo) end
 
 ---@param self any
 ---@param data any
-function PerksProgramProductsFrameMixin:OnProductSelectedAfterModel(data) end
+---@param skipTelemetry any
+function PerksProgramProductsFrameMixin:OnProductSelectedAfterModel(data, skipTelemetry) end
 
 ---@param self any
 ---@param cartShown any
@@ -1172,7 +1188,8 @@ function PerksProgramToyDetailsFrameMixin:OnLoad() end
 
 ---@param self any
 ---@param data any
-function PerksProgramToyDetailsFrameMixin:OnProductSelectedAfterModel(data) end
+---@param skipTelemetry any
+function PerksProgramToyDetailsFrameMixin:OnProductSelectedAfterModel(data, skipTelemetry) end
 
 ---@param self any
 function PerksProgramToyDetailsFrameMixin:OnShow() end
@@ -1666,7 +1683,7 @@ PerksProgramFrame = {}
 ---@field DetailsFrame PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.DetailsFrame
 ---@field DividerFrame PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.DividerFrame
 ---@field SetDetailsScrollBoxContainer PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer
----@field fixedWidth string
+---@field fixedWidth number
 
 ---@class PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.Border: Frame, NineSlicePanelTemplate
 ---@field ignoreInLayout boolean

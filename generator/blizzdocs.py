@@ -35,7 +35,7 @@ class Docs:
 
 
 # ---------------------------------------------------------------------------
-# Schema: everything the generator knows how to handle, as of build 12.1.0.
+# Schema: everything the generator knows how to handle, as of build 12.1.5.
 # Anything else is reported, so new metadata from a patch is never dropped
 # silently. Predicate names (Secret*/Requires*...) are recognized dynamically.
 # ---------------------------------------------------------------------------

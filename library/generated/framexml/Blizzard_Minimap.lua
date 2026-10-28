@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -236,6 +236,10 @@ function MinimapClusterMixin:SetIconScale(scale) end
 ---@param rotateMinimap any
 function MinimapClusterMixin:SetRotateMinimap(rotateMinimap) end
 
+---@param self any
+---@param show any
+function MinimapClusterMixin:SetShowPlayerCoords(show) end
+
 ---@class MinimapMailAnimMixin
 MinimapMailAnimMixin = {}
 
@@ -272,6 +276,22 @@ function MinimapMixin:OnMouseWheel(d) end
 
 ---@param self any
 function MinimapMixin:UpdateStaticOverlayTexture() end
+
+---@class MinimapPlayerCoordsMixin
+---@field coordsByTenths any
+---@field showPlayerCoords any
+---@field updateThrottle any
+MinimapPlayerCoordsMixin = {}
+
+---@param self any
+function MinimapPlayerCoordsMixin:CVarsUpdated() end
+
+---@param self any
+function MinimapPlayerCoordsMixin:OnLoad() end
+
+---@param self any
+---@param elapsed any
+function MinimapPlayerCoordsMixin:OnUpdate(elapsed) end
 
 ---@class MinimapPulseLock
 ---@field GarrisonBuilding integer
@@ -526,6 +546,10 @@ MinimapCluster = {}
 
 ---@class MinimapCluster.MinimapContainer: Frame
 ---@field Minimap FrameXML.Minimap
+---@field PlayerCoords MinimapCluster.MinimapContainer.PlayerCoords
+
+---@class MinimapCluster.MinimapContainer.PlayerCoords: Frame, MinimapPlayerCoordsMixin
+---@field CoordText FontString
 
 ---@class MinimapCluster.Tracking: Frame
 ---@field Background Texture

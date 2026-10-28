@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 --- Names of every virtual XML template (frames, regions, animations).
 ---@alias FrameXMLTemplate
@@ -644,6 +644,7 @@
 ---| "CompactPartyPetUnitFrameTemplate"
 ---| "CompactRaidGroupTemplate"
 ---| "CompactRaidGroupUnitFrameTemplate"
+---| "CompactUnitFrameAnimatedDispelBorderTemplate"
 ---| "CompactUnitFrameContainerTemplate"
 ---| "CompactUnitFrameDispelOverlayTemplate"
 ---| "CompactUnitFrameTemplate"
@@ -1618,6 +1619,7 @@
 ---| "MapPinAnimatedHighlightTemplate"
 ---| "MapPinPingTemplate"
 ---| "MapQuestInfoSpellHeaderTemplate"
+---| "MarchingAntsTemplate"
 ---| "MasterLooterPlayerTemplate"
 ---| "MatchmakingQueueFrameTemplate"
 ---| "MaterialFrameTemplate"
@@ -1691,6 +1693,7 @@
 ---| "MyHealPredictionBarTemplate"
 ---| "MythicPlusSeasonChangesNoticeTemplate"
 ---| "NPCFriendshipStatusBarTemplate"
+---| "NPETutorialPointerFrame"
 ---| "NPE_TutorialCallout"
 ---| "NPE_TutorialLine"
 ---| "NameChangeEditBoxTemplate"
@@ -2506,9 +2509,11 @@
 ---| "StoreSubCategoryTemplate"
 ---| "StoreTooltipBackdrop"
 ---| "StoreVASRaceFactionIconFrameTemplate"
+---| "StoryTooltipTemplate"
 ---| "StreamDropdownTemplate"
 ---| "SubscriptionInterstitialBulletPointTemplate"
 ---| "SubscriptionInterstitialSubscribeButtonTemplate"
+---| "SubtitlePreviewTemplate"
 ---| "SummaryAchievementTemplate"
 ---| "SuperTrackWaypointPinTemplate"
 ---| "SuperTrackableMapPinTemplate"
