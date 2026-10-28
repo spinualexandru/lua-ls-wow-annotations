@@ -785,4 +785,10 @@ function Frame:UnregisterAllEvents() end
 ---@return boolean registered
 function Frame:UnregisterEvent(eventName) end
 
+---@class CreateRegionParams
+---@field name? string
+---@field drawLayer? DrawLayer
+---@field templateName? string
+---@field subLevel? number
+
 ---@alias FrameEventCallbackType fun()

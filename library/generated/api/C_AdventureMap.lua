@@ -8,6 +8,18 @@ C_AdventureMap = {}
 ---@return textureKit adventureMapTextureKit
 function C_AdventureMap.GetAdventureMapTextureKit() end
 
+---[Documentation](https://warcraft.wiki.gg/wiki/API:C_AdventureMap.GetNumMapInsets)
+---@return number numMapInsets
+function C_AdventureMap.GetNumMapInsets() end
+
+---[Documentation](https://warcraft.wiki.gg/wiki/API:C_AdventureMap.GetNumQuestOffers)
+---@return number numQuestOffers
+function C_AdventureMap.GetNumQuestOffers() end
+
+---[Documentation](https://warcraft.wiki.gg/wiki/API:C_AdventureMap.GetNumZoneChoices)
+---@return number numZoneChoices
+function C_AdventureMap.GetNumZoneChoices() end
+
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_AdventureMap.GetQuestPortraitInfo)
 ---@param questID number
 ---@return AdventureMapQuestPortraitInfo? info

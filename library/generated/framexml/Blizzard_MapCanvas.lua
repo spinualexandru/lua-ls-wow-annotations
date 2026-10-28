@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -1311,7 +1311,7 @@ function MapCanvasScrollControllerMixin:FindBestLocationForClick() end
 function MapCanvasScrollControllerMixin:GetCanvasScale() end
 
 ---@param self any
----@return any
+---@return number
 function MapCanvasScrollControllerMixin:GetCanvasZoomPercent() end
 
 ---@param self any
@@ -1349,8 +1349,8 @@ function MapCanvasScrollControllerMixin:GetMaxZoomViewRect() end
 function MapCanvasScrollControllerMixin:GetMinZoomViewRect() end
 
 ---@param self any
----@return any
----@return any
+---@return number
+---@return number
 function MapCanvasScrollControllerMixin:GetNormalizedCursorPosition() end
 
 ---@param self any
@@ -1432,8 +1432,8 @@ function MapCanvasScrollControllerMixin:NormalizeHorizontalSize(size) end
 ---@param self any
 ---@param x any
 ---@param y any
----@return any
----@return any
+---@return number
+---@return number
 function MapCanvasScrollControllerMixin:NormalizeUIPosition(x, y) end
 
 ---@param self any

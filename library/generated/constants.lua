@@ -26,6 +26,7 @@ Constants.CAAConstants = {
 	CAASayCombatEndDefault = true,
 	CAAPlayerHealthPercentDefault = 0,
 	CAAPlayerHealthFormatDefault = 1,
+	CAAPulsePlayerHealthPercentDefault = 0,
 	CAATargetNameDefault = true,
 	CAATargetHealthPercentDefault = 2,
 	CAATargetHealthFormatDefault = 3,
@@ -190,6 +191,8 @@ Constants.DelvesConsts = {
 	DELVES_NORMAL_KEY_CURRENCY_ID = 3028,
 	DELVES_COMPANION_INFO_SELECTION_CHARACTER_DATA_ELEMENT_ID = 13,
 	DELVES_COMPANION_TOOLTIP_WIDGET_SET_ID = 1331,
+	DELVES_COMPANION_BRANN_CREATURE_ID = 210759,
+	DELVES_COMPANION_VALEERA_CREATURE_ID = 248567,
 }
 
 ---@class Constants.EditModeConsts

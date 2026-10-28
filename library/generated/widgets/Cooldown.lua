@@ -137,6 +137,8 @@ function Cooldown:GetScript(scriptType, bindingType) end
 ---@return boolean hasScript
 function Cooldown:HasScript(scriptType) end
 
+---* **Protected** — insecure code cannot call this on protected frames during combat.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_Clear)
 function Cooldown:Clear() end
 
@@ -166,7 +168,7 @@ function Cooldown:GetCooldownTimes() end
 ---Returns the threshold below which cooldown numbers are displayed as an abbreviated form without a unit suffix (eg. '1:31').
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_GetCountdownAbbrevThreshold)
----@return DurationSecondsPrimitive seconds
+---@return Seconds seconds
 function Cooldown:GetCountdownAbbrevThreshold() end
 
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_GetCountdownFontString)
@@ -180,7 +182,7 @@ function Cooldown:GetCountdownFormatter() end
 ---Returns the threshold below which cooldown numbers are displayed as a decimal value with one place for milliseconds (eg. '8.7').
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_GetCountdownMillisecondsThreshold)
----@return DurationSecondsPrimitive seconds
+---@return Seconds seconds
 function Cooldown:GetCountdownMillisecondsThreshold() end
 
 ---* **Secret values** — returns secret values when the object's `CooldownStyle` aspect is secret.
@@ -210,7 +212,7 @@ function Cooldown:GetEdgeScale() end
 function Cooldown:GetHideCountdownNumbers() end
 
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_GetMinimumCountdownDuration)
----@return DurationMillisecondsPrimitive milliseconds
+---@return Milliseconds milliseconds
 function Cooldown:GetMinimumCountdownDuration() end
 
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_GetReverse)
@@ -243,34 +245,40 @@ function Cooldown:Resume() end
 ---@param colorA number
 function Cooldown:SetBlingTexture(texture, colorR, colorG, colorB, colorA) end
 
+---* **Protected** — insecure code cannot call this on protected frames during combat.
 ---* **Secret values** — passing secret values marks the object's `Cooldown` aspect as secret.
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_SetCooldown)
----@param start DurationSeconds
----@param duration DurationSeconds
+---@param start Seconds
+---@param duration Seconds
 ---@param modRate? number Default: `1`.
 function Cooldown:SetCooldown(start, duration, modRate) end
 
+---* **Protected** — insecure code cannot call this on protected frames during combat.
 ---* **Secret values** — passing secret values marks the object's `Cooldown` aspect as secret.
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_SetCooldownDuration)
----@param duration DurationSeconds
+---@param duration Seconds
 ---@param modRate? number Default: `1`.
 function Cooldown:SetCooldownDuration(duration, modRate) end
 
+---* **Protected** — insecure code cannot call this on protected frames during combat.
+---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_SetCooldownFromDurationObject)
 ---@param duration LuaDurationObject
 ---@param clearIfZero? boolean Default: `true`.
 function Cooldown:SetCooldownFromDurationObject(duration, clearIfZero) end
 
+---* **Protected** — insecure code cannot call this on protected frames during combat.
 ---* **Secret values** — passing secret values marks the object's `Cooldown` aspect as secret.
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_SetCooldownFromExpirationTime)
----@param expirationTime DurationSeconds
----@param duration DurationSeconds
+---@param expirationTime Seconds
+---@param duration Seconds
 ---@param modRate? number Default: `1`.
 function Cooldown:SetCooldownFromExpirationTime(expirationTime, duration, modRate) end
 
+---* **Protected** — insecure code cannot call this on protected frames during combat.
 ---* **Secret values** — passing secret values marks the object's `Cooldown` aspect as secret.
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_SetCooldownUNIX)
@@ -282,7 +290,7 @@ function Cooldown:SetCooldownUNIX(start, duration, modRate) end
 ---Sets the threshold below which cooldown numbers are displayed as an abbreviated form without a unit suffix (eg. '1:31').
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_SetCountdownAbbrevThreshold)
----@param seconds DurationSecondsPrimitive Number of seconds below which numbers will be abbreviated. If above one hour or below one minute, no abbreviation will be performed.
+---@param seconds Seconds Number of seconds below which numbers will be abbreviated. If above one hour or below one minute, no abbreviation will be performed.
 function Cooldown:SetCountdownAbbrevThreshold(seconds) end
 
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_SetCountdownFont)
@@ -296,7 +304,7 @@ function Cooldown:SetCountdownFormatter(formatter) end
 ---Sets the threshold below which cooldown numbers are displayed as a decimal value with one place for milliseconds (eg. '8.7').
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_SetCountdownMillisecondsThreshold)
----@param seconds DurationSecondsPrimitive Number of seconds below which numbers are displayed with milliseconds.
+---@param seconds Seconds Number of seconds below which numbers are displayed with milliseconds.
 function Cooldown:SetCountdownMillisecondsThreshold(seconds) end
 
 ---* **Secret values** — passing secret values marks the object's `CooldownStyle` aspect as secret.
@@ -349,7 +357,7 @@ function Cooldown:SetHideCountdownNumbers(hideNumbers) end
 ---Controls the minimum duration above which countdown text will be shown. This is applied based upon the total duration of the cooldown, not the remaining duration as it ticks down.
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_SetMinimumCountdownDuration)
----@param milliseconds DurationMillisecondsPrimitive
+---@param milliseconds Milliseconds
 function Cooldown:SetMinimumCountdownDuration(milliseconds) end
 
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Cooldown_SetPaused)

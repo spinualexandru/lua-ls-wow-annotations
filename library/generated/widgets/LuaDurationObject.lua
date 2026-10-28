@@ -89,7 +89,7 @@ function LuaDurationObject:GetClockTime() end
 
 ---Calculates the elapsed duration of the stored time span.
 ---@param modifier? Enum.DurationTimeModifier Default: `"RealTime"`.
----@return DurationSeconds elapsedDuration
+---@return Seconds elapsedDuration
 function LuaDurationObject:GetElapsedDuration(modifier) end
 
 ---Calculates the elapsed duration as a percentage value.
@@ -108,7 +108,7 @@ function LuaDurationObject:GetModRate() end
 
 ---Calculates the remaining duration of the stored time span.
 ---@param modifier? Enum.DurationTimeModifier Default: `"RealTime"`.
----@return DurationSeconds remainingDuration
+---@return Seconds remainingDuration
 function LuaDurationObject:GetRemainingDuration(modifier) end
 
 ---Calculates the remaining duration as a percentage value.
@@ -123,7 +123,7 @@ function LuaDurationObject:GetStartTime(modifier) end
 
 ---Calculates the total duration of the stored time span.
 ---@param modifier? Enum.DurationTimeModifier Default: `"RealTime"`.
----@return DurationSeconds totalDuration
+---@return Seconds totalDuration
 function LuaDurationObject:GetTotalDuration(modifier) end
 
 ---Returns true once the duration has reached its end time.
@@ -160,13 +160,13 @@ function LuaDurationObject:SetClock(clock) end
 
 ---Configures the duration object to represent an end time and a duration.
 ---@param endTime FrameTime
----@param duration DurationSeconds
+---@param duration Seconds
 ---@param modRate? number Optional divisor for converting this time span to a base time. Default: `1`.
 function LuaDurationObject:SetTimeFromEnd(endTime, duration, modRate) end
 
 ---Configures the duration object to represent a start time and a duration.
 ---@param startTime FrameTime
----@param duration DurationSeconds
+---@param duration Seconds
 ---@param modRate? number Optional divisor for converting this time span to a base time. Default: `1`.
 function LuaDurationObject:SetTimeFromStart(startTime, duration, modRate) end
 

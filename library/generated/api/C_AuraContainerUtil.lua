@@ -29,6 +29,10 @@ function C_AuraContainerUtil.ProcessCustomAuraButtonApplicationBarOptions(option
 ---@return CustomAuraButtonApplicationCountOptions result
 function C_AuraContainerUtil.ProcessCustomAuraButtonApplicationCountOptions(options) end
 
+---@param options? CustomAuraButtonCasterNameOptions
+---@return CustomAuraButtonCasterNameOptions result
+function C_AuraContainerUtil.ProcessCustomAuraButtonCasterNameOptions(options) end
+
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_AuraContainerUtil.ProcessCustomAuraButtonDispelTypeTextOptions)
 ---@param options? CustomAuraButtonDispelTypeTextOptions
 ---@return CustomAuraButtonDispelTypeTextOptions result
@@ -93,10 +97,15 @@ function C_AuraContainerUtil.ProcessCustomAuraButtonDurationTextOptions(options)
 
 ---@class CustomAuraButtonApplicationBarOptions
 ---@field maxApplications number The maximum number of aura applications represented by the bar.
+---@field minApplications? number The minimum number of aura applications represented by the bar. Default: `0`.
 ---@field interpolation? Enum.StatusBarInterpolation Optional interpolation method used when updating the bar value.
 
 ---@class CustomAuraButtonApplicationCountOptions
 ---@field formatter? NumericFormatter Optional formatter used to display aura application counts.
+
+---@class CustomAuraButtonCasterNameOptions
+---@field showRealmName? boolean If true, append realm names to the displayed string. Default: `false`.
+---@field useClassColors? boolean If true, apply class coloring to the text. Default: `false`.
 
 ---@class CustomAuraButtonDispelTypeTextOptions
 ---@field showWhenHarmful? boolean Shows the dispel type text for harmful auras. Default: `true`.

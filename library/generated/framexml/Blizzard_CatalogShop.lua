@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- XML templates
 
@@ -90,7 +90,7 @@
 ---@field ProductDescription CatalogShopProductContainerFrameTemplate.ProductsHeader.ProductDescription
 ---@field ProductName CatalogShopProductContainerFrameTemplate.ProductsHeader.ProductName
 ---@field ProductType CatalogShopProductContainerFrameTemplate.ProductsHeader.ProductType
----@field fixedWidth string
+---@field fixedWidth number
 
 ---@class CatalogShopProductContainerFrameTemplate.ProductsHeader.LegalDisclaimerText: FontString
 ---@field bottomPadding number
@@ -356,7 +356,7 @@ CatalogShopFrame = {}
 ---@field ProductRefundContainer CatalogShopFrame.CatalogShopDetailsFrame.ProductRefundContainer
 ---@field ProductType CatalogShopFrame.CatalogShopDetailsFrame.ProductType
 ---@field QuantityOwned CatalogShopFrame.CatalogShopDetailsFrame.QuantityOwned
----@field fixedWidth string
+---@field fixedWidth number
 
 ---@class CatalogShopFrame.CatalogShopDetailsFrame.Border: Frame, NineSlicePanelTemplate
 ---@field Border Texture

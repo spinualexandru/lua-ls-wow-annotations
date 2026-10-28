@@ -6,7 +6,7 @@
 local SecondsFormatter = {}
 
 ---Returns true if the given number of seconds is within an appropriate range for approximated formatting.
----@param seconds DurationSecondsDouble
+---@param seconds Seconds
 ---@return boolean canApproximate
 function SecondsFormatter:CanApproximate(seconds) end
 
@@ -19,22 +19,22 @@ function SecondsFormatter:CanRoundUpIntervals() end
 function SecondsFormatter:CanRoundUpLastUnit() end
 
 ---Returns the unit count that a given number of seconds will use for formatting.
----@param seconds DurationSecondsDouble
+---@param seconds Seconds
 ---@return number count
 function SecondsFormatter:EvaluateDesiredUnitCount(seconds) end
 
 ---Returns the maximum interval band that a given number of seconds will use for formatting.
----@param seconds DurationSecondsDouble
+---@param seconds Seconds
 ---@return Enum.SecondsFormatterInterval interval
 function SecondsFormatter:EvaluateMaxInterval(seconds) end
 
 ---Returns the minimum interval band that a given number of seconds will use for formatting.
----@param seconds DurationSecondsDouble
+---@param seconds Seconds
 ---@return Enum.SecondsFormatterInterval interval
 function SecondsFormatter:EvaluateMinInterval(seconds) end
 
 ---Formats a number of seconds and returns the resulting string.
----@param seconds DurationSecondsDouble
+---@param seconds Seconds
 ---@param abbreviation? Enum.SecondsFormatterAbbreviation Optional abbreviation mode to use in-place of the default.
 ---@return string formattedSeconds
 function SecondsFormatter:Format(seconds, abbreviation) end
@@ -45,7 +45,7 @@ function SecondsFormatter:Format(seconds, abbreviation) end
 function SecondsFormatter:FormatZero(abbreviation) end
 
 ---Returns the threshold below which numeric values are formatted as approximated strings.
----@return DurationSecondsDouble approximationSeconds
+---@return Seconds approximationSeconds
 function SecondsFormatter:GetApproximationSeconds() end
 
 ---Returns true if the formatter should lowercase all unit format strings.
@@ -73,7 +73,7 @@ function SecondsFormatter:GetMaxInterval() end
 function SecondsFormatter:GetMaxIntervalCurve() end
 
 ---Returns the threshold below which a value will be formatted as a decimal number of seconds with one place for milliseconds (eg. '3.4')
----@return DurationSecondsDouble threshold
+---@return Seconds threshold
 function SecondsFormatter:GetMillisecondsThreshold() end
 
 ---Returns the minimum interval band permitted for formatting.
@@ -96,7 +96,7 @@ function SecondsFormatter:GetStripIntervalWhitespace() end
 function SecondsFormatter:Reset() end
 
 ---Configures the formatter to render numeric values between zero and this value as approximated strings (eg. '< 1m').
----@param seconds DurationSecondsDouble
+---@param seconds Seconds
 function SecondsFormatter:SetApproximationSeconds(seconds) end
 
 ---Configures the formatter to promote intervals if values are large enough (eg. '60m' -> '1h').
@@ -132,7 +132,7 @@ function SecondsFormatter:SetMaxInterval(interval) end
 function SecondsFormatter:SetMaxIntervalCurve(curve) end
 
 ---Sets the threshold below which a value will be formatted as a decimal number of seconds with one place for milliseconds (eg. '3.4')
----@param threshold DurationSecondsDouble
+---@param threshold Seconds
 function SecondsFormatter:SetMillisecondsThreshold(threshold) end
 
 ---Sets the minimum interval band used for formatting.

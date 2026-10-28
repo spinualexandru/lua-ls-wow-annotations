@@ -94,7 +94,7 @@ function C_DamageMeter.ResetAllCombatSessions() end
 
 ---Aggregated data for a single source (unit) in a damage meter combat session.
 ---@class DamageMeterCombatSource
----@field sourceGUID? WOWGUID
+---@field sourceGUID? WOWGUID (may be secret)
 ---@field sourceCreatureID? number
 ---@field name string (may be secret)
 ---@field classFilename string

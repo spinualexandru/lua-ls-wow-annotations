@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -199,6 +199,11 @@ function HousingDashboardBlueprintDetailsMixin:OnLoad() end
 
 ---@param self any
 function HousingDashboardBlueprintDetailsMixin:OnShow() end
+
+---@param self any
+---@return boolean
+---@return any
+function HousingDashboardBlueprintDetailsMixin:ShouldShowContextImportOption() end
 
 ---@param self any
 ---@param blueprintInfo any
@@ -660,6 +665,7 @@ HousingUpgradeFrameMixinEvents = {}
 ---@field GearDropdown UIPanelIconDropdownButtonTemplate
 ---@field NameText FontString
 ---@field NoticeText FontString
+---@field PlaceholderText FontString
 ---@field PreviewBackground Texture
 
 ---@class HousingDashboardBlueprintDetailsTemplate.ContentSummary: Frame, HousingBlueprintContentSummaryTemplate

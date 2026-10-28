@@ -14,6 +14,7 @@ from __future__ import annotations
 
 # Types replaced verbatim.
 INLINE: dict[str, str] = {
+    "any": "any",
     "number": "number",
     "bool": "boolean",
     "boolean": "boolean",
@@ -112,6 +113,7 @@ ALIASES: dict[str, tuple[object, str]] = {
     "NotificationDbId": ("string", "A notification identifier."),
     "GarrisonFollower": ("string", "A garrison follower identifier (GUID string)."),
     "EncounterTimelineEventID": ("number", "An encounter timeline event identifier."),
+    "UnitCastBarID": ("number", "A unit cast bar identifier."),
     "SpellIdentifier": ("integer|string", "A spell ID, or a spell name or link."),
     "IDOrLink": ("integer|string", "An ID or a hyperlink."),
     "ItemInfo": ("integer|string", "An item ID, name, or link."),
@@ -121,6 +123,8 @@ ALIASES: dict[str, tuple[object, str]] = {
     "FontAsset": ("string|integer", "A font file path or FileDataID."),
     "ModelAsset": ("string|integer", "A model file path or FileDataID."),
     "SoundHandle": ("integer", "A handle to a playing sound, see `StopSound`."),
+    "Seconds": ("number", "A time value in seconds."),
+    "Milliseconds": ("number", "A time value in milliseconds."),
     "DurationSeconds": ("number", "A duration in seconds."),
     "DurationSecondsDouble": ("number", "A duration in seconds."),
     "DurationSecondsPrimitive": ("number", "A duration in seconds."),

@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -104,7 +104,6 @@ function HouseDecorQuestWatcherMixin:StartWatching() end
 function HouseDecorQuestWatcherMixin:StopWatching() end
 
 ---@class HouseDecorWatcherMixin
----@field HousingModesUnlocked any
 ---@field cleanupModeTutorial any
 ---@field clippingAndGridTutorial any
 ---@field customizationTutorial any

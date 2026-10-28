@@ -6,14 +6,14 @@
 local LuaDurationManualClock = {}
 
 ---Advances the clock by a specified number of seconds.
----@param delta DurationSeconds
+---@param delta Seconds
 function LuaDurationManualClock:AdvanceTime(delta) end
 
 ---Resets the clock to a zero time value.
 function LuaDurationManualClock:ResetTime() end
 
 ---Rewinds the clock by a specified number of seconds.
----@param delta DurationSeconds
+---@param delta Seconds
 function LuaDurationManualClock:RewindTime(delta) end
 
 ---Sets the current clock timestamp to a given value.

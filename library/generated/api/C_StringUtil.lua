@@ -121,12 +121,6 @@ function C_StringUtil.TruncateWhenZero(number) end
 ---@return string text
 function C_StringUtil.WrapString(infix, prefix, suffix) end
 
----Returns a string with all bytes in the 'characters' set removed from the start and end.
----@param str string
----@param characters? string Default: `" \\r\\n\\t"`.
----@return string trimmed
-function C_StringUtil.trim(str, characters) end
-
 ---@class StripHyperlinkOptions
 ---@field maintainColor boolean If true, preserve all '|c' and '|r' quoted code sequences. Default: `false`.
 ---@field maintainBrackets boolean If true, preserve all '[' and ']' characters. Default: `false`.

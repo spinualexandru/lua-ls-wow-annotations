@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -1514,8 +1514,11 @@ ChatConfigTextToSpeechMessageSettingsScroll = {}
 ChatConfigTextToSpeechSettings = {}
 
 ---@class ChatFrameChannelButton: Button, ChannelFrameButtonMixin, VoiceToggleButtonTemplate
----@field Flash Texture
+---@field Flash ChatFrameChannelButton.Flash
 ChatFrameChannelButton = {}
+
+---@class ChatFrameChannelButton.Flash: Texture
+---@field FlashAnim AnimationGroup
 
 ---@type ToggleVoiceDeafenButtonTemplate
 ChatFrameToggleVoiceDeafenButton = nil

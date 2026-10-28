@@ -664,7 +664,6 @@ Enum.BagFlag = {
 	PreferNeutralPriorityBags = 0x80000,
 	AsymmetricSwap = 0x100000,
 	PreferReagentBags = 0x200000,
-	IgnoreSoulbound = 0x400000,
 	IgnoreReagentBags = 0x800000,
 	LookInAccountBankOnly = 0x1000000,
 	HasRefund = 0x2000000,
@@ -975,6 +974,65 @@ Enum.BonusStatIndex = {
 	ProfessionCraftingSpeed = 80,
 	ProfessionMulticraft = 81,
 	ProfessionIngenuity = 82,
+	Reserved_83 = 83,
+	Reserved_84 = 84,
+	Reserved_85 = 85,
+	Reserved_86 = 86,
+	Reserved_87 = 87,
+	Reserved_88 = 88,
+	Reserved_89 = 89,
+	Reserved_90 = 90,
+	Reserved_91 = 91,
+	Reserved_92 = 92,
+	Reserved_93 = 93,
+	Reserved_94 = 94,
+	Reserved_95 = 95,
+	Reserved_96 = 96,
+	Reserved_97 = 97,
+	Reserved_98 = 98,
+	Reserved_99 = 99,
+	Reserved_100 = 100,
+	Reserved_101 = 101,
+	Reserved_102 = 102,
+	Reserved_103 = 103,
+	Reserved_104 = 104,
+	Reserved_105 = 105,
+	Reserved_106 = 106,
+	Reserved_107 = 107,
+	Reserved_108 = 108,
+	Reserved_109 = 109,
+	Reserved_110 = 110,
+	Reserved_111 = 111,
+	Reserved_112 = 112,
+	Reserved_113 = 113,
+	Reserved_114 = 114,
+	Reserved_115 = 115,
+	Reserved_116 = 116,
+	Reserved_117 = 117,
+	Reserved_118 = 118,
+	Reserved_119 = 119,
+	Reserved_120 = 120,
+	Reserved_121 = 121,
+	Reserved_122 = 122,
+	Reserved_123 = 123,
+	Reserved_124 = 124,
+	Reserved_125 = 125,
+	Reserved_126 = 126,
+	Reserved_127 = 127,
+	Reserved_128 = 128,
+	Reserved_129 = 129,
+	Reserved_130 = 130,
+	Reserved_131 = 131,
+	Reserved_132 = 132,
+	Reserved_133 = 133,
+	Reserved_134 = 134,
+	Reserved_135 = 135,
+	Reserved_136 = 136,
+	Reserved_137 = 137,
+	Reserved_138 = 138,
+	Reserved_139 = 139,
+	Reserved_140 = 140,
+	Reserved_141 = 141,
 }
 
 ---@enum Enum.BrawlType
@@ -985,6 +1043,18 @@ Enum.BrawlType = {
 	LFG = 3,
 	SoloShuffle = 4,
 	SoloRbg = 5,
+}
+
+---@enum Enum.BreakType
+Enum.BreakType = {
+	---Locate extended grapheme cluster boundaries, which are treated as user-perceived character units.
+	Character = 0,
+	---Locate word boundaries for selection, search, and whole-word operations, including locale dictionary support where available.
+	Word = 1,
+	---Locate sentence boundaries while handling cases such as periods in numbers or abbreviations and trailing punctuation.
+	Sentence = 2,
+	---Locate positions where text can wrap, using Unicode line-breaking rules that handle punctuation and hyphenated words.
+	Line = 3,
 }
 
 ---@enum Enum.BulkPurchaseResult
@@ -1734,6 +1804,20 @@ Enum.ClubType = {
 	Other = 3,
 }
 
+---@enum Enum.CollationStrength
+Enum.CollationStrength = {
+	---Compare base-character differences and ignore accents, case, and later collation levels.
+	Primary = 0,
+	---Compare accent or diacritic differences after base characters match, while ignoring tertiary differences such as case.
+	Secondary = 1,
+	---Compare case, letter variants, and similar tertiary differences after primary and secondary differences match.
+	Tertiary = 2,
+	---Distinguish punctuation, whitespace, symbols, or Japanese Hiragana/Katakana differences after the first three levels match.
+	Quaternary = 3,
+	---Use NFD Unicode code point order as a final tie-breaker after all other collation levels match.
+	Identical = 4,
+}
+
 ---@enum Enum.ColorOverride
 Enum.ColorOverride = {
 	ItemQualityPoor = 0,
@@ -1764,6 +1848,7 @@ Enum.CombatAudioAlertCategory = {
 	PlayerResource2 = 6,
 	PartyHealth = 7,
 	PlayerDebuffs = 8,
+	PlayerHealthPulse = 9,
 }
 
 ---@enum Enum.CombatAudioAlertDebuffSelfAlertValues
@@ -1830,6 +1915,20 @@ Enum.CombatAudioAlertPlayerResourceFormatValues = {
 	NoResourceFull = 3,
 	NoResourceNoPercent = 4,
 	NoResourceNoPercentDiv10 = 5,
+}
+
+---@enum Enum.CombatAudioAlertPulsePercentValues
+Enum.CombatAudioAlertPulsePercentValues = {
+	Off = 0,
+	Under90Percent = 1,
+	Under80Percent = 2,
+	Under70Percent = 3,
+	Under60Percent = 4,
+	Under50Percent = 5,
+	Under40Percent = 6,
+	Under30Percent = 7,
+	Under20Percent = 8,
+	Under10Percent = 9,
 }
 
 ---@enum Enum.CombatAudioAlertSayIfTargetedType
@@ -2172,6 +2271,7 @@ Enum.CooldownSetLinkedSpellFlags = {
 Enum.CooldownSetSpellFlags = {
 	HideAura = 1,
 	HideByDefault = 2,
+	SelectHighestLevelLinkedSpell = 4,
 }
 
 ---@enum Enum.CooldownViewerAddAlertStatus
@@ -2607,6 +2707,7 @@ Enum.CurioRarity = {
 	Uncommon = 2,
 	Rare = 3,
 	Epic = 4,
+	EpicTier2 = 5,
 }
 
 ---@enum Enum.CurioType
@@ -2710,6 +2811,20 @@ Enum.CurrencyGainFlags = {
 	DroppedFromDeath = 2,
 	FromAccountServer = 4,
 	Autotracking = 8,
+}
+
+---@enum Enum.CurrencyNameStyle
+Enum.CurrencyNameStyle = {
+	---A symbolic name for a currency, such as '$' for USD.
+	Symbol = 0,
+	---The shortest narrow currency symbol, such as '$' instead of 'US$' for USD in en-CA.
+	NarrowSymbol = 1,
+	---The long name for a currency, such as 'US Dollar' for USD.
+	Long = 2,
+	---The formal currency symbol is similar to the regular currency symbol, but it always takes the form used in formal settings such as banking; for example, 'NT$' instead of '$' for TWD in zh-TW.
+	FormalSymbol = 3,
+	---The variant symbol for a currency is an alternative symbol that is not necessarily as widely used as the regular symbol.
+	VariantSymbol = 4,
 }
 
 ---@enum Enum.CurrencyTokenCategoryFlags
@@ -3010,6 +3125,20 @@ Enum.Damageclass = {
 Enum.DamageclassType = {
 	Physical = 0,
 	Magical = 1,
+}
+
+---@enum Enum.DateTimeStyle
+Enum.DateTimeStyle = {
+	---Do not include this date or time portion in the formatter.
+	None = 0,
+	---Use the shortest locale format, generally numeric, such as 12/13/52 or 3:30pm.
+	Short = 1,
+	---Use a longer locale format than Short, such as abbreviated month names for dates.
+	Medium = 2,
+	---Use a longer locale format with fuller names or time fields than Medium.
+	Long = 3,
+	---Use the most completely specified locale format, such as weekday, era, or time zone when applicable.
+	Full = 4,
 }
 
 ---@enum Enum.DeveloperLogAssertDomain
@@ -3692,6 +3821,7 @@ Enum.EventToastEventType = {
 	WeeklyRewardUpgrade = 24,
 	FlightpointDiscovered = 25,
 	HouseUpgradeAvailable = 26,
+	RenownFactionLeveledUp = 27,
 }
 
 ---@enum Enum.EventToastFlags
@@ -3801,54 +3931,63 @@ Enum.ForbiddenAspect = {
 	RemoveSecretAspects = 512,
 	---Restricts APIs that change the parent of an object.
 	ChangeParent = 1024,
+	---Restricts APIs that set the texture on a texture object.
+	SetTexture = 2048,
+	---Restricts APIs that query texture rotation.
+	QueryRotation = 4096,
+	---Restricts APIs that query the progress or state of animations.
+	QueryAnimationProgress = 8192,
+	---Restricts APIs that add animations to animation groups.
+	AddAnimations = 16384,
 }
 
 ---@enum Enum.FragmentID
 Enum.FragmentID = {
 	MirrorState = 0,
-	EntityPosition = 1,
-	CgObject = 2,
-	JamDispatcher = 3,
-	HeartbeatData = 4,
-	FTransportLink = 5,
-	ClientObservablesData = 6,
-	TimerQueues = 7,
-	TransferSuspensionData = 8,
-	DeferredMessages = 9,
-	FPersistableJamServers = 10,
-	FPlayerJamServers = 11,
-	FLootObjectList = 12,
-	FPlayerOwnershipLink = 13,
-	FUnitAreaTriggerLink = 14,
-	Actor = 15,
-	FPhaseShiftData = 16,
-	FVendor = 17,
-	MirroredObjectC = 18,
-	FMeshObjectData = 19,
-	FHousingDecor = 20,
-	FHousingRoom = 21,
-	FHousingRoomComponentMesh = 22,
-	FHousingPlayerHouse = 23,
-	FHousingHouseDecorSet = 24,
-	FHousingHouseRoomSet = 25,
-	FHousingDecorProxy = 26,
-	FJamHousingCornerstone = 27,
-	FHousingDecorActor = 28,
-	FHousingPlotAreaTrigger = 29,
-	FNeighborhoodMirrorData = 30,
-	FMirroredPositionData = 31,
-	FPlayerHouseInfo = 32,
-	FHousingStorageMirrorData = 33,
-	FHousingFixture = 34,
-	FHousingHouseFixtureSet = 35,
-	Timer = 36,
-	FPlayerInitiativeInfo = 37,
-	FNeighborhoodStateData = 38,
-	FUnitAIGroupLink = 39,
-	FPathingDynamicLinks = 40,
-	FPathingDoor = 41,
-	FWorldStateListenerData = 42,
-	FMapObject = 43,
+	AuthMirrorState = 1,
+	EntityPosition = 2,
+	CgObject = 3,
+	JamDispatcher = 4,
+	HeartbeatData = 5,
+	FTransportLink = 6,
+	ClientObservablesData = 7,
+	TimerQueues = 8,
+	TransferSuspensionData = 9,
+	DeferredMessages = 10,
+	FPersistableJamServers = 11,
+	FPlayerJamServers = 12,
+	FLootObjectList = 13,
+	FPlayerOwnershipLink = 14,
+	FUnitAreaTriggerLink = 15,
+	Actor = 16,
+	FPhaseShiftData = 17,
+	FVendor = 18,
+	MirroredObjectC = 19,
+	FMeshObjectData = 20,
+	FHousingDecor = 21,
+	FHousingRoom = 22,
+	FHousingRoomComponentMesh = 23,
+	FHousingPlayerHouse = 24,
+	FHousingHouseDecorSet = 25,
+	FHousingHouseRoomSet = 26,
+	FHousingDecorProxy = 27,
+	FJamHousingCornerstone = 28,
+	FHousingDecorActor = 29,
+	FHousingPlotAreaTrigger = 30,
+	FNeighborhoodMirrorData = 31,
+	FMirroredPositionData = 32,
+	FPlayerHouseInfo = 33,
+	FHousingStorageMirrorData = 34,
+	FHousingFixture = 35,
+	FHousingHouseFixtureSet = 36,
+	Timer = 37,
+	FPlayerInitiativeInfo = 38,
+	FNeighborhoodStateData = 39,
+	FUnitAIGroupLink = 40,
+	FPathingDynamicLinks = 41,
+	FPathingDoor = 42,
+	FWorldStateListenerData = 43,
+	FMapObject = 44,
 	TagItem = 200,
 	TagContainer = 201,
 	TagAzeriteEmpoweredItem = 202,
@@ -3936,6 +4075,7 @@ Enum.FrameTutorialAccount = {
 	HousingEndeavorsTabSeen = 48,
 	RunesOfPower = 49,
 	HousingPetBeds = 50,
+	Reserved1 = 51,
 }
 
 ---@enum Enum.GameMode
@@ -4378,6 +4518,7 @@ Enum.GossipNpcOption = {
 	ItemUpgrade = 64,
 	HouseFinder = 65,
 	TieredEntrance = 66,
+	RewardsShop = 67,
 }
 
 ---@enum Enum.GossipNpcOptionDisplayFlags
@@ -5029,47 +5170,48 @@ Enum.HousingResult = {
 	MaxPetDecorReached = 68,
 	MaxPreviewDecorReached = 69,
 	MaxStorageDecorReached = 70,
-	MissingCoreFixture = 71,
-	MissingDye = 72,
-	MissingExpansionAccess = 73,
-	MissingFactionMap = 74,
-	MissingPrivateNeighborhoodInvite = 75,
-	MoreHouseSlotsNeeded = 76,
-	MoreSignaturesNeeded = 77,
-	NeighborhoodNotFound = 78,
-	NoNeighborhoodOwnershipRequests = 79,
-	NotInDecorEditMode = 80,
-	NotInFixtureEditMode = 81,
-	NotInLayoutEditMode = 82,
-	NotInsideHouse = 83,
-	NotOnOwnedPlot = 84,
-	OperationAborted = 85,
-	OwnerNotInGuild = 86,
-	PermissionDenied = 87,
-	PlacementTargetInvalid = 88,
-	PlayerNotFound = 89,
-	PlayerNotInInstance = 90,
-	PlotNotFound = 91,
-	PlotNotVacant = 92,
-	PlotReservationCooldown = 93,
-	PlotReserved = 94,
-	RoomNotFound = 95,
-	RoomPlacementOutOfBounds = 96,
-	RoomUpdateFailed = 97,
-	RpcFailure = 98,
-	ServiceNotAvailable = 99,
-	StaticDataNotFound = 100,
-	TimeoutLimit = 101,
-	TimerunningNotAllowed = 102,
-	TokenRequired = 103,
-	TooManyRequests = 104,
-	TransactionFailure = 105,
-	UncollectedExteriorFixture = 106,
-	UncollectedHouseType = 107,
-	UncollectedRoom = 108,
-	UncollectedRoomMaterial = 109,
-	UncollectedRoomTheme = 110,
-	UnlockOperationFailed = 111,
+	MessageTooLong = 71,
+	MissingCoreFixture = 72,
+	MissingDye = 73,
+	MissingExpansionAccess = 74,
+	MissingFactionMap = 75,
+	MissingPrivateNeighborhoodInvite = 76,
+	MoreHouseSlotsNeeded = 77,
+	MoreSignaturesNeeded = 78,
+	NeighborhoodNotFound = 79,
+	NoNeighborhoodOwnershipRequests = 80,
+	NotInDecorEditMode = 81,
+	NotInFixtureEditMode = 82,
+	NotInLayoutEditMode = 83,
+	NotInsideHouse = 84,
+	NotOnOwnedPlot = 85,
+	OperationAborted = 86,
+	OwnerNotInGuild = 87,
+	PermissionDenied = 88,
+	PlacementTargetInvalid = 89,
+	PlayerNotFound = 90,
+	PlayerNotInInstance = 91,
+	PlotNotFound = 92,
+	PlotNotVacant = 93,
+	PlotReservationCooldown = 94,
+	PlotReserved = 95,
+	RoomNotFound = 96,
+	RoomPlacementOutOfBounds = 97,
+	RoomUpdateFailed = 98,
+	RpcFailure = 99,
+	ServiceNotAvailable = 100,
+	StaticDataNotFound = 101,
+	TimeoutLimit = 102,
+	TimerunningNotAllowed = 103,
+	TokenRequired = 104,
+	TooManyRequests = 105,
+	TransactionFailure = 106,
+	UncollectedExteriorFixture = 107,
+	UncollectedHouseType = 108,
+	UncollectedRoom = 109,
+	UncollectedRoomMaterial = 110,
+	UncollectedRoomTheme = 111,
+	UnlockOperationFailed = 112,
 }
 
 ---@enum Enum.HousingRoomComponentCeilingType
@@ -6202,6 +6344,26 @@ Enum.LoadConfigResult = {
 	Ready = 3,
 }
 
+---@enum Enum.LocaleTransform
+Enum.LocaleTransform = {
+	---Canonicalizes the locale identifier into ICU's canonical locale ID form.
+	Canonicalize = 0,
+	---Adds likely script and region subtags according to CLDR likely-subtags data.
+	AddLikelySubtags = 1,
+	---Minimizes script and region subtags according to CLDR likely-subtags data.
+	RemoveLikelySubtags = 2,
+	---Gets the language code from the locale identifier.
+	Language = 3,
+	---Gets the script code from the locale identifier.
+	Script = 4,
+	---Gets the region code from the locale identifier.
+	Region = 5,
+	---Gets the variant code from the locale identifier.
+	Variant = 6,
+	---Gets the parent locale identifier.
+	ParentLocale = 7,
+}
+
 ---@enum Enum.LogPriority
 Enum.LogPriority = {
 	Fatal = 1,
@@ -6703,10 +6865,34 @@ Enum.NodeOpFailureReason = {
 	NotEnoughRanksInEntry = 26,
 }
 
+---@enum Enum.NormalizationForm
+Enum.NormalizationForm = {
+	---Canonical decomposition followed by canonical composition.
+	Nfc = 0,
+	---Canonical decomposition.
+	Nfd = 1,
+	---Compatibility decomposition followed by canonical composition.
+	Nfkc = 2,
+	---Compatibility decomposition.
+	Nfkd = 3,
+}
+
 ---@enum Enum.NpcCraftingOrderSetFlags
 Enum.NpcCraftingOrderSetFlags = {
 	AllowMultiple = 1,
 	AllowDuplicate = 2,
+}
+
+---@enum Enum.NumberStyle
+Enum.NumberStyle = {
+	---Use normal decimal number format for the locale.
+	Decimal = 0,
+	---Use decimal formatting with zero minimum and maximum fraction digits in this wrapper.
+	Integer = 1,
+	---Use percent number format for the locale.
+	Percent = 2,
+	---Use generic currency format with a currency symbol and non-accounting minus-sign negatives.
+	Currency = 3,
 }
 
 ---@enum Enum.NumericRuleFormatRounding
@@ -7112,6 +7298,16 @@ Enum.PlayerCurrencyFlagsDbFlags = {
 	Reuse2 = 16,
 }
 
+---@enum Enum.PlayerDataElementAccountFlags
+Enum.PlayerDataElementAccountFlags = {
+	Log = 1,
+}
+
+---@enum Enum.PlayerDataElementCharacterFlags
+Enum.PlayerDataElementCharacterFlags = {
+	Log = 1,
+}
+
 ---@enum Enum.PlayerDataElementType
 Enum.PlayerDataElementType = {
 	Int = 0,
@@ -7200,6 +7396,7 @@ Enum.PlayerInteractionType = {
 	OpenNeighborhoodCharterConfirmation = 77,
 	OpenHouseFinder = 78,
 	TieredEntrance = 79,
+	RewardsShop = 80,
 }
 
 ---@enum Enum.PlayerMentorshipApplicationResult
@@ -7222,6 +7419,14 @@ Enum.PlunderstormQueueState = {
 	Queued = 1,
 	Proposed = 2,
 	Suspended = 3,
+}
+
+---@enum Enum.PluralType
+Enum.PluralType = {
+	---Use plural rules for counted quantities, such as 1 file vs. 2 files.
+	Cardinal = 0,
+	---Use plural rules for ordered values, such as 1st, 2nd, 3rd, and 4th.
+	Ordinal = 1,
 }
 
 ---@enum Enum.PowerType
@@ -8781,6 +8986,10 @@ Enum.SuperTrackingType = {
 Enum.SurveyDeliveryFlags = {
 	None = 0,
 	EncounterSucccessOnly = 1,
+	PvPRatedOnly = 2,
+	PvPUnratedOnly = 4,
+	PvPWinOnly = 8,
+	PvPLossOnly = 16,
 }
 
 ---@enum Enum.SurveyDeliveryMoment
@@ -8791,6 +9000,8 @@ Enum.SurveyDeliveryMoment = {
 	ChestLooted = 3,
 	MythicPlusCompleted = 4,
 	EncounterEnd = 5,
+	AchievementCompleted = 6,
+	BattlegroundEnd = 7,
 }
 
 ---@enum Enum.TableSecurityOption
@@ -8818,6 +9029,8 @@ Enum.TieredEntranceType = {
 	Sites = 2,
 	WorldTier = 3,
 	Lairs = 4,
+	Placeholder_5 = 5,
+	Placeholder_6 = 6,
 }
 
 ---@enum Enum.TimeEventFlag
@@ -8909,6 +9122,8 @@ Enum.TooltipDataLineType = {
 	UnitLevel = 47,
 	UnitType = 48,
 	UnitDead = 49,
+	UnitCriteriaProgress = 50,
+	AuraCaster = 51,
 }
 
 ---@enum Enum.TooltipDataType
@@ -9292,6 +9507,7 @@ Enum.TransmogIllusionFlags = {
 	HideUntilCollected = 1,
 	PlayerConditionGrantsOnLogin = 2,
 	AllowedRangedShieldsHoldables = 4,
+	HiddenIllusion = 8,
 }
 
 ---@enum Enum.TransmogModification
@@ -10810,6 +11026,7 @@ Enum.VoiceChatStatusCode = {
 	PlayerVoiceChatParentalDisabled = 22,
 	InvalidInputDevice = 23,
 	InvalidOutputDevice = 24,
+	PlayerVoiceChatAgeVerificationRestricted = 25,
 }
 
 ---@enum Enum.VoiceTtsStatusCode
@@ -10922,6 +11139,15 @@ Enum.WarbandScenePlacementType = {
 Enum.WeaponSlot = {
 	MainHand = 0,
 	OffHand = 1,
+}
+
+---@enum Enum.WeatherType
+Enum.WeatherType = {
+	Clear = 0,
+	Rain = 1,
+	Snow = 2,
+	Sandstorm = 3,
+	Miscellaneous = 4,
 }
 
 ---@enum Enum.WeeklyRewardChestActivityType

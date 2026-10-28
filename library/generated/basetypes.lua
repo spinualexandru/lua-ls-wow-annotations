@@ -399,6 +399,9 @@
 ---An encounter timeline event identifier.
 ---@alias EncounterTimelineEventID number
 
+---A unit cast bar identifier.
+---@alias UnitCastBarID number
+
 ---A spell ID, or a spell name or link.
 ---@alias SpellIdentifier integer|string
 
@@ -425,6 +428,12 @@
 
 ---A handle to a playing sound, see `StopSound`.
 ---@alias SoundHandle integer
+
+---A time value in seconds.
+---@alias Seconds number
+
+---A time value in milliseconds.
+---@alias Milliseconds number
 
 ---A duration in seconds.
 ---@alias DurationSeconds number

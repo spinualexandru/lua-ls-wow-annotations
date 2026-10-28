@@ -1,16 +1,16 @@
 {
-  "build": "12.1.0.69933",
+  "build": "12.1.5.70575",
   "sources": {
     "wow-ui-source": {
       "url": "https://github.com/Gethe/wow-ui-source.git",
       "branch": "live",
-      "commit": "09b9db7948abc9b9648dedaab51eb0cf3ee67b31",
+      "commit": "15881d522c44cd106d3d8660106ec9f9d2f44167",
       "description": "Blizzard's interface code (FrameXML + Blizzard_APIDocumentationGenerated), mirrored from the game client."
     },
     "BlizzardInterfaceResources": {
       "url": "https://github.com/Ketho/BlizzardInterfaceResources.git",
       "branch": "live",
-      "commit": "36dd01db2d8fa5086dffda5cbfb3d55f4a70e526",
+      "commit": "f3b334b33bd19fa6a0250f7922ecfa83db7fe356",
       "description": "Runtime dumps from the game client: global API list, widget hierarchy, full Enum table, events, CVars, GlobalStrings."
     }
   },

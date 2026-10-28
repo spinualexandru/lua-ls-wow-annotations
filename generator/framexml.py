@@ -1708,6 +1708,8 @@ _STRING_FUNCS = frozenset(
         "date",
         "string.char",
         "strchar",
+        "string.ltrim",
+        "string.rtrim",
     }
 )
 _NUMBER_FUNCS = frozenset(
@@ -1738,7 +1740,44 @@ _NUMBER_FUNCS = frozenset(
         "bit.bnot",
         "math.pow",
         "pow",
+        "math.clamp",
+        "math.lerp",
+        "math.normalize",
+        "math.remap",
+        "math.round",
+        "math.saturate",
+        "math.sign",
+        "math.wrap",
+        "Clamp",
+        "Lerp",
+        "PercentageBetween",
+        "Round",
+        "RoundToSignificantDigits",
+        "Saturate",
+        "Sign",
+        "table.count",
+        "table.removevalue",
+        "CountTable",
+        "tDeleteItem",
     }
+)
+_BOOLEAN_FUNCS = frozenset(
+    {
+        "math.isfinite",
+        "math.isinf",
+        "math.isnan",
+        "string.contains",
+        "string.endswith",
+        "string.startswith",
+        "table.contains",
+        "table.isempty",
+        "table.isfrozen",
+        "tContains",
+        "TableIsEmpty",
+    }
+)
+_TABLE_FUNCS = frozenset(
+    {"table.keys", "table.values", "table.create", "table.freeze", "GetKeysArray", "GetValuesArray"}
 )
 _STRING_METHODS = frozenset({"format", "sub", "lower", "upper", "rep", "reverse", "char"})
 _COMPARISON = frozenset({"==", "~=", "<", ">", "<=", ">="})
@@ -1868,6 +1907,10 @@ class LuaTyper:
                 return (["string"], False)
             if name in _NUMBER_FUNCS:
                 return (["number"], False)
+            if name in _BOOLEAN_FUNCS:
+                return (["boolean"], False)
+            if name in _TABLE_FUNCS:
+                return (["table"], False)
             if name == "tonumber":
                 return (["number?"], False)
             if name == "select" and args and args[0] == ("str", "#"):

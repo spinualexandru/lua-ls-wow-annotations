@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -1277,10 +1277,10 @@ TrainingGroundsFrame = {}
 
 ---@class TrainingGroundsFrame.BonusTrainingGroundList: Frame, BonusTrainingGroundListMixin
 ---@field RandomTrainingGroundArenaButton TrainingGroundsFrame.BonusTrainingGroundList.RandomTrainingGroundArenaButton
----@field RandomTrainingGroundButton TrainingGroundsFrame.BonusTrainingGroundList.RandomTrainingGroundButton
+---@field RandomTrainingGroundBGButton TrainingGroundsFrame.BonusTrainingGroundList.RandomTrainingGroundBGButton
 ---@field ShadowOverlay ShadowOverlaySmallTemplate
 ---@field WorldBattlesTexture Texture
----@field BonusTrainingGroundButtons (TrainingGroundsFrame.BonusTrainingGroundList.RandomTrainingGroundButton|TrainingGroundsFrame.BonusTrainingGroundList.RandomTrainingGroundArenaButton)[]
+---@field BonusTrainingGroundButtons (TrainingGroundsFrame.BonusTrainingGroundList.RandomTrainingGroundBGButton|TrainingGroundsFrame.BonusTrainingGroundList.RandomTrainingGroundArenaButton)[]
 
 ---@class TrainingGroundsFrame.BonusTrainingGroundList.RandomTrainingGroundArenaButton: Button, PVPTrainingGroundActivityButtonTemplate
 ---@field queueOption string
@@ -1288,7 +1288,7 @@ TrainingGroundsFrame = {}
 ---@field tooltipDescription any
 ---@field tooltipTitle any
 
----@class TrainingGroundsFrame.BonusTrainingGroundList.RandomTrainingGroundButton: Button, PVPTrainingGroundActivityButtonTemplate
+---@class TrainingGroundsFrame.BonusTrainingGroundList.RandomTrainingGroundBGButton: Button, PVPTrainingGroundActivityButtonTemplate
 ---@field queueOption string
 ---@field titleText any
 ---@field tooltipDescription any

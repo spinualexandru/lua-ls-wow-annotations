@@ -6,6 +6,10 @@
 ---@param fileName string
 function AddSourceLocationExclude(fileName) end
 
+---@param options CreateFrameOptions
+---@return Frame frame
+function CreateFrameWithOptions(options) end
+
 ---Creates a secure delegate closure for a Lua function. The delegate invokes the original function in a protected call context with secure execution taint, and supports passing and returning values directly.
 ---
 ---* **Restricted** — subject to addon restrictions in some contexts.
@@ -39,6 +43,9 @@ function GetErrorCallstackHeight() end
 ---@return string? slowestHandlerName
 ---@return number? slowestHandlerTime
 function GetEventTime(eventProfileIndex) end
+
+---@return ScriptBucketThrottleLimits limits
+function GetScriptBucketThrottleLimits() end
 
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:GetSourceLocation)
 ---@return string? location
@@ -195,6 +202,21 @@ function securecopy(value, options) end
 ---@param table any
 ---@param option Enum.TableSecurityOption
 function settablesecurity(table, option) end
+
+---@class CreateFrameOptions
+---@field frameType string
+---@field name? string
+---@field parent? Frame
+---@field inherits? string[]
+---@field id? number
+---@field forbidden? boolean Default: `false`.
+---@field hidden? boolean Default: `false`.
+
+---@class ScriptBucketThrottleLimits
+---@field luaScriptBucketThrottleMaxMsPerSecondNormal number
+---@field luaScriptBucketThrottleMaxMsPerSecondRestricted number
+---@field luaScriptBucketThrottleMaxMsBurstNormal number
+---@field luaScriptBucketThrottleMaxMsBurstRestricted number
 
 ---@class SecureCopyOptions
 ---@field maxTraversalDepth? number Maximum table nesting depth allowed during recursive copying. Default: `100`.

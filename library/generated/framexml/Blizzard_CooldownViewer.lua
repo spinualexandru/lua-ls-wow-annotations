@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -2386,6 +2386,7 @@ function CooldownViewerSettingsItemMixin:UpdateReorderMarkerPosition(marker, cur
 function CooldownViewerSettingsItemMixin:UsesDynamicAppearance() end
 
 ---@class CooldownViewerSettingsMixin
+---@field ReorderMarker any
 ---@field categoryObjects any
 ---@field categoryPool any
 ---@field currentCategories any
@@ -2543,6 +2544,9 @@ function CooldownViewerSettingsMixin:IsCharacterSpecificLayout(layout) end
 ---@param self any
 ---@return boolean
 function CooldownViewerSettingsMixin:IsReordering() end
+
+---@param self any
+function CooldownViewerSettingsMixin:MarkTabsSeen() end
 
 ---@param self any
 ---@param cooldownItem any
@@ -2707,6 +2711,18 @@ CooldownViewerSettingsSearchBoxMixin = {}
 ---@param self any
 ---@param _userChange any
 function CooldownViewerSettingsSearchBoxMixin:CooldownViewerSettingsSearch_OnTextChanged(_userChange) end
+
+---@class CooldownViewerSettingsTabMixin
+---@field tooltipTextSetupFn any
+CooldownViewerSettingsTabMixin = {}
+
+---@param self any
+---@return any
+function CooldownViewerSettingsTabMixin:GetTooltipTextSetupFunction() end
+
+---@param self any
+---@param fn any
+function CooldownViewerSettingsTabMixin:SetTooltipTextSetupFunction(fn) end
 
 ---@class CooldownViewerSettingsTabWithNewOptionMixin: NewDefinitionsCheckerMixin
 CooldownViewerSettingsTabWithNewOptionMixin = {}
@@ -3324,7 +3340,7 @@ CooldownViewerSoundData = {}
 ---@field Highlight Texture
 ---@field Icon Texture
 
----@class CooldownViewerSettingsTabTemplate: Frame, LargeSideTabButtonTemplate
+---@class CooldownViewerSettingsTabTemplate: Frame, CooldownViewerSettingsTabMixin, LargeSideTabButtonTemplate
 
 ---@class CooldownViewerSettingsTabWithNewOptionTemplate: Frame, CooldownViewerSettingsTabWithNewOptionMixin, CooldownViewerSettingsTabTemplate, NewDefinitionsCheckerTemplate
 ---@field NewOptionsFrame Texture
@@ -3413,7 +3429,6 @@ CooldownViewerLayoutDialog = {}
 ---@field GroupBuffFilter GroupBuffFilterTemplate
 ---@field GroupBuffsTab CooldownViewerSettings.GroupBuffsTab
 ---@field LayoutDropdown CooldownViewerSettings.LayoutDropdown
----@field ReorderMarker CooldownViewerSettings.ReorderMarker
 ---@field SearchBox CooldownViewerSettings.SearchBox
 ---@field SettingsDropdown UIPanelIconDropdownButtonTemplate
 ---@field SpellsTab CooldownViewerSettings.SpellsTab
@@ -3435,6 +3450,10 @@ CooldownViewerSettings = {}
 ---@field scrollBarTopY number
 
 ---@class CooldownViewerSettings.CooldownScroll.Content: Frame, CooldownViewerSettingsContentMixin
+---@field ReorderMarker CooldownViewerSettings.CooldownScroll.Content.ReorderMarker
+
+---@class CooldownViewerSettings.CooldownScroll.Content.ReorderMarker: Frame, CooldownViewerSettingsReorderMarkerMixin
+---@field Texture Texture
 
 ---@class CooldownViewerSettings.GroupBuffsTab: Frame, CooldownViewerSettingsTabTemplate
 ---@field activeAtlas string
@@ -3445,9 +3464,6 @@ CooldownViewerSettings = {}
 ---@class CooldownViewerSettings.LayoutDropdown: DropdownButton, WowStyle1DropdownTemplate
 ---@field menuPoint string
 ---@field menuRelativePoint string
-
----@class CooldownViewerSettings.ReorderMarker: Frame, CooldownViewerSettingsReorderMarkerMixin
----@field Texture Texture
 
 ---@class CooldownViewerSettings.SearchBox: EditBox, CooldownViewerSettingsSearchBoxMixin, SearchBoxTemplate
 ---@field instructionText any

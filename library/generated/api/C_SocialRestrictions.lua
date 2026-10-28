@@ -4,6 +4,8 @@
 
 C_SocialRestrictions = {}
 
+function C_SocialRestrictions.AcknowledgeAgeVerificationRestriction() end
+
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_SocialRestrictions.AcknowledgeRegionalChatDisabled)
 function C_SocialRestrictions.AcknowledgeRegionalChatDisabled() end
 
@@ -18,6 +20,16 @@ function C_SocialRestrictions.CanReceiveChat() end
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_SocialRestrictions.CanSendChat)
 ---@return boolean canSendChat
 function C_SocialRestrictions.CanSendChat() end
+
+---Returns true if the account is restricted by the Age Verification feature.
+---@return boolean restricted
+function C_SocialRestrictions.IsAgeVerificationRestricted() end
+
+---Returns true if the Age Verification restriction is because the account belongs to a minor, as opposed to an adult who has not yet verified their age.
+---
+---* **Restricted** — subject to addon restrictions in some contexts.
+---@return boolean isMinor
+function C_SocialRestrictions.IsAgeVerificationRestrictedMinor() end
 
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_SocialRestrictions.IsChatDisabled)
 ---@return boolean disabled

@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -428,6 +428,25 @@ function TutorialStatus() end
 
 -- XML templates
 
+---@class NPETutorialPointerFrame: Frame
+---@field Arrow_DOWN1 Tutorial_PointerDown
+---@field Arrow_DOWN2 Tutorial_PointerDown
+---@field Arrow_LEFT1 Tutorial_PointerLeft
+---@field Arrow_LEFT2 Tutorial_PointerLeft
+---@field Arrow_RIGHT1 Tutorial_PointerRight
+---@field Arrow_RIGHT2 Tutorial_PointerRight
+---@field Arrow_UP1 Tutorial_PointerUp
+---@field Arrow_UP2 Tutorial_PointerUp
+---@field Content NPETutorialPointerFrame.Content
+---@field Glow NPETutorialPointerFrame.Glow
+
+---@class NPETutorialPointerFrame.Content: Frame, GlowBoxTemplate
+---@field Text FontString
+
+---@class NPETutorialPointerFrame.Glow: Frame, BackdropTemplate
+---@field backdropBorderBlendMode string
+---@field backdropInfo BACKDROP_CALLOUT_GLOW_0_20
+
 ---@class NPE_TutorialCallout: Frame
 ---@field Animator NPE_TutorialCallout.Animator
 
@@ -437,37 +456,6 @@ function TutorialStatus() end
 ---@field backdropInfo BACKDROP_CALLOUT_GLOW_0_16
 
 ---@class NPE_TutorialLine: Texture
-
----@class TutorialPointerFrame: Frame
----@field Arrow_DOWN1 Tutorial_PointerDown
----@field Arrow_DOWN2 Tutorial_PointerDown
----@field Arrow_LEFT1 Tutorial_PointerLeft
----@field Arrow_LEFT2 Tutorial_PointerLeft
----@field Arrow_RIGHT1 Tutorial_PointerRight
----@field Arrow_RIGHT2 Tutorial_PointerRight
----@field Arrow_UP1 Tutorial_PointerUp
----@field Arrow_UP2 Tutorial_PointerUp
----@field Content TutorialPointerFrame.Content
----@field Glow TutorialPointerFrame.Glow
-
----@class TutorialPointerFrame.Content: Frame, GlowBoxTemplate
----@field Text FontString
-
----@class TutorialPointerFrame.Glow: Frame, BackdropTemplate
----@field backdropBorderBlendMode string
----@field backdropInfo BACKDROP_CALLOUT_GLOW_0_20
-
----@class Tutorial_PointerDown: Frame
----@field Anim AnimationGroup
-
----@class Tutorial_PointerLeft: Frame
----@field Anim AnimationGroup
-
----@class Tutorial_PointerRight: Frame
----@field Anim AnimationGroup
-
----@class Tutorial_PointerUp: Frame
----@field Anim AnimationGroup
 
 -- Named frames
 

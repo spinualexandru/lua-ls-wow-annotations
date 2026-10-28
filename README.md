@@ -2,7 +2,7 @@
 
 [LuaLS](https://luals.github.io/) (lua-language-server) annotations for the
 World of Warcraft **Retail** addon API, currently generated from build
-**12.1.0.69933** (Midnight). You get autocompletion, hover documentation and type
+**12.1.5.70575** (Midnight). You get autocompletion, hover documentation and type
 checking for the game API in any editor that speaks LSP.
 
 What's covered (exact numbers in [COVERAGE.md](COVERAGE.md)):

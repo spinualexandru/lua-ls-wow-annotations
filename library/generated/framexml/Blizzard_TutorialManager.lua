@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -672,6 +672,25 @@ function DebugTutorials(value) end
 ---@class TutorialMainFrameTemplate.ContainerFrame: Frame, ResizeLayoutFrame
 ---@field Icon Texture
 ---@field Text FontString
+
+---@class TutorialPointerFrame: Frame
+---@field Arrow_DOWN1 Tutorial_PointerDown
+---@field Arrow_DOWN2 Tutorial_PointerDown
+---@field Arrow_LEFT1 Tutorial_PointerLeft
+---@field Arrow_LEFT2 Tutorial_PointerLeft
+---@field Arrow_RIGHT1 Tutorial_PointerRight
+---@field Arrow_RIGHT2 Tutorial_PointerRight
+---@field Arrow_UP1 Tutorial_PointerUp
+---@field Arrow_UP2 Tutorial_PointerUp
+---@field Content TutorialPointerFrame.Content
+---@field Glow TutorialPointerFrame.Glow
+
+---@class TutorialPointerFrame.Content: Frame, GlowBoxTemplate
+---@field Text FontString
+
+---@class TutorialPointerFrame.Glow: Frame, BackdropTemplate
+---@field backdropBorderBlendMode string
+---@field backdropInfo BACKDROP_CALLOUT_GLOW_0_20
 
 ---@class TutorialQuestBangGlowTemplate: Frame
 ---@field GlowAnim AnimationGroup

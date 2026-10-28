@@ -363,6 +363,7 @@ function GetPlayerFacing() end
 ---@return number? sex
 ---@return string? name
 ---@return string? realmName
+---@return number? level
 function GetPlayerInfoByGUID(guid) end
 
 ---* **Secret values** — returns secret values when access to unit stats would generally produce secret values (`SecretWhenUnitStatsRestricted`).

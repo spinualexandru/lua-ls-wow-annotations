@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -1625,6 +1625,12 @@ function TimedCallbackMixin:RunCallbackAsync(callback) end
 ---@param delay any
 function TimedCallbackMixin:SetCheckDelaySeconds(delay) end
 
+---@class TimerUtil
+TimerUtil = {}
+
+---@return any
+function TimerUtil.CreateTimedSignalCallbackMap() end
+
 -- Global functions
 
 ---@param tbl any
@@ -1693,24 +1699,18 @@ function CallMethodOnNearestAncestor(self, methodName, ...) end
 function CheckSetAtlas(texture, atlasName, ...) end
 
 ---@param value any
----@param min any
----@param max any
----@return any
-function Clamp(value, min, max) end
-
----@param value any
----@return any
+---@return number
 function ClampDegrees(value) end
 
 ---@param value any
 ---@param mod any
----@return any
+---@return number
 function ClampMod(value, mod) end
 
 ---@param value any
 ---@param startValue any
 ---@param endValue any
----@return any
+---@return number
 function ClampedPercentageBetween(value, startValue, endValue) end
 
 function ClearAlternateTopLevelParent() end
@@ -1749,10 +1749,6 @@ function CopyTransformedValuesAsKeys(tbl, transformOp) end
 ---@param tbl any
 ---@return table
 function CopyValuesAsKeys(tbl) end
-
----@param tbl any
----@return number
-function CountTable(tbl) end
 
 ---@param initialCount any
 ---@return AccumulatorMixin
@@ -2182,10 +2178,6 @@ function GetIconForRoleEnum(role, showDisabled) end
 
 ---@param tbl any
 ---@return table
-function GetKeysArray(tbl) end
-
----@param tbl any
----@return table
 function GetKeysArraySortedByValue(tbl) end
 
 ---@param role any
@@ -2290,10 +2282,6 @@ function GetUnscaledFrameRect(frame, scale) end
 ---@return any ...
 function GetValueOrCallFunction(tbl, key, ...) end
 
----@param tbl any
----@return table
-function GetValuesArray(tbl) end
-
 ---@return any
 function InGlue() end
 
@@ -2306,12 +2294,6 @@ function IteratePools(...) end
 ---@return function
 function IterateTables(iteratorFunction, ...) end
 
----@param startValue any
----@param endValue any
----@param amount any
----@return number
-function Lerp(startValue, endValue, amount) end
-
 ---@param frame any
 function LowerFrameLevel(frame) end
 
@@ -2323,12 +2305,6 @@ function MergeTable(destination, source) end
 ---@param condition any
 ---@return any
 function NegateIf(value, condition) end
-
----@param value any
----@param startValue any
----@param endValue any
----@return any
-function PercentageBetween(value, startValue, endValue) end
 
 ---@param pool any
 ---@param region any
@@ -2356,18 +2332,9 @@ function RegisterCVar(name, value) end
 function ResetTestCvars() end
 
 ---@param value any
----@return number
-function Round(value) end
-
----@param value any
 ---@param multiplier any
 ---@return number
 function RoundToNearestMultiple(value, multiplier) end
-
----@param value any
----@param numDigits any
----@return number
-function RoundToSignificantDigits(value, numDigits) end
 
 ---@param callback any
 function RunNextFrame(callback) end
@@ -2384,10 +2351,6 @@ function SafePack(...) end
 ---@param startIndex any
 ---@return any ...
 function SafeUnpack(tbl, startIndex) end
-
----@param value any
----@return any
-function Saturate(value) end
 
 ---@param object any
 ---@param ... any
@@ -2441,7 +2404,8 @@ function SetTablePairsToTable(destination, source) end
 ---@param autoSize any
 ---@param addressModeU any
 ---@param addressModeV any
-function SetTextureWithAddressModeOptions(region, asset, autoSize, addressModeU, addressModeV) end
+---@param resetTextureCoords any
+function SetTextureWithAddressModeOptions(region, asset, autoSize, addressModeU, addressModeV, resetTextureCoords) end
 
 ---@param frame any
 ---@param regionsToAtlases any
@@ -2482,10 +2446,6 @@ function SetupTextureKitsFromRegionInfo(textureKit, frame, regionInfoList) end
 
 ---@param value any
 ---@return any
-function Sign(value) end
-
----@param value any
----@return any
 function Square(value) end
 
 ---@param lhsTable any
@@ -2496,10 +2456,6 @@ function SwapTableEntries(lhsTable, rhsTable, key) end
 ---@param tbl any
 ---@return boolean
 function TableHasAnyEntries(tbl) end
-
----@param tbl any
----@return boolean
-function TableIsEmpty(tbl) end
 
 ---@param frame any
 ---@param fadeInfo any
@@ -2607,25 +2563,10 @@ function tAppendAll(table, addedArray) end
 function tCompare(lhsTable, rhsTable, depth) end
 
 ---@param tbl any
----@param item any
----@return boolean
-function tContains(tbl, item) end
-
----@param tbl any
----@param item any
----@return integer
-function tDeleteItem(tbl, item) end
-
----@param tbl any
 ---@param pred any
 ---@param isIndexTable any
 ---@return table
 function tFilter(tbl, pred, isIndexTable) end
-
----@param tbl any
----@param item any
----@return any
-function tIndexOf(tbl, item) end
 
 ---@param tbl any
 ---@param item any
@@ -2639,10 +2580,6 @@ function tInvert(tbl) end
 ---@param tbl any
 ---@return table
 function tInvertToArray(tbl) end
-
----@param tbl any
----@param index any
-function tUnorderedRemove(tbl, index) end
 
 -- Global variables and constants
 

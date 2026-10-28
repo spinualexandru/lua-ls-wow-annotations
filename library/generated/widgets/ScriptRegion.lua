@@ -230,6 +230,9 @@ function ScriptRegion:GetRect() end
 ---@return uiUnit? right
 function ScriptRegion:GetRight() end
 
+---@return boolean enabled
+function ScriptRegion:GetRoundLayoutToNearestPixel() end
+
 ---* **Secret values** — returns secret values when the object's `Scale` aspect is secret.
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:Region_GetScale)
@@ -465,6 +468,11 @@ function ScriptRegion:SetPropagateMouseClicks(propagate) end
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:ScriptRegion_SetPropagateMouseMotion)
 ---@param propagate boolean
 function ScriptRegion:SetPropagateMouseMotion(propagate) end
+
+---* **Protected** — insecure code cannot call this on protected frames during combat.
+---* Never accepts secret values as arguments.
+---@param enabled boolean
+function ScriptRegion:SetRoundLayoutToNearestPixel(enabled) end
 
 ---* **Protected** — insecure code cannot call this on protected frames during combat.
 ---* **Secret values** — passing secret values marks the object's `Scale` aspect as secret.

@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -1904,7 +1904,7 @@ EncounterTimelineTrackInterpolatorMixin = {}
 function EncounterTimelineTrackInterpolatorMixin:GetCurrentOffset() end
 
 ---@param self any
----@return any
+---@return number
 function EncounterTimelineTrackInterpolatorMixin:GetCurrentProgress() end
 
 ---@param self any

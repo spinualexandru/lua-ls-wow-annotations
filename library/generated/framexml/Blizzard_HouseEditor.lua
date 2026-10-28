@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -723,6 +723,10 @@ function HouseEditorInstructionMixin:OnLoad() end
 function HouseEditorInstructionMixin:SetControlWidth(width) end
 
 ---@param self any
+---@param enabled any
+function HouseEditorInstructionMixin:SetEnabled(enabled) end
+
+---@param self any
 function HouseEditorInstructionMixin:UpdateControl() end
 
 ---@param self any
@@ -839,6 +843,9 @@ function HouseEditorLayoutModeMixin:StartRoomAddSoundPause() end
 ---@param self any
 ---@return boolean
 function HouseEditorLayoutModeMixin:TryHandleEscape() end
+
+---@param self any
+function HouseEditorLayoutModeMixin:UpdateFloorInstructions() end
 
 ---@param self any
 function HouseEditorLayoutModeMixin:UpdateKeybinds() end
@@ -2457,6 +2464,8 @@ function HouseEditorFrame_IsShown() end
 
 ---@class HouseEditorLayoutModeTemplate.Instructions: Frame, HouseEditorInstructionsContainerTemplate
 ---@field DeselectInstruction HouseEditorLayoutModeTemplate.Instructions.DeselectInstruction
+---@field FloorDownInstruction HouseEditorLayoutModeTemplate.Instructions.FloorDownInstruction
+---@field FloorUpInstruction HouseEditorLayoutModeTemplate.Instructions.FloorUpInstruction
 ---@field SelectInstruction HouseEditorLayoutModeTemplate.Instructions.SelectInstruction
 ---@field ZoomInInstruction HouseEditorLayoutModeTemplate.Instructions.ZoomInInstruction
 ---@field ZoomOutInstruction HouseEditorLayoutModeTemplate.Instructions.ZoomOutInstruction
@@ -2466,6 +2475,16 @@ function HouseEditorFrame_IsShown() end
 ---@class HouseEditorLayoutModeTemplate.Instructions.DeselectInstruction: Frame, HouseEditorInstructionTemplate
 ---@field controlText any
 ---@field instructionText any
+---@field layoutIndex number
+
+---@class HouseEditorLayoutModeTemplate.Instructions.FloorDownInstruction: Frame, HouseEditorInstructionTemplate
+---@field instructionText any
+---@field keybindName string
+---@field layoutIndex number
+
+---@class HouseEditorLayoutModeTemplate.Instructions.FloorUpInstruction: Frame, HouseEditorInstructionTemplate
+---@field instructionText any
+---@field keybindName string
 ---@field layoutIndex number
 
 ---@class HouseEditorLayoutModeTemplate.Instructions.SelectInstruction: Frame, HouseEditorInstructionTemplate

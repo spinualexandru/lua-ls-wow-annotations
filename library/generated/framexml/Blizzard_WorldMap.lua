@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -97,6 +97,7 @@ function QuestLogOwnerMixin:ShouldBeMinimized() end
 function QuestLogOwnerMixin:ShouldShowQuestLogPanel() end
 
 ---@class WorldMapCoordsPanelMixin
+---@field coordsByTenths any
 ---@field neighbors any
 ---@field showCursorCoords any
 ---@field showPlayerCoords any

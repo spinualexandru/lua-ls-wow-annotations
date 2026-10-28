@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -392,6 +392,17 @@ SETTING_GROUP_DEBUG = "Debug"
 ---@field RestartNeeded Texture
 
 ---@class SettingsLanguageTemplate: Frame, SettingsLanguageDropdownControlMixin, SettingsLanguageBaseTemplate
+
+---@class SubtitlePreviewTemplate: Frame
+---@field Preview SubtitlePreviewTemplate.Preview
+
+---@class SubtitlePreviewTemplate.Preview: Frame, SubtitlesPreviewMixin, TooltipBackdropTemplate
+---@field Background Texture
+---@field PreviewFontString SubtitlePreviewTemplate.Preview.PreviewFontString
+---@field PreviewFontStringBackground Texture
+
+---@class SubtitlePreviewTemplate.Preview.PreviewFontString: FontString, AutoScalingFontStringMixin
+---@field minLineHeight number
 
 ---@class VoicePushToTalkTemplate: Frame, VoicePushToTalkMixin, SettingsListElementTemplate
 

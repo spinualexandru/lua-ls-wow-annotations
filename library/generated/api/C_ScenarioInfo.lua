@@ -74,7 +74,8 @@ function C_ScenarioInfo.IsTieredEntranceScenario() end
 ---@field quantityString string
 
 ---@class ScenarioDisplayInfo
----@field themeColor ColorMixin
+---@field themeColor? ColorMixin
+---@field startSoundKitID? number
 
 ---@class ScenarioIconInfo
 ---@field x number

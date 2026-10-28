@@ -356,6 +356,13 @@ function C_ActionBar.IsInterruptAction(slotID) end
 ---@return boolean isItemAction
 function C_ActionBar.IsItemAction(actionID) end
 
+---Returns whether the given action button contains a macro with an explicit #showtooltip directive.
+---
+---* **Requires** `RequiresValidActionSlot`; returns nothing otherwise.
+---@param actionID luaIndex
+---@return boolean isMacroActionWithShowTooltip
+function C_ActionBar.IsMacroActionWithShowTooltip(actionID) end
+
 ---* Accepts secret values as arguments, even from addon code.
 ---
 ---[Documentation](https://warcraft.wiki.gg/wiki/API:C_ActionBar.IsOnBarOrSpecialBar)

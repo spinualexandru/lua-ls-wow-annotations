@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -93,6 +93,9 @@ function HousingFramesUtil.IsHouseEditorModeAvailable(mode) end
 function HousingFramesUtil.IsHousingMarketShopAvailable() end
 
 function HousingFramesUtil.LeaveHouseEditor() end
+
+---@param up any
+function HousingFramesUtil.MoveLayoutCameraFloor(up) end
 
 ---@param taskID any
 function HousingFramesUtil.OpenFrameToTaskID(taskID) end

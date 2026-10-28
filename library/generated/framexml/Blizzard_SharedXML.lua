@@ -1,5 +1,5 @@
 ---@meta _
--- Generated from FrameXML (wow-ui-source live 12.1.0.69933). Do not edit.
+-- Generated from FrameXML (wow-ui-source live 12.1.5.70575). Do not edit.
 
 -- Mixins and namespaces
 
@@ -536,7 +536,7 @@ function BenchmarkUtil.CalculateStatistics(samples) end
 ---@param benchmark any
 ---@param iterationCount any
 ---@param ... any
----@return any
+---@return table
 function BenchmarkUtil.RunBenchmark(benchmark, iterationCount, ...) end
 
 ---@param benchmarkResults any
@@ -628,7 +628,7 @@ function ButtonGroupBaseMixin:GetAtIndex(index) end
 
 ---@param self any
 ---@param button any
----@return any
+---@return any ...
 function ButtonGroupBaseMixin:GetButtonIndex(button) end
 
 ---@param self any
@@ -916,7 +916,7 @@ function CatmullRomSplineMixin:ClearPoints() end
 ---@param self any
 ---@param t any
 ---@return number?
----@return any
+---@return number?
 function CatmullRomSplineMixin:FindSegmentOnGlobalCurve(t) end
 
 ---@param self any
@@ -3007,9 +3007,9 @@ function HelpTipCloseButtonMixin:OnButtonStateChanged() end
 
 ---@class HelpTipTemplateMixin
 ---@field acknowledged any
+---@field appendedFrame any
 ---@field appliedAlignment any
 ---@field appliedTargetPoint any
----@field closed any
 ---@field flippedTargetPoint any
 ---@field hideReason any
 ---@field ignoreInLayout any
@@ -3036,6 +3036,9 @@ function HelpTipTemplateMixin:ApplyText() end
 
 ---@param self any
 function HelpTipTemplateMixin:CheckWatchRelativeRegion() end
+
+---@param self any
+function HelpTipTemplateMixin:ClearHideReason() end
 
 ---@param self any
 function HelpTipTemplateMixin:Close() end
@@ -3674,6 +3677,7 @@ function LinkUtil.SplitLinkOptions(linkOptions) end
 
 ---@class ListHeaderMixin
 ---@field customClickHandler any
+---@field tooltipText any
 ListHeaderMixin = {}
 
 ---@param self any
@@ -3702,6 +3706,10 @@ function ListHeaderMixin:OnMouseUp() end
 ---@param self any
 ---@param handler any
 function ListHeaderMixin:SetClickHandler(handler) end
+
+---@param self any
+---@param tooltipText any
+function ListHeaderMixin:SetTooltipText(tooltipText) end
 
 ---@param self any
 ---@param collapsed any
@@ -3924,6 +3932,126 @@ function ManagedScrollBarVisibilityBehaviorMixin:GetScrollBox() end
 ---@param scrollBoxAnchorsWithBar any
 ---@param scrollBoxAnchorsWithoutBar any
 function ManagedScrollBarVisibilityBehaviorMixin:Init(scrollBox, scrollBar, scrollBoxAnchorsWithBar, scrollBoxAnchorsWithoutBar) end
+
+---@class MarchingAntsMixin: DirtiableMixin
+---@field animSpeed any
+---@field cornersAsset any
+---@field horizontalAsset any
+---@field verticalAsset any
+MarchingAntsMixin = {}
+
+---@param self any
+---@param target any
+---@param optPaddingHorizontal any
+---@param optPaddingVertical any
+function MarchingAntsMixin:AnchorAroundTarget(target, optPaddingHorizontal, optPaddingVertical) end
+
+---@param self any
+function MarchingAntsMixin:CheckResumePlaying() end
+
+---@param self any
+function MarchingAntsMixin:Clean() end
+
+---@param self any
+---@return any
+function MarchingAntsMixin:GetCornersAsset() end
+
+---@param self any
+---@return any
+function MarchingAntsMixin:GetHorizontalAsset() end
+
+---@param self any
+---@return any
+function MarchingAntsMixin:GetSpeed() end
+
+---@param self any
+---@return any
+function MarchingAntsMixin:GetVerticalAsset() end
+
+---@param self any
+---@param event any
+---@param ... any
+function MarchingAntsMixin:OnEvent(event, ...) end
+
+---@param self any
+function MarchingAntsMixin:OnHide() end
+
+---@param self any
+function MarchingAntsMixin:OnLoad() end
+
+---@param self any
+function MarchingAntsMixin:OnShow() end
+
+---@param self any
+function MarchingAntsMixin:Pause() end
+
+---@param self any
+function MarchingAntsMixin:Play() end
+
+---@param self any
+---@param color any
+function MarchingAntsMixin:SetColor(color) end
+
+---@param self any
+---@param asset any
+function MarchingAntsMixin:SetCornersAsset(asset) end
+
+---@param self any
+---@param orientation any
+---@param startColor any
+---@param endColor any
+function MarchingAntsMixin:SetGradient(orientation, startColor, endColor) end
+
+---@param self any
+---@param asset any
+function MarchingAntsMixin:SetHorizontalAsset(asset) end
+
+---@param self any
+---@param left any
+---@param top any
+---@param right any
+---@param bottom any
+function MarchingAntsMixin:SetInsetBottom(left, top, right, bottom) end
+
+---@param self any
+---@param left any
+---@param top any
+---@param right any
+---@param bottom any
+function MarchingAntsMixin:SetInsetCorners(left, top, right, bottom) end
+
+---@param self any
+---@param left any
+---@param top any
+---@param right any
+---@param bottom any
+function MarchingAntsMixin:SetInsetLeft(left, top, right, bottom) end
+
+---@param self any
+---@param left any
+---@param top any
+---@param right any
+---@param bottom any
+function MarchingAntsMixin:SetInsetRight(left, top, right, bottom) end
+
+---@param self any
+---@param width any
+---@param height any
+function MarchingAntsMixin:SetLineThickness(width, height) end
+
+---@param self any
+---@param speed any
+function MarchingAntsMixin:SetSpeed(speed) end
+
+---@param self any
+---@param asset any
+function MarchingAntsMixin:SetVerticalAsset(asset) end
+
+---@param self any
+function MarchingAntsMixin:SetupAssets() end
+
+---@param self any
+function MarchingAntsMixin:Stop() end
 
 ---@class MaximizeMinimizeButtonFrameMixin
 ---@field cvar any
@@ -5286,7 +5414,7 @@ function OrbitCameraMixin:CalculateZoomDistanceFromPercent(percent) end
 
 ---@param self any
 ---@param distance any
----@return any
+---@return number
 function OrbitCameraMixin:CalculateZoomPercentFromDistance(distance) end
 
 ---@param self any
@@ -5987,6 +6115,10 @@ function PixelUtil.SetHeight(region, height, minPixels) end
 ---@param minOffsetYPixels any
 function PixelUtil.SetPoint(region, point, relativeTo, relativePoint, offsetX, offsetY, minOffsetXPixels, minOffsetYPixels) end
 
+---@param frame any
+---@param enabled any
+function PixelUtil.SetRoundLayoutToNearestPixelRecursively(frame, enabled) end
+
 ---@param region any
 ---@param width any
 ---@param height any
@@ -6020,7 +6152,7 @@ function PlayerUtil.GetClassInfo() end
 ---@return any
 function PlayerUtil.GetClassName() end
 
----@return any ...
+---@return any
 function PlayerUtil.GetCurrentSpecID() end
 
 ---@param specID any
@@ -8365,7 +8497,7 @@ ScrollBoxBaseMixin = {}
 function ScrollBoxBaseMixin:ApplyEdgeFade(...) end
 
 ---@param self any
----@return any
+---@return number
 ---@return number
 function ScrollBoxBaseMixin:CalculateEdgeFade() end
 
@@ -10334,7 +10466,7 @@ function ScrollControllerMixin:GetScrollInterpolator() end
 function ScrollControllerMixin:GetScrollPercentage() end
 
 ---@param self any
----@return any
+---@return number
 function ScrollControllerMixin:GetWheelPanPercentage() end
 
 ---@param self any
@@ -12048,6 +12180,10 @@ function ShrinkUntilTruncateFontStringMixin:SetText(text) end
 SidePanelTabButtonMixin = {}
 
 ---@param self any
+---@return nil
+function SidePanelTabButtonMixin:GetTooltipTextSetupFunction() end
+
+---@param self any
 ---@return any ...
 function SidePanelTabButtonMixin:IsTabGlowAnimationPlaying() end
 
@@ -12174,12 +12310,12 @@ SortUtil = {}
 
 ---@param lhs any
 ---@param rhs any
----@return any
+---@return number
 function SortUtil.CompareNumeric(lhs, rhs) end
 
 ---@param lhs any
 ---@param rhs any
----@return any
+---@return number
 function SortUtil.CompareUtf8i(lhs, rhs) end
 
 ---@return any
@@ -14657,128 +14793,3 @@ function FormatBindingKeyIntoText(text, action, bindingAvailableFormat, keyStrin
 ---@param copper any
 ---@return any
 function FormatDisplayCopper(checkGoldThreshold, gold, silver, copper) end
-
----@param numerator any
----@param denominator any
----@return any ...
-function FormatFraction(numerator, denominator) end
-
----@param amount any
----@return string
-function FormatLargeNumber(amount) end
-
----@param percentage any
----@param roundToNearestInteger any
----@return any ...
-function FormatPercentage(percentage, roundToNearestInteger) end
-
----@param value any
----@return any ...
-function FormatPercentageRounded(value) end
-
----@param day any
----@param month any
----@param year any
----@return any ...
-function FormatShortDate(day, month, year) end
-
----@param tooltip any
----@param headerText any
----@param senders any
-function FormatUnreadMailTooltip(tooltip, headerText, senders) end
-
----@param value any
----@return any ...
-function FormatValueWithSign(value) end
-
----@param self any
----@param atticHeight any
-function FrameTemplate_SetAtticHeight(self, atticHeight) end
-
----@param self any
----@param buttonBarHeight any
-function FrameTemplate_SetButtonBarHeight(self, buttonBarHeight) end
-
----@return any
-function GameLimitedMode_GetLevelLimit() end
-
----@return any
-function GameLimitedMode_IsActive() end
-
----@return any
-function GameLimitedMode_IsBankedXPActive() end
-
----@param tooltip any
-function GameTooltip_AddBlankLineToTooltip(tooltip) end
-
----@param tooltip any
----@param numLines any
-function GameTooltip_AddBlankLinesToTooltip(tooltip, numLines) end
-
----@param ... any
-function GameTooltip_AddBodyLine(...) end
-
----@param tooltip any
----@param leftText any
----@param rightText any
----@param leftColor any
----@param rightColor any
----@param wrap any
----@param leftOffset any
-function GameTooltip_AddColoredDoubleLine(tooltip, leftText, rightText, leftColor, rightColor, wrap, leftOffset) end
-
----@param tooltip any
----@param text any
----@param color any
----@param wrap any
----@param leftOffset any
-function GameTooltip_AddColoredLine(tooltip, text, color, wrap, leftOffset) end
-
----@param tooltip any
----@param text any
----@param wrap any
----@param leftOffset any
-function GameTooltip_AddDisabledLine(tooltip, text, wrap, leftOffset) end
-
----@param tooltip any
----@param text any
----@param wrap any
----@param leftOffset any
-function GameTooltip_AddErrorLine(tooltip, text, wrap, leftOffset) end
-
----@param tooltip any
----@param text any
----@param wrap any
----@param leftOffset any
-function GameTooltip_AddHighlightLine(tooltip, text, wrap, leftOffset) end
-
----@param tooltip any
----@param text any
----@param wrap any
----@param leftOffset any
-function GameTooltip_AddInstructionLine(tooltip, text, wrap, leftOffset) end
-
----@param frame any
----@param normalText any
----@param r any
----@param g any
----@param b any
----@param newbieText any
----@param noNormalText any
-function GameTooltip_AddNewbieTip(frame, normalText, r, g, b, newbieText, noNormalText) end
-
----@param tooltip any
----@param text any
----@param wrap any
----@param leftOffset any
-function GameTooltip_AddNormalLine(tooltip, text, wrap, leftOffset) end
-
----@param tooltipFrame any
----@param frame any
----@param verticalPadding any
----@return number
-function GameTooltip_InsertFrame(tooltipFrame, frame, verticalPadding) end
-
----@param tooltip any
----@param parent any
-function GameTooltip_SetDefaultAnchor(tooltip, parent) end
